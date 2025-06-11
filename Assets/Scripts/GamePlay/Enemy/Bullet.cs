@@ -11,10 +11,17 @@ public class Bullet : MonoBehaviour
     private Vector3 direction;
     private Vector3 startPosition;
     private float maxDistance;
+    public ParticleSystem myParticleSystem;
 
     void Start()
     {
-        Destroy(gameObject, lifetime); 
+
+        if (myParticleSystem != null)
+        {
+            myParticleSystem.Play();
+        }
+
+        Destroy(gameObject, lifetime);
     }
     public void SetDirection(Vector3 dir, Vector3 startPos, float radius)
     {

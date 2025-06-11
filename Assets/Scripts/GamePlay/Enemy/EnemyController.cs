@@ -9,30 +9,26 @@ public class EnemyController : MonoBehaviour
     public float moveSpeed = 35f;
     public float reachThreshold = 0.1f;
     public float patrolSideDistance = 10f;
-    public float patrolSideSpeed = 20f; // tốc độ qua lại
-    public float waitAtEdgeTime = 0.5f;
+    public float patrolSideSpeed = 15f; // tốc độ qua lại
+    public float waitAtEdgeTime = 1f;
     private int currentWaypointIndex = 0;
     private Vector3 sideOrigin;
     private Animator animator;
     private bool movingRight = true;
     private EnemyState currentState = EnemyState.Idle;
     private float waitTimer = 0f;
-
-    private const float baseForwardSpeed = 5f;    // tốc độ animation chuẩn cho di chuyển thẳng
- 
     private enum EnemyState
     {
         Idle,
         MoveForward,
         MoveRight,
-        MoveLeft
+        MoveLeft,
+        WaitAtEdge
     }
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
         SetState(EnemyState.Idle);
-
-
         if (patrolRoute != null && patrolRoute.GetLength() >= 2)
         {
             currentWaypointIndex = 1;
@@ -45,7 +41,6 @@ public class EnemyController : MonoBehaviour
             SetState(EnemyState.Idle);
             return;
         }
-
         if (currentWaypointIndex >= patrolRoute.GetLength())
         {
             MoveSideToSide();
@@ -68,7 +63,7 @@ public class EnemyController : MonoBehaviour
         }
 
         if (Vector3.Distance(transform.position, target.position) < reachThreshold)
-        {       
+        {
             currentWaypointIndex++;
 
             if (currentWaypointIndex >= patrolRoute.GetLength())
@@ -91,10 +86,7 @@ public class EnemyController : MonoBehaviour
     }
     void MoveSideToSide()
     {
-        float direction = movingRight ? 1f : -1f;
-        Vector3 targetPos = sideOrigin + transform.right * direction * patrolSideDistance;
-
-        if (Vector3.Distance(transform.position, targetPos) < 0.1f)
+        if (currentState == EnemyState.WaitAtEdge)
         {
             waitTimer += Time.deltaTime;
             if (waitTimer >= waitAtEdgeTime)
@@ -103,18 +95,24 @@ public class EnemyController : MonoBehaviour
                 SetState(movingRight ? EnemyState.MoveRight : EnemyState.MoveLeft);
                 waitTimer = 0f;
             }
+            return;
         }
-        else
+        float direction = movingRight ? 1f : -1f;
+        Vector3 targetPos = sideOrigin + transform.right * direction * patrolSideDistance;
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, patrolSideSpeed * Time.deltaTime);
+        if (Vector3.Distance(transform.position, targetPos) < 0.1f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, patrolSideSpeed * Time.deltaTime);
+            SetState(EnemyState.WaitAtEdge);
+            waitTimer = 0f;
         }
+
     }
     void SetState(EnemyState newState)
     {
         if (currentState == newState) return;
 
         currentState = newState;
-       
+
 
         if (animator != null)
         {
@@ -123,6 +121,7 @@ public class EnemyController : MonoBehaviour
             animator.SetBool("isMovingForward", false);
             animator.SetBool("isMovingLeft", false);
             animator.SetBool("isMovingRight", false);
+            animator.SetBool("isIdleRightLeft", false);
 
             switch (newState)
             {
@@ -136,16 +135,23 @@ public class EnemyController : MonoBehaviour
                     break;
                 case EnemyState.MoveLeft:
                     animator.SetBool("isMovingLeft", true);
-                    animator.speed = 0.7f;
+                    animator.speed = 1f;
                     break;
                 case EnemyState.MoveRight:
                     animator.SetBool("isMovingRight", true);
-                    animator.speed = 0.7f;
+                    animator.speed = 0.6f;
+                    break;
+                //ll
+                case EnemyState.WaitAtEdge:
+                    animator.SetBool("isIdleRightLeft", true);
+                    animator.speed = 1f;
+                    Debug.Log(animator.speed);
+
                     break;
             }
         }
     }
 
-   
+
 }
 

@@ -8,10 +8,10 @@ public class Gun : MonoBehaviour
     public Transform firePoint; // Vị trí bắn
     public int bulletDamage = 2; // Sát thương mỗi viên đạn
     public float bulletRange = 100f; // Tầm bay tối đa của đạn   
-    public int bulletsPerBurst = 10;
+    public int bulletsPerBurst =10;
     public float timeBetweenBullets = 0.05f;
     public float timeBetweenBursts = 5f;
-    public Transform target;
+    //public Transform target;
     private void Start()
     {
         StartCoroutine(AutoFire());
@@ -39,6 +39,7 @@ public class Gun : MonoBehaviour
       
 
         GameObject bulletObj = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Debug.Log("Spawned bullet: " + bulletObj.name);
         Bullet bullet = bulletObj.GetComponent<Bullet>();
 
         if (bullet != null)
