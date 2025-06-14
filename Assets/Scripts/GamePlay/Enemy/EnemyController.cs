@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class EnemyController : MonoBehaviour
 {
     public RoutePatrol patrolRoute;
@@ -12,7 +11,7 @@ public class EnemyController : MonoBehaviour
     public float patrolSideSpeed = 15f; // tốc độ qua lại
     public float waitAtEdgeTime = 1f;
     private int currentWaypointIndex = 0;
-    private Vector3 sideOrigin;
+    private Vector3 sideOrigin; 
     private Animator animator;
     private bool movingRight = true;
     private EnemyState currentState = EnemyState.Idle;

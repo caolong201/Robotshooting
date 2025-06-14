@@ -15,7 +15,6 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-
         if (myParticleSystem != null)
         {
             myParticleSystem.Play();

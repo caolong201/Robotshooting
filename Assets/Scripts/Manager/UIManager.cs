@@ -19,7 +19,6 @@ public class UIManager : SingletonMono<UIManager>
     {
         Close();
     }
-
     public void ShowEndGame(bool isWin)
     {
         winPanel.SetActive(isWin);
