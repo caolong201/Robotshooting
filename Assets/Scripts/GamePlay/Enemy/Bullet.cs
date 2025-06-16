@@ -40,6 +40,15 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-
+        if (other.CompareTag("Player"))
+        {
+            PlayerController playerHealth = other.GetComponent<PlayerController>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(damage);
+            }
+       
+            Destroy(gameObject);
+        }
     }
 }

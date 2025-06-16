@@ -74,7 +74,7 @@ public class GunPlayerr : MonoBehaviour
         GameObject bulletObj = Instantiate(bulletPrefab, firePoint.position, Quaternion.LookRotation(direction));
         Debug.Log("Spawned bullet: " + bulletObj.name);
 
-        Bullet1 bullet = bulletObj.GetComponent<Bullet1>();
+        BulletPlayer bullet = bulletObj.GetComponent<BulletPlayer>();
         if (bullet != null)
         {
             bullet.damage = bulletDamage;

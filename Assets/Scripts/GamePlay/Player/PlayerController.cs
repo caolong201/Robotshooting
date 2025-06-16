@@ -28,17 +28,20 @@ public class PlayerController : MonoBehaviour
     public float rotateSpeed = 4f;
 
     [Header("Combat Settings")]
-    public Gun gun;
+    public Gun GunPlayer;
     public Slider healthSlider;
+    private float maxHealth = 100f;
+    private float currentHealth;
+
+
     public GameObject losePanel;
 
     private Rigidbody rb;
     private Animator animator;
 
-    private float maxHealth = 100f;
-    private float currentHealth;
+  
     private PlayerState currentState;
-
+   
     private enum PlayerState
     {
         MoveForward
@@ -106,8 +109,8 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         healthSlider.value = currentHealth;
-
         if (currentHealth <= 0)
         {
             Die();
@@ -117,7 +120,7 @@ public class PlayerController : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player Died!");
-        gun.enabled = false; // Dừng bắn
+        GunPlayer.enabled = false; // Dừng bắn
         losePanel.SetActive(true); // Hiện UI thua
         Time.timeScale = 0; // Dừng game
     }
