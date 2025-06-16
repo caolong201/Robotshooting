@@ -1908,7 +1908,7 @@ GameObject:
   - component: {fileID: 5900252896035347612}
   m_Layer: 0
   m_Name: SM_Chr_Robot_Damaged_01(xanh)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2364,7 +2364,7 @@ MonoBehaviour:
   firePoint: {fileID: 1014538215784932790}
   bulletDamage: 2
   bulletRange: 1500
-  bulletsPerBurst: 20
+  bulletsPerBurst: 10
   timeBetweenBullets: 0.1
   timeBetweenBursts: 5
 --- !u!1 &4405026829180219082
