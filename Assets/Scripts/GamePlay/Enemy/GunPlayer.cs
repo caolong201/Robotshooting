@@ -55,10 +55,6 @@ public class GunPlayerr : MonoBehaviour
                 Debug.Log("Raycast trúng nhưng KHÔNG phải enemy, tag: " + hit.transform.tag);
             }
         }
-        else
-        {
-            Debug.Log("Không raycast trúng gì");
-        }
 
         return false;
     }

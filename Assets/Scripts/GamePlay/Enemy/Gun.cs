@@ -12,11 +12,17 @@ public class Gun : MonoBehaviour
     public int bulletsPerBurst =10;
     public float timeBetweenBullets = 0.05f;
     public float timeBetweenBursts = 5f;
-    public Transform target;
+    private Transform target;
     public float hitAccuracy = 0.5f; // Tỷ lệ bắn trúng (50%)
     public float missAngleRange = 20f; // Độ lệch khi bắn tự do
     public float rotationSpeed = 0.5f; // Tốc độ xoay súng (xoay mượt)
     private Vector3 currentShootDirection;
+
+    public void Init(Transform target)
+    {
+        this.target = target;
+    }
+
     private void Start()
     {
         StartCoroutine(AutoFire());

@@ -16,6 +16,9 @@ public class EnemyController : MonoBehaviour
     private bool movingRight = true;
     private EnemyState currentState = EnemyState.Idle;
     private float waitTimer = 0f;
+    [SerializeField] private float maxHP = 10;
+    private float currentHP = 0;
+    [SerializeField] private Gun gun;
     private enum EnemyState
     {
         Idle,
@@ -24,6 +27,12 @@ public class EnemyController : MonoBehaviour
         MoveLeft,
         WaitAtEdge
     }
+
+    public void Init(Transform player)
+    {
+        gun.Init(player);
+    }
+
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -32,6 +41,8 @@ public class EnemyController : MonoBehaviour
         {
             currentWaypointIndex = 1;
         }
+
+        currentHP = maxHP;
     }
     void Update()
     {
@@ -151,6 +162,20 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    public void TakeDamage(float damage)
+    {
+        currentHP -= damage;
+        if (currentHP <= 0)
+        {
+            Die();
+        }
+    }
 
+    private void Die()
+    {
+        GetComponent<BoxCollider>().enabled = false;
+        //pplay enim die
+        Destroy(gameObject);
+    }
 }
 

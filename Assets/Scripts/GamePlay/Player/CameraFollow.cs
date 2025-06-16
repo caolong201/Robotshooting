@@ -1,45 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
+﻿using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform player; // Player cần follow
-    public VariableJoystick cameraJoystick; // Joystick để xoay camera
+    public DynamicJoystick cameraJoystick; // Joystick
     public float rotationSpeed = 10f;
-    public float startYRotation = -50f; // Góc Y muốn setup khi start
-    private float rotationX = 0f;
-    public float minX = -45f;
-    public float maxX = 45f;
 
-    private void Start()
+    private float xRotation = 0f;
+    Vector2 input = Vector2.zero;
+    private Vector3 currentVelocity;
+
+    void Update()
     {
-        // Setup góc Y ban đầu
-        player.rotation = Quaternion.Euler(0f, startYRotation, 0f);
+        input = new Vector3(cameraJoystick.Horizontal, cameraJoystick.Vertical).normalized;
 
-        // Reset camera gốc (cameraHolder)
-        transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
-    }
-
-    private void Update()
-    {
-        HandleCameraRotation();
-    }
-
-    private void HandleCameraRotation()
-    {
-        float horizontal = cameraJoystick.Horizontal;
-        float vertical = cameraJoystick.Vertical;
-
-        // Xoay player theo trục Y
-        player.Rotate(0f, horizontal * rotationSpeed, 0f);
-
-        // Xoay camera theo trục X
-        rotationX -= vertical * rotationSpeed;
-        rotationX = Mathf.Clamp(rotationX, minX, maxX);
-
-        transform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);
-
+        transform.Rotate(
+            -input.y * rotationSpeed * Time.deltaTime, // X-axis
+            input.x * rotationSpeed * Time.deltaTime, // Y-axis
+            0, // Z-axis locked
+            Space.Self // Rotate in local space
+        );
+        
+        xRotation = transform.eulerAngles.x;
+        if (xRotation > 180f) xRotation -= 360f;
+        xRotation = Mathf.Clamp(xRotation, -30f, 30f);
+        transform.eulerAngles = new Vector3(xRotation, transform.eulerAngles.y, 0);
     }
 }

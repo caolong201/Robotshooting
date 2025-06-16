@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Bullet
   - Ground
+  - Missile
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - Water
   - UI
   - IgnorMainCam
-  - 
+  - Enemy
   - 
   - 
   - 

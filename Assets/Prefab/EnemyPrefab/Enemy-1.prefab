@@ -783,7 +783,7 @@ GameObject:
   - component: {fileID: 8537299339037960234}
   m_Layer: 0
   m_Name: Enemy-1
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1038,9 +1038,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7711302525225408992}
   - component: {fileID: 3097836946291122645}
-  m_Layer: 0
+  - component: {fileID: 7497539510907283021}
+  - component: {fileID: 4715962009352498712}
+  m_Layer: 7
   m_Name: EnemyAI
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1054,7 +1056,7 @@ Transform:
   m_GameObject: {fileID: 4006170501108642233}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.34, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1079,6 +1081,56 @@ MonoBehaviour:
   patrolSideDistance: 30
   patrolSideSpeed: 15
   waitAtEdgeTime: 0.5
+  maxHP: 10
+  gun: {fileID: 8272687857146847085}
+--- !u!54 &7497539510907283021
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4006170501108642233}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &4715962009352498712
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4006170501108642233}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 20, z: 10}
+  m_Center: {x: -0.046237398, y: -10, z: 0.20091854}
 --- !u!1 &4038191729816606080
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,8 +1704,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7216142121568435102}
   - component: {fileID: 7410902695474646242}
-  - component: {fileID: 7439867072565329373}
-  - component: {fileID: 6686922729155205844}
   m_Layer: 0
   m_Name: SM_Chr_Robot_Damaged_01
   m_TagString: Enemy
@@ -1670,7 +1720,7 @@ Transform:
   m_GameObject: {fileID: 7523926439176712911}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000018556598, y: 0.19369376, z: -0.000000035332043, w: 0.98106205}
-  m_LocalPosition: {x: -9.3, y: -18.61, z: -19.1}
+  m_LocalPosition: {x: 0, y: -18.61, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1699,54 +1749,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!65 &7439867072565329373
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7523926439176712911}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.79484487, y: 1.8520294, z: 1.106144}
-  m_Center: {x: -0.046237398, y: 0.8687691, z: 0.20091854}
---- !u!54 &6686922729155205844
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7523926439176712911}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &7591530234726624754
 GameObject:
   m_ObjectHideFlags: 0
@@ -2203,3 +2205,7 @@ MonoBehaviour:
   bulletsPerBurst: 10
   timeBetweenBullets: 0.1
   timeBetweenBursts: 5
+  target: {fileID: 0}
+  hitAccuracy: 0.5
+  missAngleRange: 20
+  rotationSpeed: 0.5

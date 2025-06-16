@@ -12,5 +12,12 @@ public class RemoveMeshCollidersEditor : MonoBehaviour
             DestroyImmediate(collider); // Use DestroyImmediate for editor execution
         }
         Debug.Log("Removed all MeshColliders from child objects.");
+        
+        BoxCollider[] bColliders = GetComponentsInChildren<BoxCollider>();
+        foreach (BoxCollider collider in bColliders)
+        {
+            DestroyImmediate(collider); // Use DestroyImmediate for editor execution
+        }
+        Debug.Log("Removed all MeshColliders from child objects.");
     }
 }

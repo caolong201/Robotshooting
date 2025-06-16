@@ -1,46 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Playables;
 using UnityEngine.UI;
-using static VSX.UniversalVehicleCombat.GunTurret;
 
 public class PlayerController : MonoBehaviour
 {
-    public VariableJoystick moveJoystick;     // Joystick di chuyển
-    public VariableJoystick cameraJoystick;   // Joystick tầm ngắm
-
-    [Header("Player Settings")]
-    public Transform cameraHolder;
-    public Transform cameraTransform;
-    public float rotationSpeed = 10f;
-    public float moveSpeed = 0.5f;
-    public float smoothTime = 0.1f;
-    public float startYRotation = -50f;
-
-    [Header("Aim Settings")]
-    public RectTransform crosshairUI;
-    public Transform gunPivot;
-    public Camera mainCamera;
-    public float aimSpeed = 200f;
-    public float targetDistance = 9000f;
-    public float rotateSpeed = 4f;
-
+   
     [Header("Combat Settings")]
     public Gun GunPlayer;
-    public Slider healthSlider;
     private float maxHealth = 100f;
     private float currentHealth;
 
 
-    public GameObject losePanel;
 
     private Rigidbody rb;
     private Animator animator;
 
   
     private PlayerState currentState;
+    
+    [SerializeField] VariableJoystick cameraJoystick;
+    public float rotationSpeed = 10f;
+    private float rotationX = 0f;
+    private float rotationY = 0f;
+    public float minX = -45f;
+    public float maxX = 45f;
    
     private enum PlayerState
     {
@@ -53,64 +36,40 @@ public class PlayerController : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
 
         currentHealth = maxHealth;
-        healthSlider.maxValue = maxHealth;
-        healthSlider.value = currentHealth;
-        losePanel.SetActive(false);
 
         SetState(PlayerState.MoveForward);
     }
 
-    private void FixedUpdate()
-    {
-        MovePlayer();
-    }
-
     private void Update()
     {
-        MoveCrosshair();
-        AimGun();
+        //HandleCameraRotation();
     }
 
-    private void MovePlayer()
+    private void HandleCameraRotation()
     {
-        Vector3 direction = new Vector3(-moveJoystick.Vertical, 0, moveJoystick.Horizontal);
+        if (cameraJoystick == null) return;
 
-        if (direction.magnitude >= 0.1f)
+        Vector3 input = new Vector3(cameraJoystick.Horizontal, cameraJoystick.Vertical, 0);
+
+        if (input.magnitude > 0.1f)
         {
-            Vector3 move = direction.normalized * moveSpeed * Time.fixedDeltaTime;
-            rb.MovePosition(rb.position + move);
+            Quaternion targetRotation = Quaternion.LookRotation(input.normalized);
+            targetRotation = Quaternion.Euler(targetRotation.eulerAngles.x, targetRotation.eulerAngles.y, 0);
+            transform.rotation = Quaternion.RotateTowards(
+                transform.rotation,
+                targetRotation,
+                rotationSpeed * Time.deltaTime
+            );
+            
+            //transform.localRotation = Quaternion.Euler(transform.localRotation.x, transform.localRotation.y, 0);
         }
     }
 
-    private void MoveCrosshair()
-    {
-        Vector2 input = new Vector2(cameraJoystick.Horizontal, cameraJoystick.Vertical);
-        crosshairUI.anchoredPosition += input * aimSpeed * Time.deltaTime;
-
-        // Giới hạn vùng di chuyển tầm ngắm
-        crosshairUI.anchoredPosition = new Vector2(
-            Mathf.Clamp(crosshairUI.anchoredPosition.x, -400, 400),
-            Mathf.Clamp(crosshairUI.anchoredPosition.y, -200, 200)
-        );
-    }
-
-    private void AimGun()
-    {
-        Vector3 screenPosition = crosshairUI.position;
-        Vector3 worldPoint = mainCamera.ScreenToWorldPoint(new Vector3(screenPosition.x, screenPosition.y, targetDistance));
-        Vector3 aimDirection = worldPoint - gunPivot.position;
-
-        if (aimDirection.sqrMagnitude > 0.01f)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(aimDirection);
-            gunPivot.rotation = Quaternion.Lerp(gunPivot.rotation, targetRotation, Time.deltaTime * rotateSpeed);
-        }
-    }
+   
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        healthSlider.value = currentHealth;
         if (currentHealth <= 0)
         {
             Die();
@@ -121,21 +80,20 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Player Died!");
         GunPlayer.enabled = false; // Dừng bắn
-        losePanel.SetActive(true); // Hiện UI thua
         Time.timeScale = 0; // Dừng game
     }
 
     private void SetState(PlayerState newState)
     {
         currentState = newState;
-        animator.SetBool("isMoveForward", false);
-
-        switch (newState)
-        {
-            case PlayerState.MoveForward:
-                animator.SetBool("isMoveForward", true);
-                animator.speed = 0.8f;
-                break;
-        }
+        // animator.SetBool("isMoveForward", false);
+        //
+        // switch (newState)
+        // {
+        //     case PlayerState.MoveForward:
+        //         animator.SetBool("isMoveForward", true);
+        //         animator.speed = 0.8f;
+        //         break;
+        // }
     }
 }
