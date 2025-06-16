@@ -2201,11 +2201,10 @@ MonoBehaviour:
   bulletPrefab: {fileID: 9041005547009062203, guid: d386d204b36dae84ba5f34c24165824c, type: 3}
   firePoint: {fileID: 4853649409737234653}
   bulletDamage: 2
-  bulletRange: 1500
+  bulletRange: 300
   bulletsPerBurst: 10
   timeBetweenBullets: 0.1
   timeBetweenBursts: 5
-  target: {fileID: 0}
   hitAccuracy: 0.5
   missAngleRange: 20
   rotationSpeed: 0.5

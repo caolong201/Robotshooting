@@ -9,7 +9,7 @@ public class Gun : MonoBehaviour
     public Transform firePoint; // Vị trí bắn
     public int bulletDamage = 2; // Sát thương mỗi viên đạn
     public float bulletRange = 100f; // Tầm bay tối đa của đạn   
-    public int bulletsPerBurst =10;
+    public int bulletsPerBurst = 10;
     public float timeBetweenBullets = 0.05f;
     public float timeBetweenBursts = 5f;
     private Transform target;
@@ -27,14 +27,16 @@ public class Gun : MonoBehaviour
     {
         StartCoroutine(AutoFire());
     }
+
     private void Update()
-    {    
+    {
         if (currentShootDirection != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(currentShootDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
+
     private IEnumerator AutoFire()
     {
         while (true)
@@ -48,16 +50,20 @@ public class Gun : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenBursts);
         }
     }
+
     public void Shoot()
     {
-        if (bulletPrefab == null || firePoint == null || target ==null)
+        if (bulletPrefab == null || firePoint == null || target == null)
         {
-            Debug.LogWarning("ll");
             return;
         }
+
+        if (Vector3.Distance(target.position, firePoint.position) > bulletRange)
+            return;
+
         Vector3 directionToTarget = (target.position - firePoint.position).normalized;
         Vector3 shootDirection;
-    
+
         //firePoint.rotation = Quaternion.LookRotation(directionToTarget);
         if (Random.value <= hitAccuracy)
         {
@@ -69,6 +75,7 @@ public class Gun : MonoBehaviour
             // Bắn tự do
             shootDirection = GetRandomDirection(directionToTarget, missAngleRange);
         }
+
         currentShootDirection = shootDirection;
         GameObject bulletObj = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Debug.Log("Spawned bullet: " + bulletObj.name);
@@ -79,8 +86,10 @@ public class Gun : MonoBehaviour
             bullet.damage = bulletDamage;
             bullet.SetDirection(firePoint.forward, firePoint.position, bulletRange);
         }
+
         Debug.DrawRay(firePoint.position, firePoint.forward * bulletRange, Color.red, 1f);
     }
+
     private Vector3 GetRandomDirection(Vector3 baseDirection, float maxAngle)
     {
         float randomAngleX = Random.Range(-maxAngle, maxAngle);

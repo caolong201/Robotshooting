@@ -1364,7 +1364,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 9041005547009062203, guid: d386d204b36dae84ba5f34c24165824c, type: 3}
   firePoint: {fileID: 7850072007428867490}
   bulletDamage: 2
-  bulletRange: 1500
+  bulletRange: 250
   bulletsPerBurst: 10
   timeBetweenBullets: 0.1
   timeBetweenBursts: 5
