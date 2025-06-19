@@ -6,11 +6,11 @@ using UnityEngine;
 public class EnimiesManager : MonoBehaviour
 {
     [SerializeField] private Transform player;
-    private List<EnemyController> enemies;
+    private List<EnemyAI> enemies;
 
     private void Start()
     {
-        enemies = new List<EnemyController>(GetComponentsInChildren<EnemyController>(true));
+        enemies = new List<EnemyAI>(GetComponentsInChildren<EnemyAI>());
         foreach (var e in enemies)
         {
             e.Init(player);

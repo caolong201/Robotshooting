@@ -11,6 +11,7 @@ public class MachineBullet : MonoBehaviour
     public float speed = 10f;
     private Vector3 startPosition;
     private float maxDistance;
+    [SerializeField] private GameObject fxHit;
 
     public void SetDirection(Vector3 dir, Vector3 startPos, float radius)
     {
@@ -34,7 +35,8 @@ public class MachineBullet : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<EnemyController>().TakeDamage(damage);
+            other.GetComponent<EnemyAI>().TakeDamage(damage);
+            Destroy(gameObject);
         }
     }
 }

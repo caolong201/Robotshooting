@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MachineGun : MonoBehaviour
 {
@@ -15,16 +18,39 @@ public class MachineGun : MonoBehaviour
     public LayerMask enemyLayer;
 
     private Collider target = null;
+    [SerializeField] private int fireTime = 5;
+    private int currentFireTime = 5;
+
+    [SerializeField] private float startDelayFire = 0;
+    [SerializeField] bool isPlayer = false;
+    private float posZ = 0;
+    [SerializeField] private Transform crossHair;
+    [SerializeField] private Image crossHairDot;
+
+    private void Start()
+    {
+        posZ = transform.localPosition.z;
+    }
 
     private void Update()
     {
+        if (startDelayFire > 0)
+        {
+            startDelayFire -= Time.deltaTime;
+            return;
+        }
+
         RayEnemy();
         if (Time.time >= nextAttackTime)
         {
             nextAttackTime = Time.time + attackCooldown;
             Shoot();
+            if (currentFireTime <= 0)
+            {
+                nextAttackTime += 3;
+                currentFireTime = fireTime;
+            }
         }
-
     }
 
     private void RayEnemy()
@@ -35,25 +61,45 @@ public class MachineGun : MonoBehaviour
         if (Physics.Raycast(ray, out hit, range, enemyLayer))
         {
             target = hit.collider;
+            if (crossHairDot != null)
+            {
+                crossHairDot.color = Color.green;
+            }
         }
         else
         {
             target = null;
+            if (crossHairDot != null)
+            {
+                crossHairDot.color = Color.white;
+            }
         }
-        
+
 
         // Optional: visualize ray
-        Debug.DrawRay(firePoint.position, firePoint.forward * range, Color.red, 1f);
+        Debug.DrawRay(firePoint.position, firePoint.forward * range, Color.red, 0.1f);
     }
 
     void Shoot()
     {
-        if(target == null) return;
-        
+        if (target == null) return;
+
         GameObject obj = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         MachineBullet bullet = obj.GetComponent<MachineBullet>();
         bullet.damage = attackPower;
         bullet.SetDirection(firePoint.forward, firePoint.position, range);
-    }
 
+        currentFireTime -= 1;
+
+        if (isPlayer)
+        {
+            transform.DOKill();
+            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, posZ);
+            transform.DOLocalMoveZ(posZ - 0.02f, 0.1f).SetLoops(1, LoopType.Yoyo);
+
+            crossHair.DOKill();
+            crossHair.localScale = Vector3.one * 2;
+            crossHair.DOScale(Vector3.one * 2 * 0.85f, 0.1f).SetLoops(1, LoopType.Yoyo);;
+        }
+    }
 }
