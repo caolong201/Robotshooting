@@ -924,7 +924,7 @@ Transform:
   m_GameObject: {fileID: 2761355867200484145}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -18, z: 255.5}
+  m_LocalPosition: {x: -21, y: -18, z: 56.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1259,7 +1259,7 @@ Transform:
   m_GameObject: {fileID: 4426851775241736155}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -22.5, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1338,20 +1338,17 @@ MonoBehaviour:
   sdHP: {fileID: 816889781152957799}
   patrolRoutes:
   - waypoint: {fileID: 8987451688910395362}
-    state: 2
+    state: 3
     waitTime: 0
   - waypoint: {fileID: 0}
-    state: 4
-    waitTime: 5
+    state: 1
+    waitTime: 2
   - waypoint: {fileID: 0}
     state: 5
     waitTime: 5
   - waypoint: {fileID: 0}
-    state: 4
-    waitTime: 5
-  - waypoint: {fileID: 0}
-    state: 5
-    waitTime: 100
+    state: 6
+    waitTime: 2
 --- !u!1 &4432308041378789445
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,7 +1454,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
-  fireTime: 100
+  fireTime: 10
   startDelayFire: 0
   isPlayer: 0
   crossHair: {fileID: 0}

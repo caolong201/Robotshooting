@@ -124,7 +124,7 @@ namespace VSX.UniversalVehicleCombat
             onDestroyed.Invoke();
             respawnStartTime = Time.time;
             Debug.Log("OnVehicleDestroyed: " + gameObject.name);
-            GameManager.Instance.EnemyDead();
+            //GameManager.Instance.EnemyDead();
         }
 
 

@@ -17,8 +17,17 @@ public class UIManager : SingletonMono<UIManager>
 
     private void Start()
     {
+        Reset();
+    }
+
+    public void Reset()
+    {
+        winPanel.SetActive(false);
+        losePanel.SetActive(false);
+        waveClearPanel.SetActive(false);
         Close();
     }
+
     public void ShowEndGame(bool isWin)
     {
         winPanel.SetActive(isWin);

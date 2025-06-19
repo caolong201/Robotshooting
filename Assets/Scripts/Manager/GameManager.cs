@@ -3,38 +3,100 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using VSX.UniversalVehicleCombat.Radar;
-using Random = UnityEngine.Random;
+
+public class Stage
+{
+}
 
 public class GameManager : SingletonMono<GameManager>
 {
-    [SerializeField] GroupTrackerUpdater groupTrackerUpdater;
-
-
     public Action<int> onEnemiesDead;
     private int TotalEnemiesDeadPerWave = 0;
+
+    public const int MAXStage = 5;
+    public int CurrenStage = 1;
+    public int CurrentWave = 1;
+
+    private StageController currStageController = null;
+    [SerializeField] Transform playerTransform;
+
+    private int _countEnemiesDeadPerWave = 0;
 
     private void Awake()
     {
         Application.targetFrameRate = 60;
-
     }
 
     private void Start()
     {
-        DOVirtual.DelayedCall(0.5f,
-            () =>
+        LoadStage();
+    }
+
+    public void LoadStage()
+    {
+        UIManager.Instance.Reset();
+        if (currStageController != null)
+        {
+            Destroy(currStageController.gameObject);
+            currStageController = null;
+        }
+
+        GameObject stagePrefab = Resources.Load<GameObject>("Stages/" + CurrenStage);
+        if (stagePrefab != null)
+        {
+            // Instantiate it in the scene
+            GameObject stageInstance = Instantiate(stagePrefab);
+
+            // Get the StageController component if needed
+            currStageController = stageInstance.GetComponent<StageController>();
+
+            if (currStageController != null)
             {
-                groupTrackerUpdater.SetupEnemiesPerStage(SaveDataManager.Instance.Stage, SaveDataManager.Instance.Wave);
-            });
+                // Now you can use the controller
+                currStageController.Init(playerTransform, CurrentWave); // Or any setup logic you have
+            }
+            else
+            {
+                Debug.LogWarning("StageController component not found on prefab.");
+            }
+        }
     }
 
     public void EnemyDead()
     {
+        _countEnemiesDeadPerWave++;
+        Debug.Log("EnemyDead: " + _countEnemiesDeadPerWave);
+        int totalEnemiesPerWave = currStageController.GetWave().GetEnemiesCount();
+        if (_countEnemiesDeadPerWave >= totalEnemiesPerWave)
+        {
+            if (CurrentWave >= currStageController.WaveCount())
+            {
+                //next stage
+                _countEnemiesDeadPerWave = 0;
+                CurrentWave = 1;
+                CurrenStage++;
+                // LoadStage();
+                DOVirtual.DelayedCall(1.5f, () => { UIManager.Instance.ShowEndGame(true); });
+            }
+            else
+            {
+                Debug.Log("Game Clear wave");
+                DOVirtual.DelayedCall(1f, () =>
+                {
+                    UIManager.Instance.ShowWaveClear(() =>
+                    {
+                        _countEnemiesDeadPerWave = 0;
+                        CurrentWave++;
+                        currStageController.Init(playerTransform, CurrentWave);
+                    });
+                });
+            }
+        }
+
+        return;
         SaveDataManager.Instance.TotalEnemiesDeadPerStage++;
         TotalEnemiesDeadPerWave++;
-        
+
         if (SaveDataManager.Instance != null)
         {
             if (SaveDataManager.Instance.TotalEnemiesDeadPerStage >= SaveDataManager.Instance.CountEnemiesPerStage)
@@ -47,16 +109,15 @@ public class GameManager : SingletonMono<GameManager>
                 if (TotalEnemiesDeadPerWave == SaveDataManager.Instance.CountEnemiesPerWave)
                 {
                     Debug.Log("Game Clear wave");
-                    DOVirtual.DelayedCall(1f, () =>
-                    {
-                        UIManager.Instance.ShowWaveClear(() =>
+                    DOVirtual.DelayedCall(1f,
+                        () =>
                         {
-                            SaveDataManager.Instance.LoadScene(EGameState.ClearWave, () =>
+                            UIManager.Instance.ShowWaveClear(() =>
                             {
-                                ScreenFader.Instance.FadeOut();
+                                SaveDataManager.Instance.LoadScene(EGameState.ClearWave,
+                                    () => { ScreenFader.Instance.FadeOut(); });
                             });
                         });
-                    });
                 }
             }
         }

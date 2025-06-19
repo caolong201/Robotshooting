@@ -24,11 +24,8 @@ public class WinPanel : MonoBehaviour
     {
         ScreenFader.Instance.FadeIn(() =>
         {
-            SaveDataManager.Instance.LoadScene(EGameState.Win, () =>
-            {
-                ScreenFader.Instance.FadeOut();
-            });
-           
+           GameManager.Instance.LoadStage();
+           ScreenFader.Instance.FadeOut();
         });
     }
 }

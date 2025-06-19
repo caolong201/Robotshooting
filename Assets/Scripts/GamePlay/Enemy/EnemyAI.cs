@@ -6,6 +6,7 @@ public enum EnemyState
 {
     None,
     Idle,
+    StandFire,
     Moving,
     MoveStopped,
     Sitting,
@@ -29,7 +30,6 @@ public class EnemyAI : MonoBehaviour
     [Header("Patrol Settings")] public List<PatrolRoute> patrolRoutes = new List<PatrolRoute>();
     private int currentRouteIndex = 0;
 
-    private CharacterController controller;
     private Animator animator;
     private Vector3 currentVelocity;
     private float currentSpeed;
@@ -40,7 +40,9 @@ public class EnemyAI : MonoBehaviour
     private Transform waypoint;
     private Transform playerTransform;
 
-
+    private EnemiesManager _enemiesManager;
+    private bool isDead = false;
+    
     [System.Serializable]
     public class PatrolRoute
     {
@@ -51,17 +53,19 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
-        //controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
         InitializeAI();
     }
 
-    public void Init(Transform player)
+    public void Init(EnemiesManager parent,Transform player)
     {
+        Debug.LogError("init enemy ai");
+        _enemiesManager = parent;
         this.playerTransform = player;
         currentHP = maxHP;
         sdHP.value = 1;
         sdHPObject.SetActive(true);
+        isDead = false;
     }
 
     void Update()
@@ -90,6 +94,9 @@ public class EnemyAI : MonoBehaviour
             case EnemyState.StandUp:
                 UpdateStandUp();
                 break;
+            case EnemyState.StandFire:
+                UpdateStandFire();
+                break;
         }
 
         UpdateLookTarget();
@@ -115,7 +122,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (currentState == newState && !force) return;
 
-        Debug.Log("Change State: " + newState);
+        //Debug.Log("Change State: " + newState);
         // Exit current state
         switch (currentState)
         {
@@ -142,7 +149,6 @@ public class EnemyAI : MonoBehaviour
 
     void UpdateIdle()
     {
-        Debug.Log("UpdateIdle: " + stateTimer);
         stateTimer -= Time.deltaTime;
         if (stateTimer <= 0)
         {
@@ -217,6 +223,14 @@ public class EnemyAI : MonoBehaviour
             AdvanceToNextWaypoint();
         }
     }
+    void UpdateStandFire()
+    {
+        stateTimer -= Time.deltaTime;
+        if (stateTimer <= 0)
+        {
+            AdvanceToNextWaypoint();
+        }
+    }
 
     void AdvanceToNextWaypoint()
     {
@@ -247,10 +261,14 @@ public class EnemyAI : MonoBehaviour
         animator.SetFloat("Speed", animSpeed, 0.1f, Time.deltaTime);
         animator.SetBool("IsSitting", currentState == EnemyState.Sitting);
         animator.SetBool("IsStandingUp", currentState == EnemyState.StandUp);
+        animator.SetBool("Idle", currentState == EnemyState.Idle);
+        animator.SetBool("IsStandFire", currentState == EnemyState.StandFire);
     }
 
     public void TakeDamage(float damage)
     {
+        if (isDead) return;
+        
         currentHP -= damage;
         sdHP.value = currentHP / maxHP;
         if (currentHP <= 0)
@@ -262,10 +280,12 @@ public class EnemyAI : MonoBehaviour
 
     public void Die()
     {
+        isDead = true;
         GetComponent<BoxCollider>().enabled = false;
         ChangeState(EnemyState.Dead);
         currentVelocity = Vector3.zero;
         animator.SetTrigger("Die");
         // Additional death logic
+        _enemiesManager.EnemyDead(this);
     }
 }

@@ -194,37 +194,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6547392988002703209}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &485861416296826657
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3727567388298200037}
-  m_Layer: 7
-  m_Name: WayPoint (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3727567388298200037
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485861416296826657}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -142.1, y: -18, z: 128.8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1429799971342708378}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &607186807236269918
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,7 +581,7 @@ Transform:
   m_GameObject: {fileID: 2040617246548691596}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -117.9, y: -18, z: 0.2}
+  m_LocalPosition: {x: -11.1, y: -18, z: 37.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -790,26 +759,17 @@ MonoBehaviour:
   sdHP: {fileID: 7051524792258235031}
   patrolRoutes:
   - waypoint: {fileID: 6462888952575698128}
+    state: 3
+    waitTime: 0
+  - waypoint: {fileID: 0}
     state: 1
     waitTime: 5
-  - waypoint: {fileID: 6462888952575698128}
-    state: 2
-    waitTime: 0
-  - waypoint: {fileID: 3727567388298200037}
-    state: 2
-    waitTime: 0
   - waypoint: {fileID: 0}
-    state: 4
+    state: 2
     waitTime: 3
   - waypoint: {fileID: 0}
-    state: 5
-    waitTime: 2
-  - waypoint: {fileID: 0}
-    state: 4
-    waitTime: 5
-  - waypoint: {fileID: 0}
-    state: 5
-    waitTime: 100
+    state: 1
+    waitTime: 3
 --- !u!143 &4903501546522012558
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1024,7 +984,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6462888952575698128}
-  - {fileID: 3727567388298200037}
   - {fileID: 1734603638854520743}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90.112, z: 0}
