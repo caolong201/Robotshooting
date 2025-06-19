@@ -1,3 +1,0 @@
-com.unity.postprocessing
-com.unity.textmeshpro
-com.unity.inputsystem
