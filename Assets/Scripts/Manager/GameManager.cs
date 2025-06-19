@@ -70,6 +70,10 @@ public class GameManager : SingletonMono<GameManager>
             {
                 // Now you can use the controller
                 currStageController.Init(playerTransform, CurrentWave); // Or any setup logic you have
+
+                //rsheald
+                playerTransform.GetComponent<PlayerController>().ResetHealth();
+                UIManager.Instance.ShowHealthBar(true);
             }
             else
             {
