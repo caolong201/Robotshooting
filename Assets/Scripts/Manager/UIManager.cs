@@ -1,5 +1,6 @@
-using System;
+﻿using System;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,9 +13,10 @@ public class UIManager : SingletonMono<UIManager>
     [SerializeField] private Image fxHpLow, fxTakeDamage;
     private bool isHpLow = false;
     private bool isTakeDamage = false;
-
+    [SerializeField] private Slider healthSlider;
+    [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private GameObject objTextFindEnemies;
-
+    [SerializeField] private GameObject boxSlider;
     private void Start()
     {
         Reset();
@@ -34,6 +36,7 @@ public class UIManager : SingletonMono<UIManager>
         losePanel.SetActive(!isWin);
 
         ShowBlackScreen();
+        ShowHealthBar(false);
         if (isWin)
         {
             winPanel.transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0.2f), .2f);
@@ -116,4 +119,37 @@ public class UIManager : SingletonMono<UIManager>
             objTextFindEnemies.SetActive(isShow);
         }
     }
+    public void SetHealthSliderMax(float maxHealth)
+    {
+        if (healthSlider != null)
+        {
+            healthSlider.maxValue = maxHealth;
+            healthSlider.value = maxHealth;
+        }
+
+        if (healthText != null)
+        {
+            healthText.text = $"{maxHealth}/{maxHealth}";
+        }
+    }
+
+    public void UpdateHealthSlider(float currentHealth)
+    {
+        if (healthSlider != null)
+        {
+            healthSlider.DOValue(currentHealth, 0.2f);
+        }
+
+        if (healthText != null)
+        {           
+            healthText.text = $"{Mathf.CeilToInt(currentHealth)}";
+        }
+    }
+
+    public void ShowHealthBar(bool isShow)
+    {
+        if (boxSlider != null)
+            boxSlider.SetActive(isShow);
+    }
+
 }
