@@ -59,7 +59,6 @@ public class EnemyAI : MonoBehaviour
 
     public void Init(EnemiesManager parent,Transform player)
     {
-        Debug.LogError("init enemy ai");
         _enemiesManager = parent;
         this.playerTransform = player;
         currentHP = maxHP;
@@ -281,7 +280,7 @@ public class EnemyAI : MonoBehaviour
     public void Die()
     {
         isDead = true;
-        GetComponent<BoxCollider>().enabled = false;
+        Destroy(GetComponent<BoxCollider>());
         ChangeState(EnemyState.Dead);
         currentVelocity = Vector3.zero;
         animator.SetTrigger("Die");

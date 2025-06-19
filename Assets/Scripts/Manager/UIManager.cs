@@ -30,6 +30,7 @@ public class UIManager : SingletonMono<UIManager>
 
     public void ShowEndGame(bool isWin)
     {
+        GameManager.Instance.CurrentGameStatus = EGameStatus.End;
         winPanel.SetActive(isWin);
         losePanel.SetActive(!isWin);
 
@@ -50,7 +51,7 @@ public class UIManager : SingletonMono<UIManager>
     {
         waveClearPanel.SetActive(true);
         ShowBlackScreen();
-        DOVirtual.DelayedCall(2f, () =>
+        DOVirtual.DelayedCall(1f, () =>
         {
             complete?.Invoke();
             waveClearPanel.SetActive(false);

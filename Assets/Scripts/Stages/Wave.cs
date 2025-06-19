@@ -25,4 +25,9 @@ public class Wave : MonoBehaviour
     {
         return _enemiesManager.EnemiesCount();
     }
+    
+    public Vector3 GetPlayerPosition()
+    {
+        return playerPos.transform.position;
+    }
 }

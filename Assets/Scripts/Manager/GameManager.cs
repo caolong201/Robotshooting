@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-public class Stage
+public enum EGameStatus
 {
+    Live,
+    End
 }
 
 public class GameManager : SingletonMono<GameManager>
@@ -21,6 +24,9 @@ public class GameManager : SingletonMono<GameManager>
     [SerializeField] Transform playerTransform;
 
     private int _countEnemiesDeadPerWave = 0;
+    public int TotalEnemiesKilled = 0;
+    public EGameStatus CurrentGameStatus = EGameStatus.Live;
+    [SerializeField] TransitionWave transitionWave;
 
     private void Awake()
     {
@@ -32,10 +38,12 @@ public class GameManager : SingletonMono<GameManager>
         CurrenStage = PlayerPrefs.GetInt("kCurrentStage", 1);
         CurrentWave = PlayerPrefs.GetInt("kCurrentWave", 1);
         LoadStage();
+        ScreenFader.Instance.FadeOut();
     }
 
     public void LoadStage()
     {
+        TotalEnemiesKilled = 0;
         UIManager.Instance.Reset();
         if (currStageController != null)
         {
@@ -43,7 +51,13 @@ public class GameManager : SingletonMono<GameManager>
             currStageController = null;
         }
 
-        GameObject stagePrefab = Resources.Load<GameObject>("Stages/" + CurrenStage);
+        int stageIndex = CurrenStage;
+        if (stageIndex > MAXStage)
+        {
+            stageIndex = Random.Range(1, MAXStage + 1);
+        }
+
+        GameObject stagePrefab = Resources.Load<GameObject>("Stages/" + stageIndex);
         if (stagePrefab != null)
         {
             // Instantiate it in the scene
@@ -62,10 +76,13 @@ public class GameManager : SingletonMono<GameManager>
                 Debug.LogWarning("StageController component not found on prefab.");
             }
         }
+
+        CurrentGameStatus = EGameStatus.Live;
     }
 
     public void EnemyDead()
     {
+        TotalEnemiesKilled++;
         _countEnemiesDeadPerWave++;
         Debug.Log("EnemyDead: " + _countEnemiesDeadPerWave);
         int totalEnemiesPerWave = currStageController.GetWave().GetEnemiesCount();
@@ -77,21 +94,29 @@ public class GameManager : SingletonMono<GameManager>
                 _countEnemiesDeadPerWave = 0;
                 CurrentWave = 1;
                 CurrenStage++;
-                PlayerPrefs.SetInt("kCurrenStage", CurrenStage);
+                PlayerPrefs.SetInt("kCurrentStage", CurrenStage);
                 DOVirtual.DelayedCall(1.5f, () => { UIManager.Instance.ShowEndGame(true); });
             }
             else
             {
                 Debug.Log("Game Clear wave");
+                UIManager.Instance.ShowWaveClear(() => { });
                 DOVirtual.DelayedCall(1f, () =>
                 {
-                    UIManager.Instance.ShowWaveClear(() =>
-                    {
-                        _countEnemiesDeadPerWave = 0;
-                        CurrentWave++;
-                        currStageController.Init(playerTransform, CurrentWave);
-                        PlayerPrefs.SetInt("kCurrentWave", CurrentWave);
-                    });
+                    _countEnemiesDeadPerWave = 0;
+                    CurrentWave++;
+                    Vector3 pos = playerTransform.position;
+                    currStageController.Init(playerTransform, CurrentWave);
+                    PlayerPrefs.SetInt("kCurrentWave", CurrentWave);
+    
+                    playerTransform.gameObject.SetActive(false);
+                    transitionWave.StartTransition(pos,
+                        currStageController.GetWave().GetPlayerPosition(),
+                        () =>
+                        {
+                            playerTransform.gameObject.SetActive(true);
+                        });
+                    
                 });
             }
         }

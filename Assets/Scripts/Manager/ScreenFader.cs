@@ -3,12 +3,13 @@ using UnityEngine.UI;
 using System.Collections;
 using DG.Tweening;
 
-public class ScreenFader : SingletonMonoStart<ScreenFader>
+public class ScreenFader : SingletonMonoAwake<ScreenFader>
 {
     public CanvasGroup FadeImg;
 
-    void Awake()
+    public override void OnAwake()
     {
+        base.OnAwake();
         FadeImg.DOFade(0, 0);
         FadeImg.blocksRaycasts = false;
     }

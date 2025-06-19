@@ -11,7 +11,7 @@ public class MachineGun : MonoBehaviour
     public Transform firePoint;
 
     public float attackCooldown = 2f;
-    private float nextAttackTime;
+    private float nextAttackTime = 0;
     public float range = 500f;
     public int attackPower = 2;
 
@@ -30,10 +30,13 @@ public class MachineGun : MonoBehaviour
     private void Start()
     {
         posZ = transform.localPosition.z;
+        currentFireTime = fireTime;
     }
 
     private void Update()
     {
+        if (GameManager.Instance.CurrentGameStatus != EGameStatus.Live) return;
+
         if (startDelayFire > 0)
         {
             startDelayFire -= Time.deltaTime;
@@ -41,9 +44,10 @@ public class MachineGun : MonoBehaviour
         }
 
         RayEnemy();
-        if (Time.time >= nextAttackTime)
+        nextAttackTime -= Time.deltaTime;
+        if (nextAttackTime <= 0)
         {
-            nextAttackTime = Time.time + attackCooldown;
+            nextAttackTime = attackCooldown;
             Shoot();
             if (currentFireTime <= 0)
             {
@@ -99,7 +103,8 @@ public class MachineGun : MonoBehaviour
 
             crossHair.DOKill();
             crossHair.localScale = Vector3.one * 2;
-            crossHair.DOScale(Vector3.one * 2 * 0.85f, 0.1f).SetLoops(1, LoopType.Yoyo);;
+            crossHair.DOScale(Vector3.one * 2 * 0.85f, 0.1f).SetLoops(1, LoopType.Yoyo);
+            ;
         }
     }
 }

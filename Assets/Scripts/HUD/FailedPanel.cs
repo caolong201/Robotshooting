@@ -10,18 +10,15 @@ public class FailedPanel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        txtEnemiesKilled.text = SaveDataManager.Instance.TotalEnemiesDeadPerStage.ToString();
+        txtEnemiesKilled.text = GameManager.Instance.TotalEnemiesKilled.ToString();
     }
 
     public void OnbtnRetryClicked()
     {
         ScreenFader.Instance.FadeIn(() =>
         {
-            SaveDataManager.Instance.LoadScene(EGameState.Lose, () =>
-            {
-                ScreenFader.Instance.FadeOut();
-            });
-            
+            GameManager.Instance.LoadStage();
+            ScreenFader.Instance.FadeOut();
         });
     }
 }

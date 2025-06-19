@@ -10,7 +10,6 @@ public class EnemiesManager : MonoBehaviour
     public void Init(Transform player)
     {
         enemies = new List<EnemyAI>(GetComponentsInChildren<EnemyAI>());
-        Debug.LogError("EnemiesManager init: " + enemies.Count);
         foreach (var e in enemies)
         {
             e.Init(this, player);
@@ -19,7 +18,6 @@ public class EnemiesManager : MonoBehaviour
 
     public void EnemyDead(EnemyAI enemy)
     {
-        Debug.Log("EnemyDead: " + enemy.name);
         GameManager.Instance.EnemyDead();
     }
 
