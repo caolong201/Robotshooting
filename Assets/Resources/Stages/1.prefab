@@ -562,6 +562,10 @@ PrefabInstance:
       propertyPath: maxHP
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 2914042361877967850, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
+      propertyPath: patrolRoutes.Array.data[1].waitTime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6401099664995345191, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
       propertyPath: m_Name
       value: Enemy_Blue_1
@@ -647,6 +651,10 @@ PrefabInstance:
     - target: {fileID: 2914042361877967850, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
       propertyPath: maxHP
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5998289280415282155, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
+      propertyPath: attackPower
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6401099664995345191, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
       propertyPath: m_Name

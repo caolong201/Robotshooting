@@ -16,7 +16,8 @@ public class UIManager : SingletonMono<UIManager>
     [SerializeField] private Slider healthSlider;
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private GameObject objTextFindEnemies;
-    [SerializeField] private GameObject boxSlider;
+    [SerializeField] private GameObject boxSlider, crosshair;
+    
     private void Start()
     {
         Reset();
@@ -151,6 +152,12 @@ public class UIManager : SingletonMono<UIManager>
     {
         if (boxSlider != null)
             boxSlider.SetActive(isShow);
+    }
+    
+    public void ShowCrossHair(bool isShow)
+    {
+        if (crosshair != null)
+            crosshair.SetActive(isShow);
     }
 
 }

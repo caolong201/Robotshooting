@@ -35,8 +35,12 @@ public class GameManager : SingletonMono<GameManager>
 
     private void Start()
     {
+        
+#if  !UNITY_EDITOR
         CurrenStage = PlayerPrefs.GetInt("kCurrentStage", 1);
         CurrentWave = PlayerPrefs.GetInt("kCurrentWave", 1);
+#endif
+        
         LoadStage();
         ScreenFader.Instance.FadeOut();
     }
@@ -104,21 +108,27 @@ public class GameManager : SingletonMono<GameManager>
             else
             {
                 Debug.Log("Game Clear wave");
+                UIManager.Instance.ShowHealthBar(false);
+                UIManager.Instance.ShowCrossHair(false);
                 UIManager.Instance.ShowWaveClear(() => { });
                 DOVirtual.DelayedCall(1f, () =>
                 {
                     _countEnemiesDeadPerWave = 0;
                     CurrentWave++;
                     Vector3 pos = playerTransform.position;
+                    Quaternion rot = playerTransform.rotation;
                     currStageController.Init(playerTransform, CurrentWave);
                     PlayerPrefs.SetInt("kCurrentWave", CurrentWave);
     
                     playerTransform.gameObject.SetActive(false);
                     transitionWave.StartTransition(pos,
                         currStageController.GetWave().GetPlayerPosition(),
+                        rot,
                         () =>
                         {
                             playerTransform.gameObject.SetActive(true);
+                            UIManager.Instance.ShowHealthBar(true);
+                            UIManager.Instance.ShowCrossHair(true);
                         });
                     
                 });

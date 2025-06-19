@@ -1313,7 +1313,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 20, z: 10}
+  m_Size: {x: 10, y: 18, z: 10}
   m_Center: {x: -0.046237398, y: -10, z: 0.20091854}
 --- !u!114 &2914042361877967850
 MonoBehaviour:
@@ -1449,8 +1449,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 7600580218579642719}
   attackCooldown: 0.2
-  range: 500
-  attackPower: 2
+  range: 300
+  attackPower: 1
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256

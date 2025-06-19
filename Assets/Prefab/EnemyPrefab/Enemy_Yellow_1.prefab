@@ -733,7 +733,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 20, z: 10}
+  m_Size: {x: 10, y: 18, z: 10}
   m_Center: {x: -0.046237398, y: -10, z: 0.20091854}
 --- !u!114 &859002621142928429
 MonoBehaviour:
@@ -2433,7 +2433,7 @@ MonoBehaviour:
   firePoint: {fileID: 5804167298446881118}
   attackCooldown: 0.2
   range: 500
-  attackPower: 2
+  attackPower: 1
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
