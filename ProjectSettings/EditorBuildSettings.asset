@@ -9,33 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 6727d13d5ec331c4287f7b585b70a662
   - enabled: 1
-    path: Assets/Scenes/Stage1.unity
-    guid: 7fb0be110bb4b0d45a7bd03c09d9f1fa
-  - enabled: 1
-    path: Assets/Scenes/Stage2 - 1.unity
-    guid: b6e8c908d9cca9744b80f2601404deae
-  - enabled: 1
-    path: Assets/Scenes/Stage2 - 2.unity
-    guid: fbd74d702b81a514fa808589b9166291
-  - enabled: 1
-    path: Assets/Scenes/Stage3 - 1.unity
-    guid: 22b1fd31a737c9b438fd222237e6b30d
-  - enabled: 1
-    path: Assets/Scenes/Stage3 - 2.unity
-    guid: 9b128441d83f62c44912a0085d4f0b3b
-  - enabled: 1
-    path: Assets/Scenes/Stage4 - 1.unity
-    guid: 663a2c1321eec4140923623c6aab45b6
-  - enabled: 1
-    path: Assets/Scenes/Stage4 - 2.unity
-    guid: 4be219d5b7e54524b9679d60925bfc84
-  - enabled: 1
-    path: Assets/Scenes/Stage5 - 1.unity
-    guid: 4a7a7a8b82a4d4f4a80919c2c06f0fe3
-  - enabled: 1
-    path: Assets/Scenes/Stage5 - 2.unity
-    guid: dc71998b3496ce7488f9b7a93db4e17c
-  - enabled: 1
-    path: Assets/Scenes/Stage5 - 3.unity
-    guid: 71cd3619a092a4548ac815c1af53040a
+    path: Assets/Scenes/GamePlay.unity
+    guid: 598bb8cfb6b64f44f801302f738f1028
   m_configObjects: {}
