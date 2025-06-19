@@ -9,7 +9,6 @@ public class UIManager : SingletonMono<UIManager>
 {
     [SerializeField] Image blackScreen;
     [SerializeField] private GameObject winPanel, losePanel, waveClearPanel;
-
     [SerializeField] private Image fxHpLow, fxTakeDamage;
     private bool isHpLow = false;
     private bool isTakeDamage = false;
@@ -17,7 +16,9 @@ public class UIManager : SingletonMono<UIManager>
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private GameObject objTextFindEnemies;
     [SerializeField] private GameObject boxSlider, crosshair;
-    
+
+    [SerializeField] private TextMeshProUGUI stageText;
+
     private void Start()
     {
         Reset();
@@ -159,5 +160,22 @@ public class UIManager : SingletonMono<UIManager>
         if (crosshair != null)
             crosshair.SetActive(isShow);
     }
+    public void UpdateStageText(int currentStage)
+    {
+        if (stageText != null)
+        {
+            //stageText.text = $"Stage {currentStage}";
 
+
+            if (stageText != null)
+            {
+                stageText.text = $"STAGE {currentStage}";
+                stageText.transform.DOKill();
+                stageText.transform.localScale = Vector3.one;
+                stageText.transform.DOPunchScale(Vector3.one * 0.2f, 0.3f);
+            }
+        }
+    }
+
+   
 }

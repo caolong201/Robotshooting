@@ -78,6 +78,8 @@ public class GameManager : SingletonMono<GameManager>
                 //rsheald
                 playerTransform.GetComponent<PlayerController>().ResetHealth();
                 UIManager.Instance.ShowHealthBar(true);
+                UIManager.Instance.UpdateStageText(CurrenStage);
+
             }
             else
             {
