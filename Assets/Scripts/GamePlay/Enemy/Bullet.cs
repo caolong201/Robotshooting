@@ -40,6 +40,7 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("play hit");
         if (other.CompareTag("Player"))
         {
             PlayerController playerHealth = other.GetComponent<PlayerController>();
@@ -47,7 +48,6 @@ public class Bullet : MonoBehaviour
             {
                 playerHealth.TakeDamage(damage);
             }
-       
             Destroy(gameObject);
         }
     }

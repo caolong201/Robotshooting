@@ -38,5 +38,14 @@ public class MachineBullet : MonoBehaviour
             other.GetComponent<EnemyAI>().TakeDamage(damage);
             Destroy(gameObject);
         }
+        else  if (other.CompareTag("Player"))
+        {
+            PlayerController playerHealth = other.GetComponent<PlayerController>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(damage);
+            }
+            Destroy(gameObject);
+        }
     }
 }

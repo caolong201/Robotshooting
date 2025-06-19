@@ -29,6 +29,8 @@ public class GameManager : SingletonMono<GameManager>
 
     private void Start()
     {
+        CurrenStage = PlayerPrefs.GetInt("kCurrentStage", 1);
+        CurrentWave = PlayerPrefs.GetInt("kCurrentWave", 1);
         LoadStage();
     }
 
@@ -75,7 +77,7 @@ public class GameManager : SingletonMono<GameManager>
                 _countEnemiesDeadPerWave = 0;
                 CurrentWave = 1;
                 CurrenStage++;
-                // LoadStage();
+                PlayerPrefs.SetInt("kCurrenStage", CurrenStage);
                 DOVirtual.DelayedCall(1.5f, () => { UIManager.Instance.ShowEndGame(true); });
             }
             else
@@ -88,40 +90,10 @@ public class GameManager : SingletonMono<GameManager>
                         _countEnemiesDeadPerWave = 0;
                         CurrentWave++;
                         currStageController.Init(playerTransform, CurrentWave);
+                        PlayerPrefs.SetInt("kCurrentWave", CurrentWave);
                     });
                 });
             }
         }
-
-        return;
-        SaveDataManager.Instance.TotalEnemiesDeadPerStage++;
-        TotalEnemiesDeadPerWave++;
-
-        if (SaveDataManager.Instance != null)
-        {
-            if (SaveDataManager.Instance.TotalEnemiesDeadPerStage >= SaveDataManager.Instance.CountEnemiesPerStage)
-            {
-                Debug.Log("Game Win");
-                DOVirtual.DelayedCall(1.5f, () => { UIManager.Instance.ShowEndGame(true); });
-            }
-            else
-            {
-                if (TotalEnemiesDeadPerWave == SaveDataManager.Instance.CountEnemiesPerWave)
-                {
-                    Debug.Log("Game Clear wave");
-                    DOVirtual.DelayedCall(1f,
-                        () =>
-                        {
-                            UIManager.Instance.ShowWaveClear(() =>
-                            {
-                                SaveDataManager.Instance.LoadScene(EGameState.ClearWave,
-                                    () => { ScreenFader.Instance.FadeOut(); });
-                            });
-                        });
-                }
-            }
-        }
-
-        onEnemiesDead?.Invoke(TotalEnemiesDeadPerWave);
     }
 }
