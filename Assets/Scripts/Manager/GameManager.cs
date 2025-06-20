@@ -36,10 +36,10 @@ public class GameManager : SingletonMono<GameManager>
     private void Start()
     {
         
-#if  !UNITY_EDITOR
+//#if  !UNITY_EDITOR
         CurrenStage = PlayerPrefs.GetInt("kCurrentStage", 1);
         CurrentWave = PlayerPrefs.GetInt("kCurrentWave", 1);
-#endif
+//#endif
         
         LoadStage();
         ScreenFader.Instance.FadeOut();

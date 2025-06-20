@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class ScreenFader : SingletonMonoAwake<ScreenFader>
 {
@@ -32,6 +33,23 @@ public class ScreenFader : SingletonMonoAwake<ScreenFader>
             FadeImg.blocksRaycasts = false;
             complete?.Invoke();
         });
+    }
+
+    public void LoadScene(int indexScene, System.Action complete = null)
+    {
+        FadeIn(() =>
+        {
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(indexScene);
+            asyncLoad.completed += (AsyncOperation op) =>
+            {
+                Debug.Log("Scene " + indexScene + " loaded successfully!");
+                FadeOut(() =>
+                {
+                    complete?.Invoke();
+                });
+            };
+        });
+       
     }
 
     public void FadeInOut(System.Action complete = null)

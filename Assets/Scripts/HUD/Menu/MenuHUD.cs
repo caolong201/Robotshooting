@@ -18,13 +18,7 @@ public class MenuHUD : MonoBehaviour
             menuItems[i].Init(this, i + 1);
         }
 
-
-        currentStageSelected = PlayerPrefs.GetInt("kUnlockStage", 0) + 1;
-        if (currentStageSelected > SaveDataManager.MAXStage) currentStageSelected = SaveDataManager.MAXStage;
-        Debug.Log(currentStageSelected);
-
-        ScreenFader.Instance.FadeIn(0);
-        OnbtnPlayClicked();
+        //ScreenFader.Instance.FadeIn(0);
     }
 
     public void OnSelectedStage(int stage)
@@ -45,10 +39,7 @@ public class MenuHUD : MonoBehaviour
 
     public void OnbtnPlayClicked()
     {
-        SaveDataManager.Instance.Stage = currentStageSelected;
-        ScreenFader.Instance.FadeIn(() =>
-        {
-            SaveDataManager.Instance.LoadScene(EGameState.Start, () => { ScreenFader.Instance.FadeOut(); });
-        });
+        //SaveDataManager.Instance.Stage = currentStageSelected;
+        ScreenFader.Instance.LoadScene(1);
     }
 }
