@@ -23,7 +23,6 @@ public class MachineBullet : MonoBehaviour
     void Update()
     {
         transform.position += direction * speed * Time.deltaTime;
-
         if (Vector3.Distance(startPosition, transform.position) >= maxDistance)
         {
             Destroy(gameObject);
@@ -35,6 +34,7 @@ public class MachineBullet : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            Time.timeScale = 1;
             other.GetComponent<EnemyAI>().TakeDamage(damage);
             Destroy(gameObject);
         }

@@ -16,8 +16,6 @@ public class TransitionWave : MonoBehaviour
     
     public void StartTransition(Vector3 start, Vector3 target, Quaternion camRot,Action callback)
     {
-        Debug.LogError(start);
-        Debug.LogError(target);
         gameObject.SetActive(true);
         this._callback = callback;
         transform.position = start;

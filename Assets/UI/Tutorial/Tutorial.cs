@@ -1,15 +1,15 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
-using TMPro;
+
 using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
     private void Start()
     {
-        if (!SaveDataManager.Instance.IsTutorial)
+        if (GameManager.Instance.CurrenStage == 1 && GameManager.Instance.CurrentWave == 1)
+        {
+            gameObject.SetActive(true);
+        }
+        else
         {
             gameObject.SetActive(false);
         }
@@ -18,9 +18,8 @@ public class Tutorial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SaveDataManager.Instance.IsTutorial && Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            SaveDataManager.Instance.IsTutorial = false;
             gameObject.SetActive(false);
         }
     }

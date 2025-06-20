@@ -26,7 +26,11 @@ public class MachineGun : MonoBehaviour
     private float posZ = 0;
     [SerializeField] private Transform crossHair;
     [SerializeField] private Image crossHairDot;
+    [SerializeField] private Transform cameraSlowMotionTransform;
 
+    private Ray ray;
+    RaycastHit hit;
+    
     private void Start()
     {
         posZ = transform.localPosition.z;
@@ -43,12 +47,13 @@ public class MachineGun : MonoBehaviour
             return;
         }
 
-        RayEnemy();
+      
         nextAttackTime -= Time.deltaTime;
         if (nextAttackTime <= 0)
         {
-            nextAttackTime = attackCooldown;
+            RayEnemy();
             Shoot();
+            nextAttackTime = attackCooldown;
             if (currentFireTime <= 0)
             {
                 nextAttackTime += 3;
@@ -59,16 +64,18 @@ public class MachineGun : MonoBehaviour
 
     private void RayEnemy()
     {
-        Ray ray = new Ray(firePoint.position, firePoint.forward);
-        RaycastHit hit;
+        ray = new Ray(firePoint.position, firePoint.forward);
 
         if (Physics.Raycast(ray, out hit, range, enemyLayer))
         {
+            Debug.Log(hit);
             target = hit.collider;
             if (crossHairDot != null)
             {
                 crossHairDot.color = Color.green;
             }
+            // Optional: visualize ray
+            Debug.DrawRay(firePoint.position, firePoint.forward * range, Color.green, 0.1f);
         }
         else
         {
@@ -77,11 +84,9 @@ public class MachineGun : MonoBehaviour
             {
                 crossHairDot.color = Color.white;
             }
+            // Optional: visualize ray
+            Debug.DrawRay(firePoint.position, firePoint.forward * range, Color.red, 0.1f);
         }
-
-
-        // Optional: visualize ray
-        Debug.DrawRay(firePoint.position, firePoint.forward * range, Color.red, 0.1f);
     }
 
     void Shoot()
@@ -104,7 +109,25 @@ public class MachineGun : MonoBehaviour
             crossHair.DOKill();
             crossHair.localScale = Vector3.one * 2;
             crossHair.DOScale(Vector3.one * 2 * 0.85f, 0.1f).SetLoops(1, LoopType.Yoyo);
-            ;
+
+            //stage 1 and last enemy
+            if (GameManager.Instance.CurrenStage == 1 && GameManager.Instance.CurrentWave == 2 && GameManager.Instance.TotalEnemiesKilled >= 3)
+            {
+                float currHP = target.GetComponent<EnemyAI>().GetCurrentHP;
+                if (bullet.damage - currHP >= 0)
+                {
+                    //fx last hit
+                    if (cameraSlowMotionTransform != null)
+                    {
+                        cameraSlowMotionTransform.gameObject.SetActive(true);
+                        cameraSlowMotionTransform.SetParent(bullet.transform);
+                        cameraSlowMotionTransform.localPosition = new Vector3(-0.75f, 0, -7.5f);
+                        bullet.speed /= 2;
+                        bullet.SetDirection(firePoint.forward, firePoint.position, Vector3.Distance(target.transform.position, firePoint.position));
+                        Time.timeScale = 0.1f;
+                    }
+                }
+            }
         }
     }
 }

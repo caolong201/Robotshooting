@@ -1309,11 +1309,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 18, z: 10}
+  m_Size: {x: 5, y: 18, z: 5}
   m_Center: {x: -0.046237398, y: -10, z: 0.20091854}
 --- !u!114 &2914042361877967850
 MonoBehaviour:
@@ -1459,6 +1459,7 @@ MonoBehaviour:
   isPlayer: 0
   crossHair: {fileID: 0}
   crossHairDot: {fileID: 0}
+  cameraSlowMotionTransform: {fileID: 0}
 --- !u!1 &4499880929913337571
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,6 +42,7 @@ public class EnemyAI : MonoBehaviour
 
     private EnemiesManager _enemiesManager;
     private bool isDead = false;
+    public float GetCurrentHP => currentHP;
     
     [System.Serializable]
     public class PatrolRoute
@@ -190,11 +191,12 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
-            currentSpeed = Mathf.MoveTowards(
-                currentSpeed,
-                moveSpeed,
-                acceleration * Time.deltaTime
-            );
+            // currentSpeed = Mathf.MoveTowards(
+            //     currentSpeed,
+            //     moveSpeed,
+            //     acceleration * Time.deltaTime
+            // );
+            currentSpeed = moveSpeed;
             currentVelocity = transform.forward * currentSpeed;
         }
     }

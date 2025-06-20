@@ -19,6 +19,7 @@ public class GameManager : SingletonMono<GameManager>
     public const int MAXStage = 5;
     public int CurrenStage = 1;
     public int CurrentWave = 1;
+    public bool IsTutorial = true;
 
     private StageController currStageController = null;
     [SerializeField] Transform playerTransform;
@@ -31,15 +32,16 @@ public class GameManager : SingletonMono<GameManager>
     private void Awake()
     {
         Application.targetFrameRate = 60;
+        IsTutorial = PlayerPrefs.GetInt("kTutorial", 0) == 0 ? true : false;
     }
 
     private void Start()
     {
         
-//#if  !UNITY_EDITOR
+#if  !UNITY_EDITOR
         CurrenStage = PlayerPrefs.GetInt("kCurrentStage", 1);
         CurrentWave = PlayerPrefs.GetInt("kCurrentWave", 1);
-//#endif
+#endif
         
         LoadStage();
         ScreenFader.Instance.FadeOut();
@@ -136,5 +138,15 @@ public class GameManager : SingletonMono<GameManager>
                 });
             }
         }
+    }
+
+    public bool IsShowFXLastHit()
+    {
+        if (CurrenStage == 1 && CurrentWave == 2)
+        {
+            
+        }
+
+        return false;
     }
 }
