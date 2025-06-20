@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -17,13 +17,11 @@ public class MenuMapItem : MonoBehaviour
 
     private MenuHUD parent;
     public int mStage = 1;
-
     public void Init(MenuHUD parent, int stage)
     {
         mStage = stage;
         this.parent = parent;
-        
-        int unlockStage = PlayerPrefs.GetInt("kUnlockStage", 0);
+        int unlockStage = PlayerPrefs.GetInt("kUnlockStage", 1);
         objCleared.SetActive(false);
         objNormal.SetActive(false);
         objLock.SetActive(false);
@@ -31,23 +29,25 @@ public class MenuMapItem : MonoBehaviour
 
         textStage.text = stage.ToString();
 
-        if (unlockStage >= stage)
+        if (unlockStage > stage)
         {
+          
             objCleared.SetActive(true);
         }
-        else if (unlockStage + 1 == stage)
+        else if (unlockStage == stage)
         {
+            
             objSelected.SetActive(true);
             objNormal.SetActive(true);
         }
         else
         {
+           
             objNormal.SetActive(true);
             objLock.SetActive(true);
             GetComponent<Button>().interactable = false;
         }
     }
-
     public void Select(bool isSelected)
     {
         objSelected.SetActive(isSelected);
