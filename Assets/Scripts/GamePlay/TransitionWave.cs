@@ -68,7 +68,6 @@ public class TransitionWave : MonoBehaviour
     void UpdateMoveToTarget()
     {
         transform.position += transform.forward * 40 * Time.deltaTime;
-        Debug.Log((Vector3.Distance(transform.position, _target)));
         if (Vector3.Distance(transform.position, _target) < 2)
         {
             isCanMOve = false;

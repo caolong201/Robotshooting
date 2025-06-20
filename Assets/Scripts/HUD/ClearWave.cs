@@ -12,7 +12,7 @@ public class ClearWave : MonoBehaviour
         int currentWave = GameManager.Instance.CurrentWave;
         if (waveClearText != null)
         {
-            waveClearText.text = $"Clear Wave {currentWave}";
+            waveClearText.text = $"Wave {currentWave} clear!";
         }
     }
 }
