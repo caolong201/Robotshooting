@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -102,13 +102,26 @@ public class GameManager : SingletonMono<GameManager>
         {
             if (CurrentWave >= currStageController.WaveCount())
             {
-                //next stage
                 _countEnemiesDeadPerWave = 0;
                 CurrentWave = 1;
+
                 CurrenStage++;
+
+             
                 PlayerPrefs.SetInt("kCurrentStage", CurrenStage);
+
+            
+                int unlockStage = PlayerPrefs.GetInt("kUnlockStage", 1);
+                if (CurrenStage > unlockStage)
+                {
+                    PlayerPrefs.SetInt("kUnlockStage", CurrenStage);
+                }
+
+                PlayerPrefs.Save();
+
                 DOVirtual.DelayedCall(1.5f, () => { UIManager.Instance.ShowEndGame(true); });
             }
+
             else
             {
                 Debug.Log("Game Clear wave");

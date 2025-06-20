@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -39,7 +39,12 @@ public class MenuHUD : MonoBehaviour
 
     public void OnbtnPlayClicked()
     {
-        //SaveDataManager.Instance.Stage = currentStageSelected;
+
+
+        PlayerPrefs.SetInt("kCurrentStage", currentStageSelected);
+        PlayerPrefs.SetInt("kCurrentWave", 1); 
+
         ScreenFader.Instance.LoadScene(1);
     }
+
 }
