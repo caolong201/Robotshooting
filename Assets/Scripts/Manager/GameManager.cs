@@ -33,15 +33,14 @@ public class GameManager : SingletonMono<GameManager>
     {
         Application.targetFrameRate = 60;
         IsTutorial = PlayerPrefs.GetInt("kTutorial", 0) == 0 ? true : false;
-        //#if  !UNITY_EDITOR
+#if !UNITY_EDITOR
         CurrenStage = PlayerPrefs.GetInt("kCurrentStage", 1);
         CurrentWave = PlayerPrefs.GetInt("kCurrentWave", 1);
-//#endif
+#endif
     }
 
     private void Start()
     {
-        
         LoadStage();
         ScreenFader.Instance.FadeOut();
     }
@@ -80,7 +79,6 @@ public class GameManager : SingletonMono<GameManager>
                 playerTransform.GetComponent<PlayerController>().ResetHealth();
                 UIManager.Instance.ShowHealthBar(true);
                 UIManager.Instance.UpdateStageText(CurrenStage);
-
             }
             else
             {
@@ -106,10 +104,10 @@ public class GameManager : SingletonMono<GameManager>
 
                 CurrenStage++;
 
-             
+
                 PlayerPrefs.SetInt("kCurrentStage", CurrenStage);
 
-            
+
                 int unlockStage = PlayerPrefs.GetInt("kUnlockStage", 1);
                 if (CurrenStage > unlockStage)
                 {
@@ -135,7 +133,7 @@ public class GameManager : SingletonMono<GameManager>
                     Quaternion rot = playerTransform.rotation;
                     currStageController.Init(playerTransform, CurrentWave);
                     PlayerPrefs.SetInt("kCurrentWave", CurrentWave);
-    
+
                     playerTransform.gameObject.SetActive(false);
                     transitionWave.StartTransition(pos,
                         currStageController.GetWave().GetPlayerPosition(),
@@ -146,7 +144,6 @@ public class GameManager : SingletonMono<GameManager>
                             UIManager.Instance.ShowHealthBar(true);
                             UIManager.Instance.ShowCrossHair(true);
                         });
-                    
                 });
             }
         }
@@ -156,7 +153,6 @@ public class GameManager : SingletonMono<GameManager>
     {
         if (CurrenStage == 1 && CurrentWave == 2)
         {
-            
         }
 
         return false;
