@@ -33,10 +33,10 @@ public class GameManager : SingletonMono<GameManager>
     {
         Application.targetFrameRate = 60;
         IsTutorial = PlayerPrefs.GetInt("kTutorial", 0) == 0 ? true : false;
-#if !UNITY_EDITOR
+//#if !UNITY_EDITOR
         CurrenStage = PlayerPrefs.GetInt("kCurrentStage", 1);
         CurrentWave = PlayerPrefs.GetInt("kCurrentWave", 1);
-#endif
+//#endif
     }
 
     private void Start()

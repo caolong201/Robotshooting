@@ -18,13 +18,19 @@ public class MenuHUD : MonoBehaviour
     void Start()
     {
         currentStageSelected = PlayerPrefs.GetInt("kCurrentStage", 1);
+        if (currentStageSelected == 1)
+        {
+            ScreenFader.Instance.FadeIn(0);
+            OnbtnPlayClicked();
+            return;
+        }
+
         // init UI
         for (int i = 0; i < menuItems.Count; i++)
         {
             menuItems[i].Init(this, i + 1);
         }  
         OnSelectedStage(currentStageSelected);
-        //ScreenFader.Instance.FadeIn(0);
         StartPulse();
     }
     public void OnSelectedStage(int stage)

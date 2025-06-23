@@ -68,7 +68,6 @@ public class MachineGun : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, range, enemyLayer))
         {
-            Debug.Log(hit);
             target = hit.collider;
             if (crossHairDot != null)
             {
