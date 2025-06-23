@@ -13,7 +13,7 @@ public class MenuHUD : MonoBehaviour
     private int currentStageSelected = 1;
     public float minScale = 0.8f; 
     public float maxScale = 1.2f; 
-    public float pulseDuration = 1f; 
+    public float pulseDuration = 0.4f; 
     private Tween pulseTween;
     void Start()
     {
