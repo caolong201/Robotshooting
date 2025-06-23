@@ -85,8 +85,6 @@ public class GameManager : SingletonMono<GameManager>
                 Debug.LogWarning("StageController component not found on prefab.");
             }
         }
-
-        CurrentGameStatus = EGameStatus.Live;
     }
 
     public void EnemyDead()
@@ -97,6 +95,7 @@ public class GameManager : SingletonMono<GameManager>
         int totalEnemiesPerWave = currStageController.GetWave().GetEnemiesCount();
         if (_countEnemiesDeadPerWave >= totalEnemiesPerWave)
         {
+            CurrentGameStatus = EGameStatus.End;
             if (CurrentWave >= currStageController.WaveCount())
             {
                 _countEnemiesDeadPerWave = 0;
@@ -115,7 +114,6 @@ public class GameManager : SingletonMono<GameManager>
                 }
 
                 PlayerPrefs.Save();
-
                 DOVirtual.DelayedCall(1.5f, () => { UIManager.Instance.ShowEndGame(true); });
             }
 
@@ -124,7 +122,7 @@ public class GameManager : SingletonMono<GameManager>
                 Debug.Log("Game Clear wave");
                 UIManager.Instance.ShowHealthBar(false);
                 UIManager.Instance.ShowCrossHair(false);
-                UIManager.Instance.ShowWaveClear(() => { });
+                //UIManager.Instance.ShowWaveClear(() => { });
                 DOVirtual.DelayedCall(1f, () =>
                 {
                     _countEnemiesDeadPerWave = 0;
@@ -134,27 +132,18 @@ public class GameManager : SingletonMono<GameManager>
                     currStageController.Init(playerTransform, CurrentWave);
                     PlayerPrefs.SetInt("kCurrentWave", CurrentWave);
 
-                    playerTransform.gameObject.SetActive(false);
                     transitionWave.StartTransition(pos,
                         currStageController.GetWave().GetPlayerPosition(),
                         rot,
                         () =>
                         {
-                            playerTransform.gameObject.SetActive(true);
                             UIManager.Instance.ShowHealthBar(true);
                             UIManager.Instance.ShowCrossHair(true);
+                            CurrentGameStatus = EGameStatus.Live;
                         });
                 });
             }
         }
     }
 
-    public bool IsShowFXLastHit()
-    {
-        if (CurrenStage == 1 && CurrentWave == 2)
-        {
-        }
-
-        return false;
-    }
 }

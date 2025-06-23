@@ -18,7 +18,10 @@ public class FailedPanel : MonoBehaviour
         ScreenFader.Instance.FadeIn(() =>
         {
             GameManager.Instance.LoadStage();
-            ScreenFader.Instance.FadeOut();
+            ScreenFader.Instance.FadeOut(() =>
+            {
+                GameManager.Instance.CurrentGameStatus = EGameStatus.Live;
+            });
         });
     }
 }

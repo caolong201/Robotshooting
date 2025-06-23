@@ -23,8 +23,8 @@ public class EnemyAI : MonoBehaviour
     public float stoppingDistance = 0.5f;
     [SerializeField] float maxHP = 100f;
     [SerializeField] private float currentHP = 0;
-    
-    [SerializeField] private GameObject sdHPObject;
+
+    [SerializeField] private List<GameObject> objectsHideOnDead;
     [SerializeField] private Slider sdHP;
 
     [Header("Patrol Settings")] public List<PatrolRoute> patrolRoutes = new List<PatrolRoute>();
@@ -43,7 +43,8 @@ public class EnemyAI : MonoBehaviour
     private EnemiesManager _enemiesManager;
     private bool isDead = false;
     public float GetCurrentHP => currentHP;
-    
+    [SerializeField] private MachineGun gun;
+
     [System.Serializable]
     public class PatrolRoute
     {
@@ -58,13 +59,17 @@ public class EnemyAI : MonoBehaviour
         InitializeAI();
     }
 
-    public void Init(EnemiesManager parent,Transform player)
+    public void Init(EnemiesManager parent, Transform player)
     {
         _enemiesManager = parent;
         this.playerTransform = player;
         currentHP = maxHP;
         sdHP.value = 1;
-        sdHPObject.SetActive(true);
+        foreach (var obj in objectsHideOnDead)
+        {
+            if (obj != null) obj.SetActive(true);
+        }
+
         isDead = false;
     }
 
@@ -224,6 +229,7 @@ public class EnemyAI : MonoBehaviour
             AdvanceToNextWaypoint();
         }
     }
+
     void UpdateStandFire()
     {
         stateTimer -= Time.deltaTime;
@@ -253,7 +259,6 @@ public class EnemyAI : MonoBehaviour
     void ApplyMovement()
     {
         transform.position += currentVelocity * Time.deltaTime;
-        
     }
 
     void UpdateAnimations()
@@ -269,12 +274,15 @@ public class EnemyAI : MonoBehaviour
     public void TakeDamage(float damage)
     {
         if (isDead) return;
-        
+
         currentHP -= damage;
         sdHP.value = currentHP / maxHP;
         if (currentHP <= 0)
         {
-            sdHPObject.SetActive(false);
+            foreach (var obj in objectsHideOnDead)
+            {
+                if (obj != null) obj.SetActive(false);
+            }
             Die();
         }
     }
@@ -288,5 +296,6 @@ public class EnemyAI : MonoBehaviour
         animator.SetTrigger("Die");
         // Additional death logic
         _enemiesManager.EnemyDead(this);
+        if(gun != null) gun.Dead();
     }
 }

@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,6 +28,7 @@ public class MachineGun : MonoBehaviour
 
     private Ray ray;
     RaycastHit hit;
+    private bool isDead = false;
     
     private void Start()
     {
@@ -37,9 +36,15 @@ public class MachineGun : MonoBehaviour
         currentFireTime = fireTime;
     }
 
+    public void Dead()
+    {
+        isDead = true;
+    }
+
     private void Update()
     {
         if (GameManager.Instance.CurrentGameStatus != EGameStatus.Live) return;
+        if(isDead) return;
 
         if (startDelayFire > 0)
         {
