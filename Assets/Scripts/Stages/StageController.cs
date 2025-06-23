@@ -15,7 +15,7 @@ public class StageController : MonoBehaviour
             if (currentWave - 1 == i)
             {
                 waves[i].gameObject.SetActive(true);
-                waves[i].Init(player);
+                waves[i].Init(player,currentWave);
             }
             else
             {

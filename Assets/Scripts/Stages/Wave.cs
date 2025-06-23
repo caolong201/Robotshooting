@@ -7,27 +7,28 @@ public class Wave : MonoBehaviour
 {
     private EnemiesManager _enemiesManager;
     private PlayerPos playerPos;
-    
-    public void Init(Transform player)
+
+    public void Init(Transform player, int wave)
     {
         _enemiesManager = GetComponentInChildren<EnemiesManager>();
         _enemiesManager.Init(player);
-        
+
         playerPos = GetComponentInChildren<PlayerPos>();
-        
-        player.position = playerPos.transform.position;
-        player.rotation = playerPos.transform.rotation;
-        
-        
+
+        if (wave == 1)
+        {
+            player.position = playerPos.transform.position;
+            player.rotation = playerPos.transform.rotation;
+        }
     }
 
     public int GetEnemiesCount()
     {
         return _enemiesManager.EnemiesCount();
     }
-    
-    public Vector3 GetPlayerPosition()
+
+    public Transform GetTarget()
     {
-        return playerPos.transform.position;
+        return playerPos.transform;
     }
 }

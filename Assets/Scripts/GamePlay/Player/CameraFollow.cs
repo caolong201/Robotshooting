@@ -11,6 +11,8 @@ public class CameraFollow : MonoBehaviour
 
     void Update()
     {
+        if(GameManager.Instance.CurrentGameStatus != EGameStatus.Live) return;
+        
         input = new Vector3(cameraJoystick.Horizontal, cameraJoystick.Vertical).normalized;
 
         transform.Rotate(

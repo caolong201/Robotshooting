@@ -132,9 +132,7 @@ public class GameManager : SingletonMono<GameManager>
                     currStageController.Init(playerTransform, CurrentWave);
                     PlayerPrefs.SetInt("kCurrentWave", CurrentWave);
 
-                    transitionWave.StartTransition(pos,
-                        currStageController.GetWave().GetPlayerPosition(),
-                        rot,
+                    transitionWave.StartTransition(currStageController.GetWave().GetTarget(),
                         () =>
                         {
                             UIManager.Instance.ShowHealthBar(true);
