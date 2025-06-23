@@ -16,18 +16,18 @@ public class MainPanel : MonoBehaviour
     void Start()
     {
         OnOverheat(false);
-        DOVirtual.DelayedCall(.1f, () =>
-        {
-            PlayerAutoFire.Instance.onOverheat += OnOverheat;
-            
-            txtEnemies.text = (SaveDataManager.Instance.CountEnemiesPerWave) + "/" + SaveDataManager.Instance.CountEnemiesPerWave;
-            GameManager.Instance.onEnemiesDead += enemiesDead =>
-            {
-                animTextEnemies.gameObject.SetActive(false);
-                animTextEnemies.gameObject.SetActive(true);
-                txtEnemies.text = (SaveDataManager.Instance.CountEnemiesPerWave - enemiesDead) + "/" + SaveDataManager.Instance.CountEnemiesPerWave;
-            };
-        });
+        // DOVirtual.DelayedCall(.1f, () =>
+        // {
+        //     PlayerAutoFire.Instance.onOverheat += OnOverheat;
+        //     
+        //     txtEnemies.text = (SaveDataManager.Instance.CountEnemiesPerWave) + "/" + SaveDataManager.Instance.CountEnemiesPerWave;
+        //     GameManager.Instance.onEnemiesDead += enemiesDead =>
+        //     {
+        //         animTextEnemies.gameObject.SetActive(false);
+        //         animTextEnemies.gameObject.SetActive(true);
+        //         txtEnemies.text = (SaveDataManager.Instance.CountEnemiesPerWave - enemiesDead) + "/" + SaveDataManager.Instance.CountEnemiesPerWave;
+        //     };
+        // });
     }
 
     private void OnOverheat(bool isOverheat)

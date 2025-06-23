@@ -122,9 +122,9 @@ public class MachineGun : MonoBehaviour
                         cameraSlowMotionTransform.gameObject.SetActive(true);
                         cameraSlowMotionTransform.SetParent(bullet.transform);
                         cameraSlowMotionTransform.localPosition = new Vector3(-0.75f, 0, -7.5f);
-                        bullet.speed /= 2;
+                        bullet.speed /= 4;
                         bullet.SetDirection(firePoint.forward, firePoint.position, Vector3.Distance(target.transform.position, firePoint.position));
-                        Time.timeScale = 0.1f;
+                        Time.timeScale = 0.01f;
                     }
                 }
             }
