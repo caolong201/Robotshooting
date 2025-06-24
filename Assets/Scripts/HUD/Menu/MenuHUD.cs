@@ -16,10 +16,15 @@ public class MenuHUD : MonoBehaviour
     public float pulseDuration = 0.4f; 
     private Tween pulseTween;
     [SerializeField] private ScrollRect scrollRect;
+    [SerializeField] List<Image> mapLines = new List<Image>();
+    public Color unlockedLineColor = Color.yellow;
+    public Color lockedLineColor = Color.gray;
+
 
     void Start()
     {
-        currentStageSelected = PlayerPrefs.GetInt("kCurrentStage", 1);
+      
+          currentStageSelected = PlayerPrefs.GetInt("kCurrentStage", 1);
         if (currentStageSelected == 1)
         {
             ScreenFader.Instance.FadeIn(0);
@@ -27,15 +32,14 @@ public class MenuHUD : MonoBehaviour
             return;
         }
         // init UI
-        for (int i = 0; i < menuItems.Count; i++)
+        for (int i = 0; i < menuItems.Count; i++)                   
         {
             menuItems[i].Init(this, i + 1);
         }
-        OnSelectedStage(currentStageSelected);
-        StartPulse();
-
-
+        OnSelectedStage(currentStageSelected);   
         ScrollToStage(currentStageSelected);
+        StartPulse();
+        UpdateMapLines1();
     }
     private void ScrollToStage(int stage)
     {
@@ -49,7 +53,7 @@ public class MenuHUD : MonoBehaviour
         //scrollRect.DOVerticalNormalizedPos(normalizedPosition, 0.5f).SetEase(Ease.OutCubic);
         scrollRect.verticalNormalizedPosition = normalizedPosition;
     }
-
+  
     public void OnSelectedStage(int stage)
     {
         currentStageSelected = stage;
@@ -92,6 +96,23 @@ public class MenuHUD : MonoBehaviour
         {
             pulseTween.Kill();
             buttonTransform.localScale = Vector3.one;
+        }
+    }
+    private void UpdateMapLines1()
+    {
+        for (int i = 0; i < mapLines.Count; i++)
+        {
+            if (mapLines[i] == null) continue; 
+
+            if (i < currentStageSelected - 1)
+            {             
+                mapLines[i].color = unlockedLineColor;
+            }
+            else
+            {
+            
+                mapLines[i].color = lockedLineColor;
+            }
         }
     }
 }
