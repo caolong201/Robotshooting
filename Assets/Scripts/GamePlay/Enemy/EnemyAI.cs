@@ -19,7 +19,6 @@ public class EnemyAI : MonoBehaviour
     [Header("AI Settings")] public EnemyState currentState = EnemyState.None;
     public float moveSpeed = 3.5f;
     public float rotationSpeed = 120f;
-    public float acceleration = 2f;
     public float stoppingDistance = 0.5f;
     [SerializeField] float maxHP = 100f;
     [SerializeField] private float currentHP = 0;
@@ -65,10 +64,7 @@ public class EnemyAI : MonoBehaviour
         this.playerTransform = player;
         currentHP = maxHP;
         sdHP.value = 1;
-        foreach (var obj in objectsHideOnDead)
-        {
-            if (obj != null) obj.SetActive(true);
-        }
+        ShowHideObjects(true);
 
         isDead = false;
     }
@@ -189,18 +185,12 @@ public class EnemyAI : MonoBehaviour
 
         if (distance <= stoppingDistance)
         {
-            Debug.Log("hit target");
-            //ChangeState(currentRoute.state);
             UpdateMoveStopped();
             AdvanceToNextWaypoint();
         }
         else
         {
-            // currentSpeed = Mathf.MoveTowards(
-            //     currentSpeed,
-            //     moveSpeed,
-            //     acceleration * Time.deltaTime
-            // );
+          
             currentSpeed = moveSpeed;
             currentVelocity = transform.forward * currentSpeed;
         }
@@ -279,11 +269,16 @@ public class EnemyAI : MonoBehaviour
         sdHP.value = currentHP / maxHP;
         if (currentHP <= 0)
         {
-            foreach (var obj in objectsHideOnDead)
-            {
-                if (obj != null) obj.SetActive(false);
-            }
+            ShowHideObjects(false);
             Die();
+        }
+    }
+
+    public void ShowHideObjects(bool show)
+    {
+        foreach (var obj in objectsHideOnDead)
+        {
+            if (obj != null) obj.SetActive(show);
         }
     }
 

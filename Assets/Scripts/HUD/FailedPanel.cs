@@ -17,6 +17,7 @@ public class FailedPanel : MonoBehaviour
     {
         ScreenFader.Instance.FadeIn(() =>
         {
+            GameManager.Instance.ResetWaves();
             GameManager.Instance.LoadStage();
             ScreenFader.Instance.FadeOut(() =>
             {

@@ -755,8 +755,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6013454884830212771, guid: 0a83c7b889ef90948a3c2eb71b66d16b, type: 3}
+      propertyPath: debugStage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6013454884830212771, guid: 0a83c7b889ef90948a3c2eb71b66d16b, type: 3}
       propertyPath: CurrenStage
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6013454884830212771, guid: 0a83c7b889ef90948a3c2eb71b66d16b, type: 3}
       propertyPath: CurrentWave
@@ -33750,22 +33754,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4657107746789862959, guid: c57e8e74491661446b4364bcf993474d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4793216117825150997, guid: c57e8e74491661446b4364bcf993474d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 4793216117825150997, guid: c57e8e74491661446b4364bcf993474d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 33.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4793216117825150997, guid: c57e8e74491661446b4364bcf993474d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -83.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5691689142033702745, guid: c57e8e74491661446b4364bcf993474d, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8139890889205297495, guid: c57e8e74491661446b4364bcf993474d, type: 3}

@@ -14,7 +14,6 @@ public class CameraFollow : MonoBehaviour
         if(GameManager.Instance.CurrentGameStatus != EGameStatus.Live) return;
         
         input = new Vector3(cameraJoystick.Horizontal, cameraJoystick.Vertical).normalized;
-
         transform.Rotate(
             -input.y * rotationSpeed * Time.deltaTime, // X-axis
             input.x * rotationSpeed * Time.deltaTime, // Y-axis

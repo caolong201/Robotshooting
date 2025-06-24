@@ -1,26 +1,33 @@
-
 using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
-    private void Start()
+    [SerializeField] private GameObject root;
+    private bool isShowing = false;
+    void Update()
     {
-        if (GameManager.Instance.CurrenStage == 1 && GameManager.Instance.CurrentWave == 1)
+        if (GameManager.Instance.CurrentGameStatus != EGameStatus.Live)
         {
-            gameObject.SetActive(true);
+            root.SetActive(false);
+            isShowing = false;
+            return;
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            if (isShowing)
+            {
+                root.SetActive(false);
+                isShowing = false;
+            }
         }
         else
         {
-            gameObject.SetActive(false);
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            gameObject.SetActive(false);
+            if (!isShowing && !GameManager.Instance.IsRayHitEmeny)
+            {
+                root.SetActive(true);
+                isShowing = true;
+            }
         }
     }
 }

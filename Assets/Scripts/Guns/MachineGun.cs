@@ -1,4 +1,3 @@
-
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,7 +28,7 @@ public class MachineGun : MonoBehaviour
     private Ray ray;
     RaycastHit hit;
     private bool isDead = false;
-    
+
     private void Start()
     {
         posZ = transform.localPosition.z;
@@ -44,7 +43,7 @@ public class MachineGun : MonoBehaviour
     private void Update()
     {
         if (GameManager.Instance.CurrentGameStatus != EGameStatus.Live) return;
-        if(isDead) return;
+        if (isDead) return;
 
         if (startDelayFire > 0)
         {
@@ -52,11 +51,10 @@ public class MachineGun : MonoBehaviour
             return;
         }
 
-      
+        RayEnemy();
         nextAttackTime -= Time.deltaTime;
         if (nextAttackTime <= 0)
         {
-            RayEnemy();
             Shoot();
             nextAttackTime = attackCooldown;
             if (currentFireTime <= 0)
@@ -70,7 +68,6 @@ public class MachineGun : MonoBehaviour
     private void RayEnemy()
     {
         ray = new Ray(firePoint.position, firePoint.forward);
-
         if (Physics.Raycast(ray, out hit, range, enemyLayer))
         {
             target = hit.collider;
@@ -78,8 +75,10 @@ public class MachineGun : MonoBehaviour
             {
                 crossHairDot.color = Color.green;
             }
+
             // Optional: visualize ray
             Debug.DrawRay(firePoint.position, firePoint.forward * range, Color.green, 0.1f);
+            if (isPlayer) GameManager.Instance.IsRayHitEmeny = true;
         }
         else
         {
@@ -88,8 +87,10 @@ public class MachineGun : MonoBehaviour
             {
                 crossHairDot.color = Color.white;
             }
+
             // Optional: visualize ray
             Debug.DrawRay(firePoint.position, firePoint.forward * range, Color.red, 0.1f);
+            if (isPlayer) GameManager.Instance.IsRayHitEmeny = false;
         }
     }
 
@@ -115,20 +116,24 @@ public class MachineGun : MonoBehaviour
             crossHair.DOScale(Vector3.one * 2 * 0.85f, 0.1f).SetLoops(1, LoopType.Yoyo);
 
             //stage 1 and last enemy
-            if (GameManager.Instance.CurrenStage == 1 && GameManager.Instance.CurrentWave == 2 && GameManager.Instance.TotalEnemiesKilled >= 3)
+            if (GameManager.Instance.CurrenStage == 1 && GameManager.Instance.CurrentWave == 2 &&
+                GameManager.Instance.TotalEnemiesKilled >= 3)
             {
-                float currHP = target.GetComponent<EnemyAI>().GetCurrentHP;
+                var ai = target.GetComponent<EnemyAI>();
+                float currHP = ai.GetCurrentHP;
                 if (bullet.damage - currHP >= 0)
                 {
+                    ai.ShowHideObjects(false);
                     //fx last hit
                     if (cameraSlowMotionTransform != null)
                     {
                         cameraSlowMotionTransform.gameObject.SetActive(true);
                         cameraSlowMotionTransform.SetParent(bullet.transform);
                         cameraSlowMotionTransform.localPosition = new Vector3(-0.75f, 0, -7.5f);
-                        bullet.speed /= 4;
-                        bullet.SetDirection(firePoint.forward, firePoint.position, Vector3.Distance(target.transform.position, firePoint.position));
-                        Time.timeScale = 0.01f;
+                        bullet.speed /= 10;
+                        bullet.SetDirection(firePoint.forward, firePoint.position,
+                            Vector3.Distance(target.transform.position, firePoint.position));
+                        //Time.timeScale = 0.1f;
                     }
                 }
             }

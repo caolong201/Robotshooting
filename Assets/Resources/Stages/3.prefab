@@ -834,7 +834,7 @@ PrefabInstance:
     - target: {fileID: 859002621142928429, guid: 18d55a61676b33b43a89b7caea852379, type: 3}
       propertyPath: patrolRoutes.Array.data[1].waypoint
       value: 
-      objectReference: {fileID: 1202614462700043645}
+      objectReference: {fileID: 0}
     - target: {fileID: 859002621142928429, guid: 18d55a61676b33b43a89b7caea852379, type: 3}
       propertyPath: patrolRoutes.Array.data[2].waitTime
       value: 5
@@ -928,11 +928,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18d55a61676b33b43a89b7caea852379, type: 3}
---- !u!4 &1202614462700043645 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6462888952575698128, guid: 18d55a61676b33b43a89b7caea852379, type: 3}
-  m_PrefabInstance: {fileID: 5260274982015572397}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2944312136106513210 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7051524792258235031, guid: 18d55a61676b33b43a89b7caea852379, type: 3}
@@ -1175,7 +1170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2914042361877967850, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
       propertyPath: moveSpeed
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2914042361877967850, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
       propertyPath: acceleration

@@ -13,13 +13,11 @@ public enum EGameStatus
 
 public class GameManager : SingletonMono<GameManager>
 {
-    public Action<int> onEnemiesDead;
     private int TotalEnemiesDeadPerWave = 0;
 
-    public const int MAXStage = 5;
+    private const int MAXStage = 5;
     public int CurrenStage = 1;
     public int CurrentWave = 1;
-    public bool IsTutorial = true;
 
     private StageController currStageController = null;
     [SerializeField] Transform playerTransform;
@@ -28,21 +26,34 @@ public class GameManager : SingletonMono<GameManager>
     public int TotalEnemiesKilled = 0;
     public EGameStatus CurrentGameStatus = EGameStatus.Live;
     [SerializeField] TransitionWave transitionWave;
+    [SerializeField] bool debugStage = false;
+
+    [HideInInspector] public bool IsRayHitEmeny = false;
 
     private void Awake()
     {
         Application.targetFrameRate = 60;
-        IsTutorial = PlayerPrefs.GetInt("kTutorial", 0) == 0 ? true : false;
-//#if !UNITY_EDITOR
+#if !UNITY_EDITOR
         CurrenStage = PlayerPrefs.GetInt("kCurrentStage", 1);
-        CurrentWave = PlayerPrefs.GetInt("kCurrentWave", 1);
-//#endif
+#else
+        if (!debugStage)
+        {
+            CurrenStage = PlayerPrefs.GetInt("kCurrentStage", 1);
+        }
+#endif
+
+        ResetWaves();
     }
 
     private void Start()
     {
         LoadStage();
         ScreenFader.Instance.FadeOut();
+    }
+
+    public void ResetWaves()
+    {
+        CurrentWave = 1;
     }
 
     public void LoadStage()
@@ -58,7 +69,7 @@ public class GameManager : SingletonMono<GameManager>
         int stageIndex = CurrenStage;
         if (stageIndex > MAXStage)
         {
-            stageIndex = Random.Range(1, MAXStage + 1);
+            stageIndex = Random.Range(2, MAXStage + 1);
         }
 
         GameObject stagePrefab = Resources.Load<GameObject>("Stages/" + stageIndex);
@@ -99,21 +110,15 @@ public class GameManager : SingletonMono<GameManager>
             if (CurrentWave >= currStageController.WaveCount())
             {
                 _countEnemiesDeadPerWave = 0;
-                CurrentWave = 1;
-
+                ResetWaves();
                 CurrenStage++;
-
-
                 PlayerPrefs.SetInt("kCurrentStage", CurrenStage);
-
-
+                
                 int unlockStage = PlayerPrefs.GetInt("kUnlockStage", 1);
                 if (CurrenStage > unlockStage)
                 {
                     PlayerPrefs.SetInt("kUnlockStage", CurrenStage);
                 }
-
-                PlayerPrefs.Save();
                 DOVirtual.DelayedCall(1.5f, () => { UIManager.Instance.ShowEndGame(true); });
             }
 
@@ -143,5 +148,4 @@ public class GameManager : SingletonMono<GameManager>
             }
         }
     }
-
 }
