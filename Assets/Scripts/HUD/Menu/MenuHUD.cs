@@ -1,9 +1,9 @@
 ﻿using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuHUD : MonoBehaviour
 {
@@ -15,6 +15,8 @@ public class MenuHUD : MonoBehaviour
     public float maxScale = 1.2f; 
     public float pulseDuration = 0.4f; 
     private Tween pulseTween;
+    [SerializeField] private ScrollRect scrollRect;
+
     void Start()
     {
         currentStageSelected = PlayerPrefs.GetInt("kCurrentStage", 1);
@@ -24,15 +26,30 @@ public class MenuHUD : MonoBehaviour
             OnbtnPlayClicked();
             return;
         }
-
         // init UI
         for (int i = 0; i < menuItems.Count; i++)
         {
             menuItems[i].Init(this, i + 1);
-        }  
+        }
         OnSelectedStage(currentStageSelected);
         StartPulse();
+
+
+        ScrollToStage(currentStageSelected);
     }
+    private void ScrollToStage(int stage)
+    {
+        if (stage < 1 || stage > menuItems.Count) return;
+
+        RectTransform target = menuItems[stage - 1].GetComponent<RectTransform>();
+        float targetPosY = Mathf.Abs(target.localPosition.y);
+        float contentHeight = scrollRect.content.rect.height - scrollRect.viewport.rect.height;
+        float offset = 900f;
+        float normalizedPosition = 1 - Mathf.Clamp01((targetPosY - offset) / contentHeight);
+        //scrollRect.DOVerticalNormalizedPos(normalizedPosition, 0.5f).SetEase(Ease.OutCubic);
+        scrollRect.verticalNormalizedPosition = normalizedPosition;
+    }
+
     public void OnSelectedStage(int stage)
     {
         currentStageSelected = stage;
@@ -44,7 +61,9 @@ public class MenuHUD : MonoBehaviour
         {
             if (item.mStage == stage)
             {
+                Debug.Log("lv" + stage);
                 item.Select(true);
+                item.Select(item.mStage == stage);
             }
             else
             {
@@ -53,7 +72,7 @@ public class MenuHUD : MonoBehaviour
         }
     }
     public void OnbtnPlayClicked()
-    {    
+    {
         PlayerPrefs.SetInt("kCurrentStage", currentStageSelected);
         PlayerPrefs.SetInt("kCurrentWave", 1);
         ScreenFader.Instance.LoadScene(1);
@@ -78,10 +97,9 @@ public class MenuHUD : MonoBehaviour
 }
 
 
-    
 
 
-  
-       
-   
+
+
+
 

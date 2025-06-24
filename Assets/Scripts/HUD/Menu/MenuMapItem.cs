@@ -10,7 +10,7 @@ public class MenuMapItem : MonoBehaviour
     public class Data
     {
         public int Stage = 1;
-        //        public int clearStage = 0;
+    
     }
     [SerializeField] TextMeshProUGUI textStage;
     [SerializeField] GameObject objCleared, objSelected, objNormal, objLock;
