@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -61,7 +62,12 @@ public class MenuHUD : MonoBehaviour
     }
     private void ScrollToStage(int stage)
     {
-        if (stage < 1 || stage > menuItems.Count) return;
+
+        if (stage < 1) return;
+        if (stage > menuItems.Count) 
+        {
+            stage = 20;
+        };
 
         RectTransform target = menuItems[stage - 1].GetComponent<RectTransform>();
         float targetPosY = Mathf.Abs(target.localPosition.y);
@@ -70,6 +76,8 @@ public class MenuHUD : MonoBehaviour
         float normalizedPosition = 1 - Mathf.Clamp01((targetPosY - offset) / contentHeight);
         //scrollRect.DOVerticalNormalizedPos(normalizedPosition, 0.5f).SetEase(Ease.OutCubic);
         scrollRect.verticalNormalizedPosition = normalizedPosition;
+       
+      
     }
   
     public void OnSelectedStage(int stage)

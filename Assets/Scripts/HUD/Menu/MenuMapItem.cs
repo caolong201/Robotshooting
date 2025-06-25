@@ -14,7 +14,7 @@ public class MenuMapItem : MonoBehaviour
     [SerializeField] TextMeshProUGUI textStage;
     [SerializeField] GameObject objCleared, objSelected, objNormal, objLock;
     [SerializeField] Image ObjNormalImage, Normal, Cleared;
-
+    [SerializeField] GameObject locka;
     private MenuHUD parent;
     public int mStage = 1;
     public void Init(MenuHUD parent, int stage)
@@ -63,7 +63,7 @@ public class MenuMapItem : MonoBehaviour
         lockImage.color = new Color(1, 1, 1, 1);
         lockImage.DOFade(0, 1f)
             .SetEase(Ease.InOutSine)
-            .OnComplete(() => objLock.SetActive(false));
+            .OnComplete(() => locka.SetActive(false));
 
         RectTransform normalRT = Normal.GetComponent<RectTransform>();
         normalRT.localScale = Vector3.zero;
@@ -84,27 +84,17 @@ public class MenuMapItem : MonoBehaviour
             .SetEase(Ease.InOutSine);
 
     }
-
-
     public void PlayClearFadeTween()
     {
         objCleared.SetActive(true);
         objNormal.SetActive(false);
         RectTransform clearedRT = Cleared.GetComponent<RectTransform>();
         clearedRT.localScale = Vector3.zero;
-
         Sequence seq = DOTween.Sequence();
         seq.Append(clearedRT.DOScale(Vector3.one * 1.2f,1f)
             .SetEase(Ease.OutBack));
-
-        seq.Append(clearedRT.DORotate(new Vector3(0, 0, 15f), 0.1f)
-            .SetEase(Ease.InOutSine)
-             .SetLoops(4, LoopType.Yoyo));
-
         seq.Append(clearedRT.DOScale(Vector3.one, 0.3f)
             .SetEase(Ease.InOutSine));
-
-     
     }
 
 }
