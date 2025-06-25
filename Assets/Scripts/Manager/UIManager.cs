@@ -14,6 +14,7 @@ public class UIManager : SingletonMono<UIManager>
     private bool isTakeDamage = false;
     [SerializeField] private Slider healthSlider;
     [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] Image sdFillImage;
     [SerializeField] private GameObject boxSlider, crosshair;
 
     [SerializeField] private TextMeshProUGUI stageText;
@@ -123,6 +124,7 @@ public class UIManager : SingletonMono<UIManager>
         {
             healthSlider.maxValue = maxHealth;
             healthSlider.value = maxHealth;
+            sdFillImage.color = Color.green;
         }
 
         if (healthText != null)
@@ -135,7 +137,11 @@ public class UIManager : SingletonMono<UIManager>
     {
         if (healthSlider != null)
         {
-            healthSlider.DOValue(currentHealth, 0.2f);
+            healthSlider.DOValue(currentHealth, 0.1f);
+            if (currentHealth / healthSlider.maxValue < 0.15f)
+            {
+                sdFillImage.color = Color.red;
+            }
         }
 
         if (healthText != null)

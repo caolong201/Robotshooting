@@ -55,6 +55,7 @@ public class GameManager : SingletonMono<GameManager>
 
     public void ResetWaves()
     {
+        _countEnemiesDeadPerWave = 0;
         CurrentWave = 1;
     }
 
@@ -111,7 +112,6 @@ public class GameManager : SingletonMono<GameManager>
             CurrentGameStatus = EGameStatus.End;
             if (CurrentWave >= currStageController.WaveCount())
             {
-                _countEnemiesDeadPerWave = 0;
                 ResetWaves();
                 CurrenStage++;
                 PlayerPrefs.SetInt("kCurrentStage", CurrenStage);
