@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float currentHealth;
     private bool isDead = false;
+    [SerializeField] private MachineGun gun;
     private void Start()
     {
         currentHealth = maxHealth;
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Player Died!");
         UIManager.Instance.ShowEndGame(false);
     }
+    
     public void ResetHealth()
     {
         currentHealth = maxHealth;
@@ -47,6 +49,7 @@ public class PlayerController : MonoBehaviour
 
         UIManager.Instance.SetHealthSliderMax(maxHealth);
         UIManager.Instance.UpdateHealthSlider(currentHealth);
+        gun.Reset();
     }
 
 }

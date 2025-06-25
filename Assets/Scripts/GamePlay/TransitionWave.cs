@@ -24,8 +24,12 @@ public class TransitionWave : MonoBehaviour
 
         transform.DORotate(finalEuler, 0.5f).SetEase(Ease.OutSine).OnComplete(() =>
         {
-            transform.DOMove(targetMove.position, 3).SetEase(Ease.Linear).OnComplete(() =>
+            var distance = Vector3.Distance(transform.position, targetMove.position);
+            distance /= 50f;
+            
+            transform.DOMove(targetMove.position, distance).SetEase(Ease.Linear).OnComplete(() =>
             {
+                transform.DOKill();
                 var targetEuler = new Vector3(0, targetMove.eulerAngles.y, 0);
                 transform.DORotate(targetEuler, .5f).SetEase(Ease.OutSine).OnComplete(() => { _callback?.Invoke(); });
             });

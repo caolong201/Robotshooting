@@ -7,12 +7,12 @@ public class EnemiesManager : MonoBehaviour
 {
     private List<EnemyAI> enemies;
 
-    public void Init(Transform player)
+    public void Init(Transform player, Tracker tracker)
     {
         enemies = new List<EnemyAI>(GetComponentsInChildren<EnemyAI>());
         foreach (var e in enemies)
         {
-            e.Init(this, player);
+            e.Init(this, player, tracker);
         }
     }
 

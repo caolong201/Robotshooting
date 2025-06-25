@@ -29,7 +29,9 @@ public class GameManager : SingletonMono<GameManager>
     [SerializeField] bool debugStage = false;
 
     [HideInInspector] public bool IsRayHitEmeny = false;
+    [SerializeField] private Tracker trackerPrefab;
 
+    [HideInInspector] public bool IsGunReloading = false;
     private void Awake()
     {
         Application.targetFrameRate = 60;
@@ -84,7 +86,7 @@ public class GameManager : SingletonMono<GameManager>
             if (currStageController != null)
             {
                 // Now you can use the controller
-                currStageController.Init(playerTransform, CurrentWave); // Or any setup logic you have
+                currStageController.Init(playerTransform, CurrentWave, trackerPrefab); // Or any setup logic you have
 
                 //rsheald
                 playerTransform.GetComponent<PlayerController>().ResetHealth();
@@ -113,12 +115,13 @@ public class GameManager : SingletonMono<GameManager>
                 ResetWaves();
                 CurrenStage++;
                 PlayerPrefs.SetInt("kCurrentStage", CurrenStage);
-                
+
                 int unlockStage = PlayerPrefs.GetInt("kUnlockStage", 1);
                 if (CurrenStage > unlockStage)
                 {
                     PlayerPrefs.SetInt("kUnlockStage", CurrenStage);
                 }
+
                 DOVirtual.DelayedCall(1.5f, () => { UIManager.Instance.ShowEndGame(true); });
             }
 
@@ -132,9 +135,8 @@ public class GameManager : SingletonMono<GameManager>
                 {
                     _countEnemiesDeadPerWave = 0;
                     CurrentWave++;
-                    Vector3 pos = playerTransform.position;
-                    Quaternion rot = playerTransform.rotation;
-                    currStageController.Init(playerTransform, CurrentWave);
+                  
+                    currStageController.Init(playerTransform, CurrentWave, trackerPrefab);
                     PlayerPrefs.SetInt("kCurrentWave", CurrentWave);
 
                     transitionWave.StartTransition(currStageController.GetWave().GetTarget(),

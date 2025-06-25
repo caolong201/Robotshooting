@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Synty.Interface.MilitaryCombatHUD.Samples;
 using TMPro;
@@ -14,10 +15,13 @@ public class CoolingButton : MonoBehaviour
     [Header("Parameters")] public float initialDelay = 0;
     public float countdownTime = 30;
     public float updateInterval = 0.1f;
-    public string timerFormat = "F1";
-    public UnityEvent onCountdownComplete;
+    private string timerFormat = "F2";
+    private Action onCountdownComplete;
     [SerializeField] private GameObject tut;
+    [SerializeField] private GameObject reloadIcon;
     private float currentTime;
+
+    private bool isShowing = false;
 
     private void Reset()
     {
@@ -27,15 +31,20 @@ public class CoolingButton : MonoBehaviour
 
     public void Show(bool isShowing)
     {
+        if (this.isShowing == isShowing) return;
+
+        this.isShowing = isShowing;
         gameObject.SetActive(isShowing);
         myAnimator.enabled = false;
         currentTime = countdownTime;
         RefreshUI();
         tut.SetActive(true);
+        reloadIcon.SetActive(this.isShowing);
     }
 
-    public void BeginTimer(float delay)
+    public void BeginTimer(float delay, Action callback)
     {
+        onCountdownComplete = callback;
         tut.SetActive(false);
         currentTime = countdownTime;
         RefreshUI();
@@ -78,29 +87,6 @@ public class CoolingButton : MonoBehaviour
         {
             myAnimator.SetBool("Active", false);
         }
-
-        // if (otherObjectAnimator != null)
-        // {
-        //     if (setOtherObjectAnimatorActive)
-        //     {
-        //         otherObjectAnimator.gameObject.SetActive(true);
-        //     }
-        //
-        //     otherObjectAnimator.SetBool("Active", true);
-        // }
-        //
-        // yield return new WaitForSeconds(timeUpDuration);
-        //
-        // if (otherObjectAnimator != null)
-        // {
-        //     otherObjectAnimator.SetBool("Active", false);
-        //     if (setOtherObjectAnimatorActive)
-        //     {
-        //         otherObjectAnimator.gameObject.SetActive(false);
-        //     }
-        // }
-        //
-        // BeginTimer(0);
     }
 
     private void RefreshUI()

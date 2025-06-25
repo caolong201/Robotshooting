@@ -40,7 +40,7 @@ public class EnemyAI : MonoBehaviour
     private Transform playerTransform;
 
     private EnemiesManager _enemiesManager;
-    private bool isDead = false;
+    [HideInInspector] public bool isDead = false;
     public float GetCurrentHP => currentHP;
     [SerializeField] private MachineGun gun;
 
@@ -58,7 +58,7 @@ public class EnemyAI : MonoBehaviour
         InitializeAI();
     }
 
-    public void Init(EnemiesManager parent, Transform player)
+    public void Init(EnemiesManager parent, Transform player, Tracker tracker)
     {
         _enemiesManager = parent;
         this.playerTransform = player;
@@ -67,6 +67,10 @@ public class EnemyAI : MonoBehaviour
         ShowHideObjects(true);
 
         isDead = false;
+
+        Tracker newTracker = Instantiate(tracker, tracker.gameObject.transform.parent);
+        newTracker.gameObject.SetActive(true);
+        newTracker.SetTarget(this);
     }
 
     void Update()
@@ -190,7 +194,6 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
-          
             currentSpeed = moveSpeed;
             currentVelocity = transform.forward * currentSpeed;
         }
@@ -291,6 +294,9 @@ public class EnemyAI : MonoBehaviour
         animator.SetTrigger("Die");
         // Additional death logic
         _enemiesManager.EnemyDead(this);
-        if(gun != null) gun.Dead();
+        if (gun != null) gun.Dead();
+
+        EffectManager.Instance.PlayEffect<GameObject>(EEffectType.EnemyDestroy,
+            new Vector3(transform.position.x, transform.position.y - 5, transform.position.z), transform.rotation);
     }
 }

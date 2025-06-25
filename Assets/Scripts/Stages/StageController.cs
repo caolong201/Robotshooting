@@ -6,7 +6,7 @@ public class StageController : MonoBehaviour
 {
     private List<Wave> waves = null;
     private int currentWave = 0;
-    public void Init(Transform player, int currentWave)
+    public void Init(Transform player, int currentWave, Tracker tracker)
     {
         this.currentWave = currentWave;
         waves = new List<Wave>(GetComponentsInChildren<Wave>(true));
@@ -15,7 +15,7 @@ public class StageController : MonoBehaviour
             if (currentWave - 1 == i)
             {
                 waves[i].gameObject.SetActive(true);
-                waves[i].Init(player,currentWave);
+                waves[i].Init(player,currentWave, tracker);
             }
             else
             {

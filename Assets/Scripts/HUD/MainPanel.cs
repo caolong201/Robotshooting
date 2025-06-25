@@ -1,62 +1,53 @@
+
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class MainPanel : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI txtEnemies;
-    [SerializeField] private Animator animTextEnemies;
     [SerializeField] CoolingButton coolingButton;
-    private float coolingTime = 0f;
+    [SerializeField] private GameObject weaponUIInfo;
 
+    private bool isReloading = false;
     void Start()
     {
+        Reset();
+    }
+
+    public void Reset()
+    {
+        GameManager.Instance.IsGunReloading = false;
+        isReloading = false;
         OnOverheat(false);
-        // DOVirtual.DelayedCall(.1f, () =>
-        // {
-        //     PlayerAutoFire.Instance.onOverheat += OnOverheat;
-        //     
-        //     txtEnemies.text = (SaveDataManager.Instance.CountEnemiesPerWave) + "/" + SaveDataManager.Instance.CountEnemiesPerWave;
-        //     GameManager.Instance.onEnemiesDead += enemiesDead =>
-        //     {
-        //         animTextEnemies.gameObject.SetActive(false);
-        //         animTextEnemies.gameObject.SetActive(true);
-        //         txtEnemies.text = (SaveDataManager.Instance.CountEnemiesPerWave - enemiesDead) + "/" + SaveDataManager.Instance.CountEnemiesPerWave;
-        //     };
-        // });
+        weaponUIInfo.SetActive(true);
     }
 
     private void OnOverheat(bool isOverheat)
     {
-        Debug.Log("OnOverheat: " + isOverheat);
         coolingButton.Show(isOverheat);
     }
 
     public void OnbtnCoolDownClicked()
     {
-        coolingTime = 3f;
-        coolingButton.BeginTimer(0);
+        coolingButton.BeginTimer(0, () =>
+        {
+            GameManager.Instance.IsGunReloading = false;
+            OnOverheat(false);
+            weaponUIInfo.SetActive(true);
+            isReloading = false;
+        });
     }
 
     private void Update()
     {
-        if (coolingTime > 0)
+        if (GameManager.Instance.IsGunReloading)
         {
-            coolingTime -= Time.deltaTime;
-            if (coolingTime <= 0)
+            if (!isReloading)
             {
-                coolingTime = 0;
-                PlayerAutoFire.Instance.CoolingDownCompleted();
+                isReloading = true;
+                OnOverheat(true);
+                weaponUIInfo.SetActive(false);
             }
         }
     }
 
-    private void OnDestroy()
-    {
-        if (PlayerAutoFire.IsInstanceValid()) PlayerAutoFire.Instance.onOverheat -= OnOverheat;
-    }
 }

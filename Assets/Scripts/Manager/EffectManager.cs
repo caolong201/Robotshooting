@@ -5,13 +5,10 @@ using UnityEngine;
 
 public enum EEffectType
 {
-    BulletFX = 0,
-    HitFX1,
-    DamageFX1,
-    DamageFX_Critical,
-    CarBrokenFX,
-    BulletRicochest,
+    HitFX = 0,
+    EnemyDestroy = 1,
 }
+
 [Serializable]
 public class EffectPrefab
 {

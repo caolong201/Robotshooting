@@ -14,10 +14,10 @@ public class UIManager : SingletonMono<UIManager>
     private bool isTakeDamage = false;
     [SerializeField] private Slider healthSlider;
     [SerializeField] private TextMeshProUGUI healthText;
-    [SerializeField] private GameObject objTextFindEnemies;
     [SerializeField] private GameObject boxSlider, crosshair;
 
     [SerializeField] private TextMeshProUGUI stageText;
+    [SerializeField] MainPanel mainPanel;
 
     private void Start()
     {
@@ -50,6 +50,8 @@ public class UIManager : SingletonMono<UIManager>
         }
 
         if (fxHpLow != null) fxHpLow.gameObject.SetActive(false);
+        
+        mainPanel.Reset();
     }
 
     public void ShowWaveClear(System.Action complete)
@@ -87,11 +89,11 @@ public class UIManager : SingletonMono<UIManager>
             fxHpLow.DOKill();
             // Set initial alpha to 0.5
             Color startColor = fxHpLow.color;
-            startColor.a = 0.5f;
+            startColor.a = 0.2f;
             fxHpLow.color = startColor;
 
             // Looping fade effect from 0.5 to 1 and back to 0.5
-            fxHpLow.DOFade(1f, 0.5f) // Fade to 1
+            fxHpLow.DOFade(5f, 0.5f) // Fade to 1
                 .SetLoops(-1, LoopType.Yoyo) // Infinite loop: 1 -> 0.5 -> 1
                 .SetEase(Ease.InOutSine); // Smooth fade effect
         }
@@ -108,20 +110,13 @@ public class UIManager : SingletonMono<UIManager>
             startColor.a = 0f;
             fxTakeDamage.color = startColor;
 
-            fxTakeDamage.DOFade(1f, 0.15f) // Fade to 1
+            fxTakeDamage.DOFade(0.6f, 0.15f) // Fade to 1
                 .SetLoops(2, LoopType.Yoyo)
                 .SetEase(Ease.InOutSine)
                 .OnComplete(() => { isTakeDamage = false; });
         }
     }
 
-    public void ShowTextFindEnemies(bool isShow)
-    {
-        if (objTextFindEnemies)
-        {
-            objTextFindEnemies.SetActive(isShow);
-        }
-    }
     public void SetHealthSliderMax(float maxHealth)
     {
         if (healthSlider != null)

@@ -34,7 +34,8 @@ public class MachineBullet : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            Time.timeScale = 1;
+            Vector3 effectPosition = transform.position - direction * 0.2f;
+            EffectManager.Instance.PlayEffect<GameObject>(EEffectType.HitFX, effectPosition, transform.rotation);
             other.GetComponent<EnemyAI>().TakeDamage(damage);
             Destroy(gameObject);
         }
