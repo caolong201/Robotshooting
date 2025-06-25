@@ -62,8 +62,8 @@ public class MenuMapItem : MonoBehaviour
         Image lockImage = objLock.GetComponent<Image>();
         lockImage.color = new Color(1, 1, 1, 1);
         lockImage.DOFade(0, 1f)
-            .SetEase(Ease.InOutSine)
-            .OnComplete(() => locka.SetActive(false));
+            .SetEase(Ease.InOutSine);
+            //.OnComplete(() => locka.SetActive(false));
 
         RectTransform normalRT = Normal.GetComponent<RectTransform>();
         normalRT.localScale = Vector3.zero;

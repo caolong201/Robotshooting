@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,9 +12,9 @@ public class MenuHUD : MonoBehaviour
     public RectTransform textTransform;
     public RectTransform buttonTransform;
     private int currentStageSelected = 1;
-    public float minScale = 0.8f;
-    public float maxScale = 1.2f;
-    public float pulseDuration = 0.4f;
+    public float minScale = 0.8f; 
+    public float maxScale = 1.2f; 
+    public float pulseDuration = 0.4f; 
     private Tween pulseTween;
     [SerializeField] private ScrollRect scrollRect;
     [SerializeField] List<Image> mapLines = new List<Image>();
@@ -24,20 +25,17 @@ public class MenuHUD : MonoBehaviour
     void Start()
     {
         currentStageSelected = PlayerPrefs.GetInt("kCurrentStage", 1);
-       // currentStageSelected = 20;
         if (currentStageSelected == 1)
         {
             ScreenFader.Instance.FadeIn(0);
             OnbtnPlayClicked();
             return;
         }
-
         // Init UI
         for (int i = 0; i < menuItems.Count; i++)
         {
             menuItems[i].Init(this, i + 1);
         }
-
         if (PlayerPrefs.GetInt("kJustUnlockedNewStage", 0) == 1)
         {
             int unlockStage = PlayerPrefs.GetInt("kUnlockStage", 1);
@@ -57,33 +55,33 @@ public class MenuHUD : MonoBehaviour
             PlayerPrefs.SetInt("kJustUnlockedNewStage", 0);
             PlayerPrefs.Save();
         }
-
-        OnSelectedStage(currentStageSelected);
+        OnSelectedStage(currentStageSelected);   
         ScrollToStage(currentStageSelected);
         StartPulse();
         UpdateMapLines();
     }
-
     private void ScrollToStage(int stage)
     {
+
         if (stage < 1) return;
-        if (stage > menuItems.Count)
+        if (stage > menuItems.Count) 
         {
             stage = 20;
-        }
+        };
 
         RectTransform target = menuItems[stage - 1].GetComponent<RectTransform>();
         float targetPosY = Mathf.Abs(target.localPosition.y);
         float contentHeight = scrollRect.content.rect.height - scrollRect.viewport.rect.height;
         float offset = 900f;
         float normalizedPosition = 1 - Mathf.Clamp01((targetPosY - offset) / contentHeight);
+        //scrollRect.DOVerticalNormalizedPos(normalizedPosition, 0.5f).SetEase(Ease.OutCubic);
         scrollRect.verticalNormalizedPosition = normalizedPosition;
     }
-
+  
     public void OnSelectedStage(int stage)
     {
         currentStageSelected = stage;
-        PlayerPrefs.SetInt("kCurrentStage", currentStageSelected);
+        PlayerPrefs.SetInt("kCurrentStage", currentStageSelected );
         PlayerPrefs.Save();
 
         currentStageSelected = stage;
@@ -101,13 +99,12 @@ public class MenuHUD : MonoBehaviour
             }
         }
     }
-
     public void OnbtnPlayClicked()
     {
         PlayerPrefs.SetInt("kCurrentStage", currentStageSelected);
+        PlayerPrefs.SetInt("kCurrentWave", 1);
         ScreenFader.Instance.LoadScene(1);
     }
-
     public void StartPulse()
     {
         buttonTransform.localScale = Vector3.one;
@@ -115,8 +112,8 @@ public class MenuHUD : MonoBehaviour
             .DOScale(minScale, pulseDuration)
             .SetEase(Ease.InOutSine)
             .SetLoops(-1, LoopType.Yoyo);
-    }
 
+    }
     public void StopPulse()
     {
         if (pulseTween != null)
@@ -125,19 +122,18 @@ public class MenuHUD : MonoBehaviour
             buttonTransform.localScale = Vector3.one;
         }
     }
-
     private void UpdateMapLines()
     {
         for (int i = 0; i < mapLines.Count; i++)
         {
-            if (mapLines[i] == null) continue;
+            if (mapLines[i] == null) continue; 
 
             if (i < currentStageSelected - 1)
-            {
+            {             
                 mapLines[i].color = unlockedLineColor;
             }
             else
-            {
+            { 
                 mapLines[i].color = lockedLineColor;
             }
         }
@@ -153,8 +149,19 @@ public class MenuHUD : MonoBehaviour
         line.color = unlockedLineColor;
 
         line.DOFade(0.2f, 0.4f)
-            .SetLoops(20, LoopType.Yoyo)
+            .SetLoops(-1, LoopType.Yoyo)
             .SetEase(Ease.InOutSine)
-            .OnComplete(() => { line.color = unlockedLineColor; });
+            .OnComplete(() =>
+            {
+                line.color = unlockedLineColor;
+            });
     }
 }
+
+
+
+
+
+
+
+
