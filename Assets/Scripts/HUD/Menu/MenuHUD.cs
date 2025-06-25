@@ -23,23 +23,41 @@ public class MenuHUD : MonoBehaviour
 
     void Start()
     {
-      
-          currentStageSelected = PlayerPrefs.GetInt("kCurrentStage", 1);
+        currentStageSelected = PlayerPrefs.GetInt("kCurrentStage", 1);
         if (currentStageSelected == 1)
         {
             ScreenFader.Instance.FadeIn(0);
             OnbtnPlayClicked();
             return;
         }
-        // init UI
-        for (int i = 0; i < menuItems.Count; i++)                   
+        // Init UI
+        for (int i = 0; i < menuItems.Count; i++)
         {
             menuItems[i].Init(this, i + 1);
+        }
+        if (PlayerPrefs.GetInt("kJustUnlockedNewStage", 0) == 1)
+        {
+            int unlockStage = PlayerPrefs.GetInt("kUnlockStage", 1);
+
+            if (unlockStage <= menuItems.Count)
+            {
+                // Gọi hiệu ứng clear cho stage trước đó
+                if (unlockStage > 1)
+                {
+                    menuItems[unlockStage - 2].PlayClearFadeTween();
+                }
+
+                menuItems[unlockStage - 1].PlayUnlockFadeTween();
+                PlayLineGlowTween(unlockStage);
+            }
+
+            PlayerPrefs.SetInt("kJustUnlockedNewStage", 0);
+            PlayerPrefs.Save();
         }
         OnSelectedStage(currentStageSelected);   
         ScrollToStage(currentStageSelected);
         StartPulse();
-        UpdateMapLines1();
+        UpdateMapLines();
     }
     private void ScrollToStage(int stage)
     {
@@ -98,7 +116,7 @@ public class MenuHUD : MonoBehaviour
             buttonTransform.localScale = Vector3.one;
         }
     }
-    private void UpdateMapLines1()
+    private void UpdateMapLines()
     {
         for (int i = 0; i < mapLines.Count; i++)
         {
@@ -114,6 +132,24 @@ public class MenuHUD : MonoBehaviour
                 mapLines[i].color = lockedLineColor;
             }
         }
+    }
+
+
+    public void PlayLineGlowTween(int stageIndex)
+    {
+        int lineIndex = stageIndex - 2;
+        if (lineIndex < 0 || lineIndex >= mapLines.Count) return;
+
+        Image line = mapLines[lineIndex];
+        line.color = unlockedLineColor;
+
+        line.DOFade(0.2f, 0.4f)
+            .SetLoops(20, LoopType.Yoyo)
+            .SetEase(Ease.InOutSine)
+            .OnComplete(() =>
+            {
+                line.color = unlockedLineColor;
+            });
     }
 }
 
