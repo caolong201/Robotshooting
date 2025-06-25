@@ -1,23 +1,24 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class WinPanel : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI txtEnemiesKilled;
 
-    // Start is called before the first frame update
     void Start()
     {
         txtEnemiesKilled.text = GameManager.Instance.TotalEnemiesKilled.ToString();
     }
-
     public void OnbtnWinContinueClicked()
     {
-        // ScreenFader.Instance.FadeIn(() =>
-        // {
-        //    GameManager.Instance.LoadStage();
-        //    ScreenFader.Instance.FadeOut();
-        // });
-        ScreenFader.Instance.LoadScene(0);
+        int currentStage = GameManager.Instance.CurrenStage;
+        int unlockedStage = PlayerPrefs.GetInt("kUnlockStage", 1);
+        if (unlockedStage <= currentStage)
+        {
+            PlayerPrefs.SetInt("kUnlockStage", currentStage); 
+            PlayerPrefs.SetInt("kJustUnlockedNewStage", 1);
+            PlayerPrefs.Save();
+        }
+        ScreenFader.Instance.LoadScene(0); 
     }
 }

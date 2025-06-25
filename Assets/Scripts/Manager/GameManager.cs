@@ -26,7 +26,7 @@ public class GameManager : SingletonMono<GameManager>
     public int TotalEnemiesKilled = 0;
     public EGameStatus CurrentGameStatus = EGameStatus.Live;
     [SerializeField] TransitionWave transitionWave;
-    [SerializeField] bool debugStage = false;
+    //[SerializeField] bool debugStage = false;
 
     [HideInInspector] public bool IsRayHitEmeny = false;
     [SerializeField] private Tracker trackerPrefab;
@@ -38,10 +38,10 @@ public class GameManager : SingletonMono<GameManager>
 #if !UNITY_EDITOR
         CurrenStage = PlayerPrefs.GetInt("kCurrentStage", 1);
 #else
-        if (!debugStage)
-        {
+        //if (!debugStage)
+        //{
             CurrenStage = PlayerPrefs.GetInt("kCurrentStage", 1);
-        }
+        //}
 #endif
 
         ResetWaves();

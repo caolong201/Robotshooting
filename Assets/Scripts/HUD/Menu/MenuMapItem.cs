@@ -10,10 +10,11 @@ public class MenuMapItem : MonoBehaviour
     public class Data
     {
         public int Stage = 1;
-    
     }
     [SerializeField] TextMeshProUGUI textStage;
     [SerializeField] GameObject objCleared, objSelected, objNormal, objLock;
+    [SerializeField] Image ObjNormalImage, Normal, Cleared;
+
     private MenuHUD parent;
     public int mStage = 1;
     public void Init(MenuHUD parent, int stage)
@@ -25,8 +26,6 @@ public class MenuMapItem : MonoBehaviour
         objNormal.SetActive(false);
         objLock.SetActive(false);
         objSelected.SetActive(false);
-
-
         textStage.text = stage.ToString();
 
         if (unlockStage > stage)
@@ -49,10 +48,63 @@ public class MenuMapItem : MonoBehaviour
     {
         objSelected.SetActive(isSelected);
     }
-
     public void OnClick()
     {
         Debug.Log("OnClick: " + mStage);
         parent.OnSelectedStage(mStage);
     }
+    public void PlayUnlockFadeTween()
+    {
+        objSelected.SetActive(true);
+        objNormal.SetActive(true);
+        objLock.SetActive(true);
+
+        Image lockImage = objLock.GetComponent<Image>();
+        lockImage.color = new Color(1, 1, 1, 1);
+        lockImage.DOFade(0, 1f)
+            .SetEase(Ease.InOutSine)
+            .OnComplete(() => objLock.SetActive(false));
+
+        RectTransform normalRT = Normal.GetComponent<RectTransform>();
+        normalRT.localScale = Vector3.zero;
+        Sequence seq = DOTween.Sequence();
+        seq.Append(normalRT.DOScale(Vector3.one * 1.2f, 1f) // Bung mạnh
+                .SetEase(Ease.OutBack));
+        seq.Append(normalRT.DORotate(new Vector3(0, 0, 15f), 0.1f)
+            .SetEase(Ease.InOutSine)
+            .SetLoops(4, LoopType.Yoyo));
+
+        seq.Append(normalRT.DOScale(Vector3.one, 0.6f) 
+                      .SetEase(Ease.InOutSine));
+
+        var normalImage = ObjNormalImage;
+        normalImage.color = Color.white;
+        normalImage.DOColor(Color.green, 0.3f)
+            .SetLoops(-1, LoopType.Yoyo)
+            .SetEase(Ease.InOutSine);
+
+    }
+
+
+    public void PlayClearFadeTween()
+    {
+        objCleared.SetActive(true);
+        objNormal.SetActive(false);
+        RectTransform clearedRT = Cleared.GetComponent<RectTransform>();
+        clearedRT.localScale = Vector3.zero;
+
+        Sequence seq = DOTween.Sequence();
+        seq.Append(clearedRT.DOScale(Vector3.one * 1.2f,1f)
+            .SetEase(Ease.OutBack));
+
+        seq.Append(clearedRT.DORotate(new Vector3(0, 0, 15f), 0.1f)
+            .SetEase(Ease.InOutSine)
+             .SetLoops(4, LoopType.Yoyo));
+
+        seq.Append(clearedRT.DOScale(Vector3.one, 0.3f)
+            .SetEase(Ease.InOutSine));
+
+     
+    }
+
 }
