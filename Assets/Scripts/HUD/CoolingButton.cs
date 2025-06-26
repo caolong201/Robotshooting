@@ -17,7 +17,6 @@ public class CoolingButton : MonoBehaviour
     public float updateInterval = 0.1f;
     private string timerFormat = "F2";
     private Action onCountdownComplete;
-    [SerializeField] private GameObject tut;
     [SerializeField] private GameObject reloadIcon;
     private float currentTime;
 
@@ -38,14 +37,12 @@ public class CoolingButton : MonoBehaviour
         myAnimator.enabled = false;
         currentTime = countdownTime;
         RefreshUI();
-        tut.SetActive(true);
         reloadIcon.SetActive(this.isShowing);
     }
 
     public void BeginTimer(float delay, Action callback)
     {
         onCountdownComplete = callback;
-        tut.SetActive(false);
         currentTime = countdownTime;
         RefreshUI();
 

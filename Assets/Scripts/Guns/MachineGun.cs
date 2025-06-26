@@ -30,6 +30,7 @@ public class MachineGun : MonoBehaviour
     private Ray ray;
     RaycastHit hit;
     private bool isDead = false;
+    public bool CanFire = false;
 
     private void Start()
     {
@@ -39,6 +40,7 @@ public class MachineGun : MonoBehaviour
         {
             txtRemainAmmo.text = currentFireTime.ToString();
             txtTotalAmmo.text = "/" + currentFireTime;
+            CanFire = false;
         }
     }
 
@@ -59,6 +61,7 @@ public class MachineGun : MonoBehaviour
         if (GameManager.Instance.CurrentGameStatus != EGameStatus.Live) return;
         if (isDead) return;
         if (isPlayer && GameManager.Instance.IsGunReloading) return;
+        if (isPlayer && !CanFire) return;
 
         if (startDelayFire > 0)
         {
@@ -111,7 +114,7 @@ public class MachineGun : MonoBehaviour
 
     void Shoot()
     {
-        if (target == null) return;
+        if ( !isPlayer && target == null) return;
 
         GameObject obj = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         MachineBullet bullet = obj.GetComponent<MachineBullet>();
@@ -136,26 +139,28 @@ public class MachineGun : MonoBehaviour
             if (GameManager.Instance.CurrenStage == 1 && GameManager.Instance.CurrentWave == 2 &&
                 GameManager.Instance.TotalEnemiesKilled >= 3)
             {
-                var ai = target.GetComponent<EnemyAI>();
-                float currHP = ai.GetCurrentHP;
-                if (bullet.damage - currHP >= 0)
+                if (target != null)
                 {
-                    Debug.Log("2");
-                    GameManager.Instance.CurrentGameStatus = EGameStatus.End;
-                    ai.ShowHideObjects(false);
-                    //fx last hit
-                    if (cameraSlowMotionTransform != null)
+                    var ai = target.GetComponent<EnemyAI>();
+                    float currHP = ai.GetCurrentHP;
+                    if (bullet.damage - currHP >= 0)
                     {
-                        cameraSlowMotionTransform.gameObject.SetActive(true);
-                        cameraSlowMotionTransform.SetParent(bullet.transform);
-                        cameraSlowMotionTransform.localPosition = new Vector3(-0.75f, 0, -7.5f);
-                        bullet.speed /= 10;
-                        // bullet.SetDirection(firePoint.forward, firePoint.position,
-                        //     Vector3.Distance(target.transform.position, firePoint.position));
-                        Debug.Log("3");
-                    }
+                        Debug.Log("2");
+                        GameManager.Instance.CurrentGameStatus = EGameStatus.End;
+                        ai.ShowHideObjects(false);
+                        //fx last hit
+                        if (cameraSlowMotionTransform != null)
+                        {
+                            cameraSlowMotionTransform.gameObject.SetActive(true);
+                            cameraSlowMotionTransform.SetParent(bullet.transform);
+                            cameraSlowMotionTransform.localPosition = new Vector3(-0.75f, 0, -7.5f);
+                            bullet.speed /= 10;
+                            // bullet.SetDirection(firePoint.forward, firePoint.position,
+                            //     Vector3.Distance(target.transform.position, firePoint.position));
+                        }
 
-                    target = null;
+                        target = null;
+                    }
                 }
             }
         }
