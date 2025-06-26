@@ -943,6 +943,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1315879854 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4745198943184936926, guid: f5dff168a56da9c43916c2a676c1c1b0, type: 3}
+  m_PrefabInstance: {fileID: 1749515550}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c7cc2f30f2578546935a9ddca131a11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1358505438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,11 +1142,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6013454884830212771, guid: 0a83c7b889ef90948a3c2eb71b66d16b, type: 3}
       propertyPath: debugStage
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6013454884830212771, guid: 0a83c7b889ef90948a3c2eb71b66d16b, type: 3}
       propertyPath: CurrenStage
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6013454884830212771, guid: 0a83c7b889ef90948a3c2eb71b66d16b, type: 3}
       propertyPath: CurrentWave
@@ -1464,7 +1475,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1634367720
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1599,10 +1610,6 @@ PrefabInstance:
       propertyPath: cameraJoystick
       value: 
       objectReference: {fileID: 198271433}
-    - target: {fileID: 5377177308386811131, guid: f5dff168a56da9c43916c2a676c1c1b0, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
     - target: {fileID: 7359846403085423134, guid: f5dff168a56da9c43916c2a676c1c1b0, type: 3}
       propertyPath: m_Name
       value: PlayerLoad
@@ -17432,7 +17439,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &3960568895770511867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40719,6 +40726,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coolingButton: {fileID: 2611178433148981430}
   weaponUIInfo: {fileID: 1814300464134040797}
+  GunReloadDone:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1315879854}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: GunReset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!225 &6627434243182170874
 CanvasGroup:
   m_ObjectHideFlags: 0

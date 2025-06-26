@@ -139,7 +139,7 @@ public class GameManager : SingletonMono<GameManager>
 
                     currStageController.Init(playerTransform, CurrentWave, trackerPrefab);
                     PlayerPrefs.SetInt("kCurrentWave", CurrentWave);
-
+                    IsGunReloading = true;
                     transitionWave.StartTransition(currStageController.GetWave().GetTarget(),
                         () =>
                         {

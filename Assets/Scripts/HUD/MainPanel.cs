@@ -1,13 +1,18 @@
 
 using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MainPanel : MonoBehaviour
 {
+    
     [SerializeField] CoolingButton coolingButton;
     [SerializeField] private GameObject weaponUIInfo;
 
     private bool isReloading = false;
+    
+    public UnityEvent GunReloadDone;
     void Start()
     {
         Reset();
@@ -34,6 +39,7 @@ public class MainPanel : MonoBehaviour
             OnOverheat(false);
             weaponUIInfo.SetActive(true);
             isReloading = false;
+            GunReloadDone?.Invoke();
         });
     }
 
@@ -45,6 +51,7 @@ public class MainPanel : MonoBehaviour
             {
                 isReloading = true;
                 OnOverheat(true);
+                OnbtnCoolDownClicked();
                 weaponUIInfo.SetActive(false);
             }
         }
