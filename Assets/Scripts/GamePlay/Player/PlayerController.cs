@@ -49,6 +49,11 @@ public class PlayerController : MonoBehaviour
 
         UIManager.Instance.SetHealthSliderMax(maxHealth);
         UIManager.Instance.UpdateHealthSlider(currentHealth);
+        GunReset();
+    }
+
+    public void GunReset()
+    {
         gun.Reset();
     }
 
