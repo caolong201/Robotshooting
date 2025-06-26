@@ -1,10 +1,16 @@
 
+using System;
 using UnityEngine;
 
 public class FollowTarget : MonoBehaviour
 {
     [SerializeField] private Transform target;
     [SerializeField] bool ignorYAxis = false;
+
+    private void Start()
+    {
+        GetComponent<Renderer>().enabled = true;
+    }
 
     // Update is called once per frame
     void Update()
