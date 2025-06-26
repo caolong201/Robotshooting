@@ -15,7 +15,7 @@ public class GameManager : SingletonMono<GameManager>
 {
     private int TotalEnemiesDeadPerWave = 0;
 
-    private const int MAXStage = 5;
+    private const int MAXStage = 10;
     public int CurrenStage = 1;
     public int CurrentWave = 1;
 
@@ -26,22 +26,23 @@ public class GameManager : SingletonMono<GameManager>
     public int TotalEnemiesKilled = 0;
     public EGameStatus CurrentGameStatus = EGameStatus.Live;
     [SerializeField] TransitionWave transitionWave;
-    //[SerializeField] bool debugStage = false;
+    [SerializeField] bool debugStage = false;
 
     [HideInInspector] public bool IsRayHitEmeny = false;
     [SerializeField] private Tracker trackerPrefab;
 
     [HideInInspector] public bool IsGunReloading = false;
+
     private void Awake()
     {
         Application.targetFrameRate = 60;
 #if !UNITY_EDITOR
         CurrenStage = PlayerPrefs.GetInt("kCurrentStage", 1);
 #else
-        //if (!debugStage)
-        //{
+        if (!debugStage)
+        {
             CurrenStage = PlayerPrefs.GetInt("kCurrentStage", 1);
-        //}
+        }
 #endif
 
         ResetWaves();
@@ -135,7 +136,7 @@ public class GameManager : SingletonMono<GameManager>
                 {
                     _countEnemiesDeadPerWave = 0;
                     CurrentWave++;
-                  
+
                     currStageController.Init(playerTransform, CurrentWave, trackerPrefab);
                     PlayerPrefs.SetInt("kCurrentWave", CurrentWave);
 
