@@ -25,7 +25,7 @@ public class TransitionWave : MonoBehaviour
         transform.DORotate(finalEuler, 0.5f).SetEase(Ease.OutSine).OnComplete(() =>
         {
             var distance = Vector3.Distance(transform.position, targetMove.position);
-            distance /= 50f;
+            distance /= 70f;
             
             transform.DOMove(targetMove.position, distance).SetEase(Ease.Linear).OnComplete(() =>
             {
