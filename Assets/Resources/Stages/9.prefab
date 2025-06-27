@@ -1909,13 +1909,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792103529588678735}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.009598843, z: -0, w: -0.9999539}
+  m_LocalRotation: {x: 0, y: 0.04100376, z: -0, w: -0.99915904}
   m_LocalPosition: {x: 789.4, y: -245, z: -508.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3415501411209787976}
-  m_LocalEulerAnglesHint: {x: 0, y: -361.1, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -364.7, z: 0}
 --- !u!114 &3015140778608133885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4262,13 +4262,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047312286756074221}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.70426255, z: -0, w: -0.70993966}
+  m_LocalRotation: {x: 0, y: 0.7199456, z: -0, w: -0.69403046}
   m_LocalPosition: {x: 946.1, y: -245, z: -362.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5669778633599742694}
-  m_LocalEulerAnglesHint: {x: 0, y: -449.54, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -452.1, z: 0}
 --- !u!114 &7240837941511024070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4692,6 +4692,7 @@ MonoBehaviour:
   cameraSlowMotionTransform: {fileID: 0}
   txtRemainAmmo: {fileID: 0}
   txtTotalAmmo: {fileID: 0}
+  btnFire: {fileID: 0}
   CanFire: 0
 --- !u!1 &2218631812166022927
 GameObject:
@@ -5473,6 +5474,7 @@ MonoBehaviour:
   cameraSlowMotionTransform: {fileID: 0}
   txtRemainAmmo: {fileID: 0}
   txtTotalAmmo: {fileID: 0}
+  btnFire: {fileID: 0}
   CanFire: 0
 --- !u!1 &2682899458048439195
 GameObject:
@@ -8733,6 +8735,7 @@ MonoBehaviour:
   cameraSlowMotionTransform: {fileID: 0}
   txtRemainAmmo: {fileID: 0}
   txtTotalAmmo: {fileID: 0}
+  btnFire: {fileID: 0}
   CanFire: 0
 --- !u!1 &3926683359283661683
 GameObject:
@@ -9424,6 +9427,7 @@ MonoBehaviour:
   cameraSlowMotionTransform: {fileID: 0}
   txtRemainAmmo: {fileID: 0}
   txtTotalAmmo: {fileID: 0}
+  btnFire: {fileID: 0}
   CanFire: 0
 --- !u!1 &4244724866255846621
 GameObject:
@@ -14918,6 +14922,7 @@ MonoBehaviour:
   cameraSlowMotionTransform: {fileID: 0}
   txtRemainAmmo: {fileID: 0}
   txtTotalAmmo: {fileID: 0}
+  btnFire: {fileID: 0}
   CanFire: 0
 --- !u!1 &6801341070614320515
 GameObject:
@@ -17462,6 +17467,7 @@ MonoBehaviour:
   cameraSlowMotionTransform: {fileID: 0}
   txtRemainAmmo: {fileID: 0}
   txtTotalAmmo: {fileID: 0}
+  btnFire: {fileID: 0}
   CanFire: 0
 --- !u!1 &8014921333897675460
 GameObject:
