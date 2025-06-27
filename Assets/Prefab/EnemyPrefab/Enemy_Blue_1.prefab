@@ -1405,7 +1405,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!65 &2612868923829852936
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1462,6 +1462,7 @@ MonoBehaviour:
   - waypoint: {fileID: 0}
     state: 6
     waitTime: 2
+  isDead: 0
   gun: {fileID: 5998289280415282155}
 --- !u!1 &4432308041378789445
 GameObject:
@@ -1574,6 +1575,9 @@ MonoBehaviour:
   crossHair: {fileID: 0}
   crossHairDot: {fileID: 0}
   cameraSlowMotionTransform: {fileID: 0}
+  txtRemainAmmo: {fileID: 0}
+  txtTotalAmmo: {fileID: 0}
+  CanFire: 0
 --- !u!1 &4499880929913337571
 GameObject:
   m_ObjectHideFlags: 0

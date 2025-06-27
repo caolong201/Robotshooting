@@ -650,6 +650,8 @@ MonoBehaviour:
   cameraSlowMotionTransform: {fileID: 3901216795628243690}
   txtRemainAmmo: {fileID: 0}
   txtTotalAmmo: {fileID: 0}
+  btnFire: {fileID: 0}
+  CanFire: 0
 --- !u!1 &9058269442038184496
 GameObject:
   m_ObjectHideFlags: 0

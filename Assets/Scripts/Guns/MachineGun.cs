@@ -27,6 +27,7 @@ public class MachineGun : MonoBehaviour
     [SerializeField] private Image crossHairDot;
     [SerializeField] private Transform cameraSlowMotionTransform;
     [SerializeField] private TextMeshProUGUI txtRemainAmmo, txtTotalAmmo;
+    [SerializeField] private GameObject btnFire;
     private Ray ray;
     RaycastHit hit;
     private bool isDead = false;
@@ -61,7 +62,6 @@ public class MachineGun : MonoBehaviour
         if (GameManager.Instance.CurrentGameStatus != EGameStatus.Live) return;
         if (isDead) return;
         if (isPlayer && GameManager.Instance.IsGunReloading) return;
-        if (isPlayer && !CanFire) return;
 
         if (startDelayFire > 0)
         {
@@ -71,6 +71,9 @@ public class MachineGun : MonoBehaviour
 
         RayEnemy();
         nextAttackTime -= Time.deltaTime;
+        
+        if (isPlayer && !CanFire) return;
+        
         if (nextAttackTime <= 0)
         {
             Shoot();
@@ -89,7 +92,7 @@ public class MachineGun : MonoBehaviour
         if (Physics.Raycast(ray, out hit, range, enemyLayer))
         {
             target = hit.collider;
-            if (crossHairDot != null)
+            if (isPlayer && crossHairDot != null)
             {
                 crossHairDot.color = Color.green;
             }
@@ -101,7 +104,7 @@ public class MachineGun : MonoBehaviour
         else
         {
             target = null;
-            if (crossHairDot != null)
+            if (isPlayer && crossHairDot != null)
             {
                 crossHairDot.color = Color.white;
             }
@@ -115,12 +118,11 @@ public class MachineGun : MonoBehaviour
     void Shoot()
     {
         if ( !isPlayer && target == null) return;
-
+      
         GameObject obj = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         MachineBullet bullet = obj.GetComponent<MachineBullet>();
         bullet.damage = attackPower;
         bullet.SetDirection(firePoint.forward, firePoint.position, range);
-
         currentFireTime -= 1;
 
         if (isPlayer)
@@ -141,26 +143,23 @@ public class MachineGun : MonoBehaviour
             {
                 if (target != null)
                 {
+                    GameManager.Instance.CurrentGameStatus = EGameStatus.End;
                     var ai = target.GetComponent<EnemyAI>();
-                    float currHP = ai.GetCurrentHP;
-                    if (bullet.damage - currHP >= 0)
+                    ai.ShowHideObjects(false);
+                    //fx last hit
+                    if (cameraSlowMotionTransform != null)
                     {
-                        Debug.Log("2");
-                        GameManager.Instance.CurrentGameStatus = EGameStatus.End;
-                        ai.ShowHideObjects(false);
-                        //fx last hit
-                        if (cameraSlowMotionTransform != null)
-                        {
-                            cameraSlowMotionTransform.gameObject.SetActive(true);
-                            cameraSlowMotionTransform.SetParent(bullet.transform);
-                            cameraSlowMotionTransform.localPosition = new Vector3(-0.75f, 0, -7.5f);
-                            bullet.speed /= 10;
-                            // bullet.SetDirection(firePoint.forward, firePoint.position,
-                            //     Vector3.Distance(target.transform.position, firePoint.position));
-                        }
-
-                        target = null;
+                        if(btnFire != null) btnFire.SetActive(false);
+                        cameraSlowMotionTransform.SetParent(bullet.transform);
+                        cameraSlowMotionTransform.localPosition = new Vector3(-0.75f, 0, -7.5f);
+                        cameraSlowMotionTransform.gameObject.SetActive(true);
+                        bullet.damage = 1000;
+                        bullet.speed /= 15;
+                        bullet.SetDirection(firePoint.forward, firePoint.position,
+                            Vector3.Distance(target.transform.position, firePoint.position));
                     }
+
+                    target = null;
                 }
             }
         }

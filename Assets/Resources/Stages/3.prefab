@@ -334,7 +334,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5270949646575970579
 Transform:
   m_ObjectHideFlags: 0
@@ -505,7 +505,7 @@ PrefabInstance:
       objectReference: {fileID: 4903243749665109967}
     - target: {fileID: 859002621142928429, guid: 18d55a61676b33b43a89b7caea852379, type: 3}
       propertyPath: patrolRoutes.Array.data[1].waitTime
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 859002621142928429, guid: 18d55a61676b33b43a89b7caea852379, type: 3}
       propertyPath: patrolRoutes.Array.data[2].waitTime
@@ -700,6 +700,10 @@ PrefabInstance:
       value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2914042361877967850, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
+      propertyPath: patrolRoutes.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914042361877967850, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
       propertyPath: objectsHideOnDead.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -720,6 +724,18 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2914042361877967850, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
+      propertyPath: patrolRoutes.Array.data[2].state
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914042361877967850, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
+      propertyPath: patrolRoutes.Array.data[3].state
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914042361877967850, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
+      propertyPath: patrolRoutes.Array.data[4].state
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914042361877967850, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
       propertyPath: patrolRoutes.Array.data[0].waypoint
       value: 
       objectReference: {fileID: 6463729298814659989}
@@ -731,6 +747,18 @@ PrefabInstance:
       propertyPath: patrolRoutes.Array.data[1].waypoint
       value: 
       objectReference: {fileID: 6463729298814659989}
+    - target: {fileID: 2914042361877967850, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
+      propertyPath: patrolRoutes.Array.data[2].waitTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914042361877967850, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
+      propertyPath: patrolRoutes.Array.data[3].waitTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914042361877967850, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
+      propertyPath: patrolRoutes.Array.data[4].waitTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6401099664995345191, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
       propertyPath: m_Name
       value: Enemy_Blue_1 (1)
@@ -905,23 +933,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3939761578989694735, guid: 18d55a61676b33b43a89b7caea852379, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.868
       objectReference: {fileID: 0}
     - target: {fileID: 3939761578989694735, guid: 18d55a61676b33b43a89b7caea852379, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4812038901447825443, guid: 18d55a61676b33b43a89b7caea852379, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.868
       objectReference: {fileID: 0}
     - target: {fileID: 4812038901447825443, guid: 18d55a61676b33b43a89b7caea852379, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4812038901447825443, guid: 18d55a61676b33b43a89b7caea852379, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.868
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1102,23 +1130,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120941874396334415, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.868
       objectReference: {fileID: 0}
     - target: {fileID: 120941874396334415, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 120941874396334415, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.868
       objectReference: {fileID: 0}
     - target: {fileID: 2251665898990196736, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.868
       objectReference: {fileID: 0}
     - target: {fileID: 2251665898990196736, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2618353519803252394, guid: 81b79773f3fdc8d46b4b00e1ec24f735, type: 3}
       propertyPath: m_LocalPosition.x
