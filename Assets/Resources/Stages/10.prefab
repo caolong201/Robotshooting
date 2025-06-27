@@ -701,7 +701,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   fireTime: 10
-  startDelayFire: 5
+  currentFireTime: 5
+  startDelayFire: 16
   isPlayer: 0
   crossHair: {fileID: 0}
   crossHairDot: {fileID: 0}
@@ -6140,7 +6141,7 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 951648418103473456}
     state: 1
-    waitTime: 1
+    waitTime: 10
   - waypoint: {fileID: 951648418103473456}
     state: 3
     waitTime: 0
@@ -6408,6 +6409,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   fireTime: 5
+  currentFireTime: 5
   startDelayFire: 0
   isPlayer: 0
   crossHair: {fileID: 0}
@@ -6838,6 +6840,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   fireTime: 5
+  currentFireTime: 5
   startDelayFire: 4
   isPlayer: 0
   crossHair: {fileID: 0}
@@ -11339,6 +11342,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   fireTime: 5
+  currentFireTime: 5
   startDelayFire: 5
   isPlayer: 0
   crossHair: {fileID: 0}
@@ -12971,7 +12975,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   fireTime: 10
-  startDelayFire: 6
+  currentFireTime: 5
+  startDelayFire: 1
   isPlayer: 0
   crossHair: {fileID: 0}
   crossHairDot: {fileID: 0}
@@ -13510,6 +13515,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   fireTime: 10
+  currentFireTime: 5
   startDelayFire: 0
   isPlayer: 0
   crossHair: {fileID: 0}
@@ -14720,7 +14726,7 @@ MonoBehaviour:
     waitTime: 0
   - waypoint: {fileID: 0}
     state: 5
-    waitTime: 1
+    waitTime: 15
   - waypoint: {fileID: 0}
     state: 5
     waitTime: 2
@@ -17163,7 +17169,7 @@ MonoBehaviour:
     waitTime: 0
   - waypoint: {fileID: 0}
     state: 5
-    waitTime: 2
+    waitTime: 16
   - waypoint: {fileID: 0}
     state: 5
     waitTime: 3
@@ -22581,6 +22587,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   fireTime: 10
+  currentFireTime: 5
   startDelayFire: 10
   isPlayer: 0
   crossHair: {fileID: 0}
@@ -22907,7 +22914,7 @@ MonoBehaviour:
     waitTime: 0
   - waypoint: {fileID: 0}
     state: 5
-    waitTime: 1
+    waitTime: 12
   - waypoint: {fileID: 0}
     state: 5
     waitTime: 2
