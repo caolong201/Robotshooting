@@ -40,6 +40,7 @@ public class MachineGun : MonoBehaviour
         if (isPlayer)
         {
             txtRemainAmmo.text = currentFireTime.ToString();
+            txtRemainAmmo.color = Color.white;
             txtTotalAmmo.text = "/" + currentFireTime;
             CanFire = false;
         }
@@ -50,6 +51,7 @@ public class MachineGun : MonoBehaviour
         isDead = false;
         currentFireTime = fireTime;
         txtRemainAmmo.text = currentFireTime.ToString();
+        txtRemainAmmo.color = Color.white;
     }
 
     public void Dead()
@@ -78,10 +80,17 @@ public class MachineGun : MonoBehaviour
         {
             Shoot();
             nextAttackTime = attackCooldown;
-            if (isPlayer && currentFireTime <= 0)
+            if (currentFireTime <= 0)
             {
-                GameManager.Instance.IsGunReloading = true;
-                currentFireTime = fireTime;
+                if (isPlayer)
+                {
+                    GameManager.Instance.IsGunReloading = true;
+                    currentFireTime = fireTime;
+                }
+                else
+                {
+                    nextAttackTime += 2;
+                }
             }
         }
     }
@@ -128,7 +137,11 @@ public class MachineGun : MonoBehaviour
         if (isPlayer)
         {
             txtRemainAmmo.text = currentFireTime.ToString();
-            
+            if (currentFireTime <= 0)
+            {
+                txtRemainAmmo.color = Color.red;
+            }
+
             transform.DOKill();
             transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, posZ);
             transform.DOLocalMoveZ(posZ - 0.02f, 0.1f).SetLoops(1, LoopType.Yoyo);

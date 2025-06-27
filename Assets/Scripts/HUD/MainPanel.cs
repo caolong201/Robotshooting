@@ -8,7 +8,6 @@ public class MainPanel : MonoBehaviour
 {
     
     [SerializeField] CoolingButton coolingButton;
-    [SerializeField] private GameObject weaponUIInfo;
     [SerializeField] private GameObject btnFire;
     private bool isReloading = false;
     
@@ -23,7 +22,6 @@ public class MainPanel : MonoBehaviour
         GameManager.Instance.IsGunReloading = false;
         isReloading = false;
         OnOverheat(false);
-        weaponUIInfo.SetActive(true);
         btnFire.SetActive(true);
     }
 
@@ -38,7 +36,6 @@ public class MainPanel : MonoBehaviour
         {
             GameManager.Instance.IsGunReloading = false;
             OnOverheat(false);
-            weaponUIInfo.SetActive(true);
             btnFire.SetActive(true);
             isReloading = false;
             GunReloadDone?.Invoke();
@@ -54,7 +51,6 @@ public class MainPanel : MonoBehaviour
                 isReloading = true;
                 OnOverheat(true);
                 OnbtnCoolDownClicked();
-                weaponUIInfo.SetActive(false);
                 btnFire.SetActive(false);
             }
         }

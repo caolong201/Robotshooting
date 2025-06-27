@@ -1569,7 +1569,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
-  fireTime: 10
+  fireTime: 5
   startDelayFire: 0
   isPlayer: 0
   crossHair: {fileID: 0}
@@ -1577,6 +1577,7 @@ MonoBehaviour:
   cameraSlowMotionTransform: {fileID: 0}
   txtRemainAmmo: {fileID: 0}
   txtTotalAmmo: {fileID: 0}
+  btnFire: {fileID: 0}
   CanFire: 0
 --- !u!1 &4499880929913337571
 GameObject:
