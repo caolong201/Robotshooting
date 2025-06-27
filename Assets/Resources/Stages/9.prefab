@@ -1915,16 +1915,22 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 7287637773819203410}
     state: 1
-    waitTime: 0
+    waitTime: 3
   - waypoint: {fileID: 7287637773819203410}
     state: 3
     waitTime: 0
   - waypoint: {fileID: 0}
     state: 5
-    waitTime: 5
+    waitTime: 2
   - waypoint: {fileID: 0}
     state: 6
-    waitTime: 10
+    waitTime: 3
+  - waypoint: {fileID: 0}
+    state: 5
+    waitTime: 2
+  - waypoint: {fileID: 0}
+    state: 6
+    waitTime: 2
   isDead: 0
   gun: {fileID: 2256377756711403416}
 --- !u!1 &1088202404417552175
@@ -2712,8 +2718,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3618647763734410615}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.868, y: 0}
+  m_AnchorMax: {x: 0.868, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 30, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4025,7 +4031,7 @@ Transform:
   m_GameObject: {fileID: 2446245405577011390}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22.9, y: -18, z: -1.6}
+  m_LocalPosition: {x: -20.2, y: -18, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6962,7 +6968,7 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 4442529471039915607}
     state: 1
-    waitTime: 15
+    waitTime: 8
   - waypoint: {fileID: 4442529471039915607}
     state: 3
     waitTime: 0
@@ -7717,7 +7723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  moveSpeed: 10
+  moveSpeed: 8
   rotationSpeed: 150
   stoppingDistance: 5
   maxHP: 40
@@ -7735,7 +7741,7 @@ MonoBehaviour:
     waitTime: 0
   - waypoint: {fileID: 0}
     state: 5
-    waitTime: 6
+    waitTime: 1
   - waypoint: {fileID: 0}
     state: 6
     waitTime: 10
@@ -8651,7 +8657,7 @@ RectTransform:
   m_Father: {fileID: 6294215781256368142}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.868, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
@@ -8833,8 +8839,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5418329181397872311}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.868, y: 0}
+  m_AnchorMax: {x: 0.868, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 30, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9170,7 +9176,7 @@ RectTransform:
   m_Father: {fileID: 980125411028544537}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.868, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
@@ -10671,10 +10677,16 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 5792175011014584280}
     state: 5
-    waitTime: 0
+    waitTime: 3
   - waypoint: {fileID: 0}
     state: 2
     waitTime: 6
+  - waypoint: {fileID: 0}
+    state: 5
+    waitTime: 1
+  - waypoint: {fileID: 0}
+    state: 6
+    waitTime: 1
   isDead: 0
   gun: {fileID: 1168519475171672109}
 --- !u!1 &5751025907768341021
@@ -11321,7 +11333,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3415501411209787976
 Transform:
   m_ObjectHideFlags: 0
