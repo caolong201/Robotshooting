@@ -233,13 +233,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136033815965587359}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3, y: -18, z: 88.6}
+  m_LocalRotation: {x: 0, y: 0.2292004, z: 0, w: 0.9733793}
+  m_LocalPosition: {x: 42.7, y: -18, z: 94.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6684586411128083145}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 26.5, z: 0}
 --- !u!1 &138243182593084862
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,8 +874,8 @@ MonoBehaviour:
     state: 3
     waitTime: 0
   - waypoint: {fileID: 0}
-    state: 4
-    waitTime: 1
+    state: 5
+    waitTime: 4
   isDead: 0
   gun: {fileID: 7685847902592157584}
 --- !u!1 &346645303077647384
@@ -1874,6 +1874,7 @@ MonoBehaviour:
   cameraSlowMotionTransform: {fileID: 0}
   txtRemainAmmo: {fileID: 0}
   txtTotalAmmo: {fileID: 0}
+  CanFire: 0
 --- !u!1 &737892742821930701
 GameObject:
   m_ObjectHideFlags: 0
@@ -2575,13 +2576,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100273995003686083}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.9995979, z: 0, w: 0.028357893}
-  m_LocalPosition: {x: 756.9, y: -245, z: -226.9}
+  m_LocalRotation: {x: -0, y: -0.9999998, z: 0, w: -0.00069808104}
+  m_LocalPosition: {x: 766, y: -245, z: -227}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8138529820855085331}
-  m_LocalEulerAnglesHint: {x: 0, y: -176.75, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180.08, z: 0}
 --- !u!114 &7981407267151311856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4999,13 +5000,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975293685537439605}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.7, y: -18, z: 107.7}
+  m_LocalRotation: {x: 0, y: 0.045798823, z: 0, w: 0.9989507}
+  m_LocalPosition: {x: 9.1, y: -18, z: 115.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 913322258526597408}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 5.25, z: 0}
 --- !u!1 &1984034327662973666
 GameObject:
   m_ObjectHideFlags: 0
@@ -7944,8 +7945,8 @@ MonoBehaviour:
     state: 3
     waitTime: 0
   - waypoint: {fileID: 0}
-    state: 4
-    waitTime: 1
+    state: 5
+    waitTime: 4
   isDead: 0
   gun: {fileID: 3209105822642316721}
 --- !u!1 &2981044733470611172
@@ -9095,14 +9096,15 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
-  fireTime: 5
-  startDelayFire: 0
+  fireTime: 6
+  startDelayFire: 5
   isPlayer: 0
   crossHair: {fileID: 0}
   crossHairDot: {fileID: 0}
   cameraSlowMotionTransform: {fileID: 0}
   txtRemainAmmo: {fileID: 0}
   txtTotalAmmo: {fileID: 0}
+  CanFire: 0
 --- !u!1 &3400106362424467143
 GameObject:
   m_ObjectHideFlags: 0
@@ -9563,13 +9565,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   fireTime: 5
-  startDelayFire: 0
+  startDelayFire: 5
   isPlayer: 0
   crossHair: {fileID: 0}
   crossHairDot: {fileID: 0}
   cameraSlowMotionTransform: {fileID: 0}
   txtRemainAmmo: {fileID: 0}
   txtTotalAmmo: {fileID: 0}
+  CanFire: 0
 --- !u!1 &3566861211962466316
 GameObject:
   m_ObjectHideFlags: 0
@@ -10582,13 +10585,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3832624873493912520}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3, y: -18, z: 88.6}
+  m_LocalRotation: {x: 0, y: 0.016405387, z: 0, w: 0.9998655}
+  m_LocalPosition: {x: 6.2, y: -18, z: 88.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2856862892930952749}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 1.88, z: 0}
 --- !u!1 &3845271641664684173
 GameObject:
   m_ObjectHideFlags: 0
@@ -11576,6 +11579,7 @@ MonoBehaviour:
   cameraSlowMotionTransform: {fileID: 0}
   txtRemainAmmo: {fileID: 0}
   txtTotalAmmo: {fileID: 0}
+  CanFire: 0
 --- !u!1 &4101170174143105726
 GameObject:
   m_ObjectHideFlags: 0
@@ -13970,13 +13974,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4910680691188436281}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -35.4, y: -18, z: 52.3}
+  m_LocalRotation: {x: 0, y: -0.25603628, z: 0, w: 0.96666723}
+  m_LocalPosition: {x: -45, y: -18, z: 39.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6057419349323684720}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -29.67, z: 0}
 --- !u!1 &4923402657325767777
 GameObject:
   m_ObjectHideFlags: 0
@@ -14343,6 +14347,7 @@ MonoBehaviour:
   cameraSlowMotionTransform: {fileID: 0}
   txtRemainAmmo: {fileID: 0}
   txtTotalAmmo: {fileID: 0}
+  CanFire: 0
 --- !u!1 &4969961332262642115
 GameObject:
   m_ObjectHideFlags: 0
@@ -16280,13 +16285,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   fireTime: 5
-  startDelayFire: 0
+  startDelayFire: 11
   isPlayer: 0
   crossHair: {fileID: 0}
   crossHairDot: {fileID: 0}
   cameraSlowMotionTransform: {fileID: 0}
   txtRemainAmmo: {fileID: 0}
   txtTotalAmmo: {fileID: 0}
+  CanFire: 0
 --- !u!1 &5765148045930016126
 GameObject:
   m_ObjectHideFlags: 0
@@ -17631,6 +17637,7 @@ MonoBehaviour:
   cameraSlowMotionTransform: {fileID: 0}
   txtRemainAmmo: {fileID: 0}
   txtTotalAmmo: {fileID: 0}
+  CanFire: 0
 --- !u!1 &6139402160968285487
 GameObject:
   m_ObjectHideFlags: 0
@@ -19850,15 +19857,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7009097493159715751}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.042311527, z: 0, w: 0.9991045}
-  m_LocalPosition: {x: 417, y: 0, z: -907.3}
+  m_LocalRotation: {x: 0, y: -0.04161406, z: 0, w: 0.99913377}
+  m_LocalPosition: {x: 420.2, y: 0, z: -898.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6912944931545987685}
   - {fileID: 732395732987354299}
   m_Father: {fileID: 6876834838627008930}
-  m_LocalEulerAnglesHint: {x: 0, y: -4.85, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -4.77, z: 0}
 --- !u!1 &7030691998811102479
 GameObject:
   m_ObjectHideFlags: 0
@@ -23814,6 +23821,7 @@ MonoBehaviour:
   cameraSlowMotionTransform: {fileID: 0}
   txtRemainAmmo: {fileID: 0}
   txtTotalAmmo: {fileID: 0}
+  CanFire: 0
 --- !u!1 &8361031530268123125
 GameObject:
   m_ObjectHideFlags: 0
