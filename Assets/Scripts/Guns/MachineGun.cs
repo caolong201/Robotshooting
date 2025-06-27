@@ -17,8 +17,8 @@ public class MachineGun : MonoBehaviour
     public LayerMask enemyLayer;
 
     private Collider target = null;
-    [SerializeField] private int fireTime = 5;
-    private int currentFireTime = 5;
+    [SerializeField] public int fireTime = 5;
+    public int currentFireTime = 5;
 
     [SerializeField] private float startDelayFire = 0;
     [SerializeField] bool isPlayer = false;
