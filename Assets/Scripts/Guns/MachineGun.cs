@@ -90,6 +90,7 @@ public class MachineGun : MonoBehaviour
                 else
                 {
                     nextAttackTime += 2;
+                    currentFireTime = fireTime;
                 }
             }
         }
