@@ -1690,7 +1690,7 @@ MonoBehaviour:
     state: 5
     waitTime: 2
   - waypoint: {fileID: 0}
-    state: 5
+    state: 6
     waitTime: 2
   - waypoint: {fileID: 0}
     state: 5
@@ -2696,7 +2696,7 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 0}
     state: 5
-    waitTime: 1
+    waitTime: 20
   - waypoint: {fileID: 0}
     state: 5
     waitTime: 3
@@ -3547,7 +3547,7 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 0}
     state: 5
-    waitTime: 1
+    waitTime: 6
   - waypoint: {fileID: 0}
     state: 5
     waitTime: 3
@@ -6181,6 +6181,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   fireTime: 10
+  currentFireTime: 5
   startDelayFire: 10
   isPlayer: 0
   crossHair: {fileID: 0}
@@ -7750,6 +7751,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   fireTime: 5
+  currentFireTime: 5
   startDelayFire: 0
   isPlayer: 0
   crossHair: {fileID: 0}
@@ -8062,7 +8064,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   fireTime: 5
-  startDelayFire: 4
+  currentFireTime: 5
+  startDelayFire: 0
   isPlayer: 0
   crossHair: {fileID: 0}
   crossHairDot: {fileID: 0}
@@ -8882,6 +8885,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   fireTime: 10
+  currentFireTime: 5
   startDelayFire: 0
   isPlayer: 0
   crossHair: {fileID: 0}
@@ -13239,6 +13243,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   fireTime: 5
+  currentFireTime: 5
   startDelayFire: 0
   isPlayer: 0
   crossHair: {fileID: 0}
@@ -15223,7 +15228,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   fireTime: 10
-  startDelayFire: 5
+  currentFireTime: 5
+  startDelayFire: 0
   isPlayer: 0
   crossHair: {fileID: 0}
   crossHairDot: {fileID: 0}
@@ -15928,13 +15934,13 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 3620073072382420574}
     state: 1
-    waitTime: 4
+    waitTime: 8
   - waypoint: {fileID: 3620073072382420574}
     state: 3
     waitTime: 0
   - waypoint: {fileID: 0}
     state: 5
-    waitTime: 2
+    waitTime: 4
   - waypoint: {fileID: 0}
     state: 5
     waitTime: 2
@@ -18073,7 +18079,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   fireTime: 10
-  startDelayFire: 6
+  currentFireTime: 5
+  startDelayFire: 2
   isPlayer: 0
   crossHair: {fileID: 0}
   crossHairDot: {fileID: 0}
@@ -18192,7 +18199,7 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 0}
     state: 5
-    waitTime: 1
+    waitTime: 9
   - waypoint: {fileID: 0}
     state: 5
     waitTime: 3
@@ -20832,7 +20839,7 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 4847347728296985275}
     state: 1
-    waitTime: 1
+    waitTime: 0
   - waypoint: {fileID: 4847347728296985275}
     state: 3
     waitTime: 3
