@@ -184,7 +184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6400296470275801022
 Transform:
   m_ObjectHideFlags: 0
@@ -1260,8 +1260,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 987113370038653635}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.868, y: 0}
+  m_AnchorMax: {x: 0.868, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 30, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1567,7 +1567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8034929184664076470
 Transform:
   m_ObjectHideFlags: 0
@@ -2524,7 +2524,7 @@ RectTransform:
   m_Father: {fileID: 4458882225615771926}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.868, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
@@ -8090,8 +8090,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2226030726464543458}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.868, y: 0}
+  m_AnchorMax: {x: 0.868, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 30, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8859,8 +8859,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1726804481260012173}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.868, y: 0}
+  m_AnchorMax: {x: 0.868, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 30, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9644,7 +9644,7 @@ RectTransform:
   m_Father: {fileID: 2738585770405768654}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.868, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
@@ -10607,10 +10607,13 @@ MonoBehaviour:
     waitTime: 0
   - waypoint: {fileID: 0}
     state: 5
-    waitTime: 2
+    waitTime: 10
+  - waypoint: {fileID: 0}
+    state: 6
+    waitTime: 5
   - waypoint: {fileID: 0}
     state: 5
-    waitTime: 3
+    waitTime: 2
   - waypoint: {fileID: 0}
     state: 6
     waitTime: 2
@@ -11343,7 +11346,7 @@ MonoBehaviour:
     m_Bits: 256
   fireTime: 5
   currentFireTime: 5
-  startDelayFire: 5
+  startDelayFire: 2
   isPlayer: 0
   crossHair: {fileID: 0}
   crossHairDot: {fileID: 0}
@@ -13017,8 +13020,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4803027390181164665}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.868, y: 0}
+  m_AnchorMax: {x: 0.868, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 30, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -14720,13 +14723,13 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 5907758949511463657}
     state: 1
-    waitTime: 0
+    waitTime: 5
   - waypoint: {fileID: 5907758949511463657}
     state: 3
     waitTime: 0
   - waypoint: {fileID: 0}
     state: 5
-    waitTime: 15
+    waitTime: 7
   - waypoint: {fileID: 0}
     state: 5
     waitTime: 2
@@ -16171,7 +16174,7 @@ RectTransform:
   m_Father: {fileID: 7357704952220306629}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.868, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
@@ -18034,13 +18037,13 @@ MonoBehaviour:
   sdHP: {fileID: 5378432750948280453}
   patrolRoutes:
   - waypoint: {fileID: 6384502736981371133}
-    state: 1
-    waitTime: 1
-  - waypoint: {fileID: 6384502736981371133}
     state: 3
     waitTime: 0
   - waypoint: {fileID: 0}
     state: 5
+    waitTime: 2
+  - waypoint: {fileID: 0}
+    state: 6
     waitTime: 5
   isDead: 0
   gun: {fileID: 5124551818657699741}
@@ -18607,7 +18610,7 @@ RectTransform:
   m_Father: {fileID: 763181587965983684}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.868, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
@@ -21278,8 +21281,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7768397500610936024}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.868, y: 0}
+  m_AnchorMax: {x: 0.868, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 30, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -21926,7 +21929,7 @@ RectTransform:
   m_Father: {fileID: 4679246384504027240}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.868, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
@@ -22588,7 +22591,7 @@ MonoBehaviour:
     m_Bits: 256
   fireTime: 10
   currentFireTime: 5
-  startDelayFire: 10
+  startDelayFire: 3
   isPlayer: 0
   crossHair: {fileID: 0}
   crossHairDot: {fileID: 0}
@@ -22913,11 +22916,11 @@ MonoBehaviour:
     state: 3
     waitTime: 0
   - waypoint: {fileID: 0}
-    state: 5
-    waitTime: 12
+    state: 2
+    waitTime: 5
   - waypoint: {fileID: 0}
     state: 5
-    waitTime: 2
+    waitTime: 1
   - waypoint: {fileID: 0}
     state: 6
     waitTime: 5
