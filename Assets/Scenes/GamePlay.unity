@@ -2048,11 +2048,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6013454884830212771, guid: 0a83c7b889ef90948a3c2eb71b66d16b, type: 3}
       propertyPath: debugStage
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6013454884830212771, guid: 0a83c7b889ef90948a3c2eb71b66d16b, type: 3}
       propertyPath: CurrenStage
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6013454884830212771, guid: 0a83c7b889ef90948a3c2eb71b66d16b, type: 3}
       propertyPath: CurrentWave
