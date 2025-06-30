@@ -110,9 +110,10 @@ public class GameManager : SingletonMono<GameManager>
         int totalEnemiesPerWave = currStageController.GetWave().GetEnemiesCount();
         if (_countEnemiesDeadPerWave >= totalEnemiesPerWave)
         {
-            CurrentGameStatus = EGameStatus.End;
+           
             if (CurrentWave >= currStageController.WaveCount())
             {
+                CurrentGameStatus = EGameStatus.End;
                 ResetWaves();
                 CurrenStage++;
                 PlayerPrefs.SetInt("kCurrentStage", CurrenStage);
@@ -132,14 +133,16 @@ public class GameManager : SingletonMono<GameManager>
                 UIManager.Instance.ShowHealthBar(false);
                 UIManager.Instance.ShowCrossHair(false);
                 //UIManager.Instance.ShowWaveClear(() => { });
-                DOVirtual.DelayedCall(1f, () =>
+                IsGunReloading = true;
+                DOVirtual.DelayedCall(2f, () =>
                 {
+                    CurrentGameStatus = EGameStatus.End;
                     _countEnemiesDeadPerWave = 0;
                     CurrentWave++;
 
                     currStageController.Init(playerTransform, CurrentWave, trackerPrefab);
                     PlayerPrefs.SetInt("kCurrentWave", CurrentWave);
-                    IsGunReloading = true;
+                  
                     transitionWave.StartTransition(currStageController.GetWave().GetTarget(),
                         () =>
                         {
