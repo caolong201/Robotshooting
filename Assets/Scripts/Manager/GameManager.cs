@@ -132,9 +132,9 @@ public class GameManager : SingletonMono<GameManager>
                 Debug.Log("Game Clear wave");
                 UIManager.Instance.ShowHealthBar(false);
                 UIManager.Instance.ShowCrossHair(false);
-                //UIManager.Instance.ShowWaveClear(() => { });
+                
                 IsGunReloading = true;
-                DOVirtual.DelayedCall(2f, () =>
+                DOVirtual.DelayedCall(2.5f, () =>
                 {
                     CurrentGameStatus = EGameStatus.End;
                     _countEnemiesDeadPerWave = 0;
