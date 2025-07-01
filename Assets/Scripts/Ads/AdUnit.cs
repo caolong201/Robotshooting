@@ -27,6 +27,7 @@ public static class AdUtil
         Debug.Log("Initializing Max");
         MaxSdk.SetVerboseLogging(true);
         MaxSdk.SetSdkKey(kMaxSdkKey);
+        MaxSdk.SetCreativeDebuggerEnabled(false);
         MaxSdk.InitializeSdk();
     }
 

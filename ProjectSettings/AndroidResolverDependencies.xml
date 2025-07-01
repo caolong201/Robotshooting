@@ -3,11 +3,13 @@
     <package>com.adjust.sdk:adjust-android:5.0.2</package>
     <package>com.android.installreferrer:installreferrer:2.2</package>
     <package>com.applovin:applovin-sdk:13.0.1</package>
+    <package>com.google.android.gms:play-services-appset:16.0.2</package>
+    <package>com.google.android.instantapps:instantapps:1.1.0</package>
   </packages>
   <files />
   <settings>
     <setting name="androidAbis" value="arm64-v8a,armeabi-v7a" />
-    <setting name="bundleId" value="com.hipahipagames.pj000003" />
+    <setting name="bundleId" value="com.hipahipagames.pj000036" />
     <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />
     <setting name="gradlePropertiesTemplateEnabled" value="True" />

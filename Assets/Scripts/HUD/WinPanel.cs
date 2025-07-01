@@ -8,6 +8,7 @@ public class WinPanel : MonoBehaviour
     void Start()
     {
         txtEnemiesKilled.text = GameManager.Instance.TotalEnemiesKilled.ToString();
+        GameAnalyticsManager.Instance.TrackEvent($"Stage{GameManager.Instance.CurrenStage-1}:WholeProgress:Level:Complete");
     }
     public void OnbtnWinContinueClicked()
     {
