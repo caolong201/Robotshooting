@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -7,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float currentHealth;
     private bool isDead = false;
     [SerializeField] private MachineGun gun;
+
+    [SerializeField] private GameObject weaponUpgrade;
     private void Start()
     {
         currentHealth = maxHealth;
@@ -57,6 +60,16 @@ public class PlayerController : MonoBehaviour
         gun.Reset();
     }
 
+    private void Update()
+    {
+        if (VideoAdManager.Instance.videoAd != EVideoAd.None)
+        {
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                if(weaponUpgrade != null) weaponUpgrade.SetActive(true);
+            }
+        }
+    }
 }
 
 
