@@ -15,7 +15,7 @@ public class GameManager : SingletonMono<GameManager>
 {
     private int TotalEnemiesDeadPerWave = 0;
 
-    private const int MAXStage = 10;
+    private const int MAXStage = 13;
     public int CurrenStage = 1;
     public int CurrentWave = 1;
 
