@@ -114,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 31712625057568496}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 533.9, y: -18, z: -0.1}
+  m_LocalPosition: {x: 528.7, y: -18, z: 7.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -777,7 +777,7 @@ Transform:
   m_GameObject: {fileID: 146012198089376665}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.015358304, z: 0, w: 0.9998821}
-  m_LocalPosition: {x: -0.6, y: -244.9, z: 1.1}
+  m_LocalPosition: {x: 1.6, y: -244.9, z: 22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2893,7 +2893,7 @@ Transform:
   m_GameObject: {fileID: 442678837079577325}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 408.1, y: -18, z: -7.9}
+  m_LocalPosition: {x: 393, y: -18, z: -7.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2999,7 +2999,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 7549867703832350437}
   attackCooldown: 0.2
-  range: 150
+  range: 200
   attackPower: 1
   enemyLayer:
     serializedVersion: 2
@@ -4629,7 +4629,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 945848628145710142}
   attackCooldown: 0.2
-  range: 100
+  range: 200
   attackPower: 1
   enemyLayer:
     serializedVersion: 2
@@ -6828,7 +6828,7 @@ Transform:
   m_GameObject: {fileID: 1195398825788733873}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 454.1, y: -18, z: -14.9}
+  m_LocalPosition: {x: 448.7, y: -18, z: -19.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8008,7 +8008,7 @@ Transform:
   m_GameObject: {fileID: 1327697594072126581}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 542.3, y: -18, z: -21.8}
+  m_LocalPosition: {x: 547.9, y: -18, z: -22.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9520,7 +9520,7 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 9142794671090353406}
     state: 1
-    waitTime: 3
+    waitTime: 6
   - waypoint: {fileID: 9142794671090353406}
     state: 3
     waitTime: 0
@@ -12147,7 +12147,7 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 158255936102087087}
     state: 3
-    waitTime: 2
+    waitTime: 5
   isDead: 0
   gun: {fileID: 5455581392794139122}
 --- !u!114 &5360118182585561040
@@ -12651,7 +12651,7 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 7566813391331110706}
     state: 1
-    waitTime: 2
+    waitTime: 6
   - waypoint: {fileID: 7566813391331110706}
     state: 3
     waitTime: 0
@@ -14883,7 +14883,7 @@ Transform:
   m_GameObject: {fileID: 2321203088128271467}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 438.6, y: -18, z: -25.3}
+  m_LocalPosition: {x: 426.8, y: -18, z: -32.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16302,7 +16302,7 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 6642036944763280876}
     state: 1
-    waitTime: 1
+    waitTime: 4
   - waypoint: {fileID: 6642036944763280876}
     state: 3
     waitTime: 0
@@ -18275,7 +18275,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 4106365901233133914}
   attackCooldown: 0.2
-  range: 150
+  range: 200
   attackPower: 1
   enemyLayer:
     serializedVersion: 2
@@ -20804,7 +20804,7 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 874114471181602243}
     state: 3
-    waitTime: 2
+    waitTime: 6
   isDead: 0
   gun: {fileID: 3530001136558468575}
 --- !u!114 &649764106176009628
@@ -22952,7 +22952,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 4000966623276769438}
   attackCooldown: 0.2
-  range: 100
+  range: 200
   attackPower: 1
   enemyLayer:
     serializedVersion: 2
@@ -23024,7 +23024,7 @@ Transform:
   m_GameObject: {fileID: 3489870671258134337}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 313.3, y: -18, z: -13.6}
+  m_LocalPosition: {x: 298.2, y: -18, z: -15.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24665,7 +24665,7 @@ Transform:
   m_GameObject: {fileID: 3765155077007756587}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 301.3, y: -18, z: -34.1}
+  m_LocalPosition: {x: 288.8, y: -18, z: -32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26946,7 +26946,7 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 915441290102998975}
     state: 3
-    waitTime: 3
+    waitTime: 6
   isDead: 0
   gun: {fileID: 2563739473869507705}
 --- !u!114 &379861885656141434
@@ -28374,7 +28374,7 @@ Transform:
   m_GameObject: {fileID: 4328219341621847998}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 357.8, y: -18, z: -32.8}
+  m_LocalPosition: {x: 341.2, y: -18, z: -35.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29092,7 +29092,7 @@ Transform:
   m_GameObject: {fileID: 4475527724129068804}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 512.5, y: -18, z: 13.9}
+  m_LocalPosition: {x: 521, y: -18, z: 15.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35602,7 +35602,7 @@ Transform:
   m_GameObject: {fileID: 5433781454628046044}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 475.6, y: -18, z: 18.8}
+  m_LocalPosition: {x: 464.4, y: -18, z: 23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36855,7 +36855,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 6402790502041697687}
   attackCooldown: 0.2
-  range: 150
+  range: 200
   attackPower: 1
   enemyLayer:
     serializedVersion: 2
@@ -39312,7 +39312,7 @@ Transform:
   m_GameObject: {fileID: 5973597514655500129}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 406.6, y: -18, z: 16.5}
+  m_LocalPosition: {x: 390.1, y: -18, z: 22.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39663,7 +39663,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 843362783842319536}
   attackCooldown: 0.2
-  range: 100
+  range: 200
   attackPower: 1
   enemyLayer:
     serializedVersion: 2
@@ -41878,7 +41878,7 @@ Transform:
   m_GameObject: {fileID: 6365443198304750097}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 507.1, y: -18, z: -7.9}
+  m_LocalPosition: {x: 497.8, y: -18, z: -7.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45605,7 +45605,7 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 7998730512911707982}
     state: 3
-    waitTime: 2
+    waitTime: 5
   isDead: 0
   gun: {fileID: 6808725793874666686}
 --- !u!114 &218595509800182775
@@ -46441,7 +46441,7 @@ Transform:
   m_GameObject: {fileID: 7177067117296629871}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 233.4, y: -18, z: 11.4}
+  m_LocalPosition: {x: 218.3, y: -18, z: 14.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -47416,7 +47416,7 @@ Transform:
   m_GameObject: {fileID: 7350775702663686704}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 232.1, y: -18, z: -23.7}
+  m_LocalPosition: {x: 206.1, y: -18, z: -20.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -49739,7 +49739,7 @@ Transform:
   m_GameObject: {fileID: 7795583710300188050}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 366.2, y: -18, z: 8.4}
+  m_LocalPosition: {x: 351.1, y: -18, z: 8.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -49909,7 +49909,7 @@ Transform:
   m_GameObject: {fileID: 7857045428269393100}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 269.2, y: -18, z: -21.3}
+  m_LocalPosition: {x: 237.8, y: -18, z: -20.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -51542,7 +51542,7 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 4294678341316384895}
     state: 3
-    waitTime: 1
+    waitTime: 5
   isDead: 0
   gun: {fileID: 1342167825726362902}
 --- !u!114 &8947015843562019649
@@ -53202,7 +53202,7 @@ Transform:
   m_GameObject: {fileID: 8387263177305118932}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 528.9, y: -18, z: -40.3}
+  m_LocalPosition: {x: 529.2, y: -18, z: -38.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55878,7 +55878,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 837402443688203197}
   attackCooldown: 0.2
-  range: 100
+  range: 200
   attackPower: 1
   enemyLayer:
     serializedVersion: 2
@@ -56419,7 +56419,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 1967791757942145646}
   attackCooldown: 0.2
-  range: 100
+  range: 200
   attackPower: 1
   enemyLayer:
     serializedVersion: 2
@@ -56670,7 +56670,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 3132738529217878657}
   attackCooldown: 0.2
-  range: 150
+  range: 200
   attackPower: 1
   enemyLayer:
     serializedVersion: 2
@@ -58037,7 +58037,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 7390039561067368561}
   attackCooldown: 0.2
-  range: 100
+  range: 200
   attackPower: 1
   enemyLayer:
     serializedVersion: 2
@@ -59399,7 +59399,7 @@ Transform:
   m_GameObject: {fileID: 9220402788913963528}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 550, y: -18, z: -6.1}
+  m_LocalPosition: {x: 545.5, y: -18, z: -10.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

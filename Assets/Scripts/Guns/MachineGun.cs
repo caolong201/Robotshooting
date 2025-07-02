@@ -33,6 +33,11 @@ public class MachineGun : MonoBehaviour
     private bool isDead = false;
     public bool CanFire = false;
 
+
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+
     private void Start()
     {
         posZ = transform.localPosition.z;
@@ -156,6 +161,16 @@ public class MachineGun : MonoBehaviour
             transform.DOKill();
             transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, posZ);
             transform.DOLocalMoveZ(posZ - 0.02f, 0.1f).SetLoops(1, LoopType.Yoyo);
+
+            //ll
+            //  fire sound
+            if (target != null && audioSource != null)
+            {
+                audioSource.Play();
+            }
+
+
+
 
             crossHair.DOKill();
             crossHair.localScale = Vector3.one * 2;
