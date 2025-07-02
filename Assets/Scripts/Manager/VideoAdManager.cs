@@ -10,7 +10,7 @@ public enum EVideoAd
     Video3
 }
 
-public class VideoAdManager : MonoBehaviour
+public class VideoAdManager : SingletonMonoAwake<VideoAdManager>
 {
     public EVideoAd videoAd = EVideoAd.None;
    

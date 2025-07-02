@@ -73,9 +73,12 @@ public class MachineGun : MonoBehaviour
 
         RayEnemy();
         nextAttackTime -= Time.deltaTime;
-        
-        if (isPlayer && !CanFire) return;
-        
+
+        if (VideoAdManager.Instance.videoAd == EVideoAd.None)
+        {
+            if (isPlayer && !CanFire) return;
+        }
+
         if (nextAttackTime <= 0)
         {
             Shoot();
@@ -127,8 +130,15 @@ public class MachineGun : MonoBehaviour
 
     void Shoot()
     {
-        if ( !isPlayer && target == null) return;
-      
+        if (VideoAdManager.Instance.videoAd == EVideoAd.None)
+        {
+            if ( !isPlayer && target == null) return;
+        }
+        else
+        {
+            if (target == null) return;
+        }
+
         GameObject obj = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         MachineBullet bullet = obj.GetComponent<MachineBullet>();
         bullet.damage = attackPower;

@@ -62,7 +62,9 @@ public class GameManager : SingletonMono<GameManager>
 
     public void LoadStage()
     {
-        GameAnalyticsManager.Instance.TrackEvent($"Stage{CurrenStage}:WholeProgress:Level:start");
+        if(VideoAdManager.Instance.videoAd == EVideoAd.None)
+            GameAnalyticsManager.Instance.TrackEvent($"Stage{CurrenStage}:WholeProgress:Level:start");
+        
         TotalEnemiesKilled = 0;
         UIManager.Instance.Reset();
         if (currStageController != null)
