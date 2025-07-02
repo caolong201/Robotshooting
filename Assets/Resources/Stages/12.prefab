@@ -1538,7 +1538,7 @@ Transform:
   m_GameObject: {fileID: 294152414388797968}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 581.8, y: -18, z: -22}
+  m_LocalPosition: {x: 481.1, y: -18, z: -22.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1747,7 +1747,7 @@ Transform:
   m_GameObject: {fileID: 366934349918226062}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 187.2, y: -18, z: 2.56}
+  m_LocalPosition: {x: 105.44, y: -18, z: -4.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4119,7 +4119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  moveSpeed: 10
+  moveSpeed: 17
   rotationSpeed: 120
   stoppingDistance: 5
   maxHP: 40
@@ -6960,8 +6960,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 6711756516080276525}
   attackCooldown: 0.2
-  range: 400
-  attackPower: 1
+  range: 100
+  attackPower: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -13699,7 +13699,7 @@ Transform:
   m_GameObject: {fileID: 2046994490385392653}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 495, y: -18, z: 19.3}
+  m_LocalPosition: {x: 394.9, y: -18, z: 18.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14040,8 +14040,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 2877452505835819408}
   attackCooldown: 0.2
-  range: 200
-  attackPower: 1
+  range: 100
+  attackPower: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -15102,7 +15102,7 @@ MonoBehaviour:
   firePoint: {fileID: 96035883563892604}
   attackCooldown: 0.2
   range: 200
-  attackPower: 1
+  attackPower: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -15790,7 +15790,7 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 2814446296622289791}
     state: 1
-    waitTime: 10
+    waitTime: 12
   - waypoint: {fileID: 2814446296622289791}
     state: 3
     waitTime: 0
@@ -17358,7 +17358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  moveSpeed: 12
+  moveSpeed: 17
   rotationSpeed: 120
   stoppingDistance: 5
   maxHP: 50
@@ -17414,7 +17414,7 @@ Transform:
   m_GameObject: {fileID: 2552627240522656660}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 542.6, y: -18, z: -6.9}
+  m_LocalPosition: {x: 438.3, y: -18, z: -7.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17585,7 +17585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  moveSpeed: 12
+  moveSpeed: 18
   rotationSpeed: 120
   stoppingDistance: 5
   maxHP: 50
@@ -17597,7 +17597,7 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 264555067923119143}
     state: 3
-    waitTime: 17
+    waitTime: 18
   isDead: 0
   gun: {fileID: 2633053667643112258}
 --- !u!114 &9202855388578168807
@@ -18370,7 +18370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  moveSpeed: 10
+  moveSpeed: 12
   rotationSpeed: 120
   stoppingDistance: 5
   maxHP: 50
@@ -19513,8 +19513,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 1163163844961670494}
   attackCooldown: 0.1
-  range: 400
-  attackPower: 1
+  range: 100
+  attackPower: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -22106,8 +22106,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 2793430811098811115}
   attackCooldown: 0.2
-  range: 200
-  attackPower: 1
+  range: 100
+  attackPower: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -23283,7 +23283,7 @@ MonoBehaviour:
   firePoint: {fileID: 5124140350408653390}
   attackCooldown: 0.2
   range: 400
-  attackPower: 1
+  attackPower: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -23957,7 +23957,7 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 834404710085953030}
     state: 3
-    waitTime: 10
+    waitTime: 12
   isDead: 0
   gun: {fileID: 7998909273831963493}
 --- !u!114 &5568780670421291183
@@ -24805,8 +24805,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 7129920329204698833}
   attackCooldown: 0.2
-  range: 400
-  attackPower: 1
+  range: 100
+  attackPower: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -25929,7 +25929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  moveSpeed: 14
+  moveSpeed: 18
   rotationSpeed: 120
   stoppingDistance: 5
   maxHP: 60
@@ -25941,7 +25941,7 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 1245819360561016375}
     state: 1
-    waitTime: 17
+    waitTime: 18
   - waypoint: {fileID: 1245819360561016375}
     state: 3
     waitTime: 0
@@ -26798,8 +26798,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 2980726541448280033}
   attackCooldown: 0.2
-  range: 200
-  attackPower: 1
+  range: 100
+  attackPower: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -27891,7 +27891,7 @@ Transform:
   m_GameObject: {fileID: 4072527184269067549}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 579.5, y: -18, z: 16.2}
+  m_LocalPosition: {x: 480.8, y: -18, z: 15.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28892,8 +28892,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 2404430553675771026}
   attackCooldown: 0.2
-  range: 400
-  attackPower: 1
+  range: 100
+  attackPower: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -29488,7 +29488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  moveSpeed: 10
+  moveSpeed: 12
   rotationSpeed: 120
   stoppingDistance: 5
   maxHP: 20
@@ -31038,7 +31038,7 @@ Transform:
   m_GameObject: {fileID: 4497239664723541416}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 495.1, y: -18, z: -18.6}
+  m_LocalPosition: {x: 396, y: -18, z: -21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31327,7 +31327,7 @@ Transform:
   m_GameObject: {fileID: 4545694446564512829}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.0069813156, z: 0, w: 0.9999757}
-  m_LocalPosition: {x: 7.4, y: -244.9, z: 11.4}
+  m_LocalPosition: {x: 6.04, y: -244.9, z: 113.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31939,7 +31939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  moveSpeed: 10
+  moveSpeed: 17
   rotationSpeed: 120
   stoppingDistance: 5
   maxHP: 20
@@ -32203,7 +32203,7 @@ Transform:
   m_GameObject: {fileID: 4649031958753691143}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 341.5, y: -18, z: -12.1}
+  m_LocalPosition: {x: 243.1, y: -18, z: -12.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -33360,7 +33360,7 @@ Transform:
   m_GameObject: {fileID: 4834703402792838766}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7077975, z: 0, w: 0.70641536}
-  m_LocalPosition: {x: 8, y: 0, z: 393}
+  m_LocalPosition: {x: 7.8, y: 0, z: 304.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -34665,8 +34665,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 6355462766142222223}
   attackCooldown: 0.2
-  range: 300
-  attackPower: 1
+  range: 100
+  attackPower: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -36404,8 +36404,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 4513279173613832740}
   attackCooldown: 0.2
-  range: 200
-  attackPower: 1
+  range: 100
+  attackPower: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -37948,7 +37948,7 @@ Transform:
   m_GameObject: {fileID: 5590208662525239465}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 447.4, y: -18, z: -21.6}
+  m_LocalPosition: {x: 344.3, y: -18, z: -21.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39553,8 +39553,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 4825145525600551186}
   attackCooldown: 0.2
-  range: 200
-  attackPower: 1
+  range: 100
+  attackPower: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -40316,7 +40316,7 @@ Transform:
   m_GameObject: {fileID: 6039381048029790863}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 211.9, y: -18, z: -2.64}
+  m_LocalPosition: {x: 128.6, y: -18, z: -9.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41286,7 +41286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  moveSpeed: 13
+  moveSpeed: 18
   rotationSpeed: 120
   stoppingDistance: 5
   maxHP: 60
@@ -41298,7 +41298,7 @@ MonoBehaviour:
   patrolRoutes:
   - waypoint: {fileID: 5175880052851062699}
     state: 3
-    waitTime: 17
+    waitTime: 19
   isDead: 0
   gun: {fileID: 4742810216802188382}
 --- !u!114 &291742938916546421
@@ -41414,7 +41414,7 @@ Transform:
   m_GameObject: {fileID: 6180581043056910525}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 632.4, y: -18, z: -0.3}
+  m_LocalPosition: {x: 533.9, y: -18, z: -0.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42302,7 +42302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  moveSpeed: 10
+  moveSpeed: 12
   rotationSpeed: 120
   stoppingDistance: 5
   maxHP: 60
@@ -43145,8 +43145,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 4659953908892467942}
   attackCooldown: 0.2
-  range: 400
-  attackPower: 1
+  range: 100
+  attackPower: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -43341,7 +43341,7 @@ Transform:
   m_GameObject: {fileID: 6444595184591279089}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 269.7, y: -18, z: 12.36}
+  m_LocalPosition: {x: 187.6, y: -18, z: 5.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43691,7 +43691,7 @@ Transform:
   m_GameObject: {fileID: 6515415137907475481}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 538.9, y: -18, z: 15.3}
+  m_LocalPosition: {x: 435.3, y: -18, z: 14.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44624,7 +44624,7 @@ Transform:
   m_GameObject: {fileID: 6703532177501134762}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7077975, z: 0, w: 0.70641536}
-  m_LocalPosition: {x: 4.6000004, y: 0, z: 278.30002}
+  m_LocalPosition: {x: 4.6, y: 0, z: 255.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -45277,7 +45277,7 @@ Transform:
   m_GameObject: {fileID: 6812605313298001399}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 395.7, y: -18, z: -29.7}
+  m_LocalPosition: {x: 296.5, y: -18, z: -31.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53092,8 +53092,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 5573994908326256148}
   attackCooldown: 0.2
-  range: 400
-  attackPower: 1
+  range: 100
+  attackPower: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -53446,7 +53446,7 @@ Transform:
   m_GameObject: {fileID: 8319900645128863623}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 436.1, y: -18, z: -3.8}
+  m_LocalPosition: {x: 334.2, y: -18, z: -4.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -54424,8 +54424,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5461327711046128727, guid: 45ee9fd661e31884194d8e4814ef3ea6, type: 3}
   firePoint: {fileID: 5048896338668480349}
   attackCooldown: 0.2
-  range: 400
-  attackPower: 1
+  range: 100
+  attackPower: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -55067,7 +55067,7 @@ Transform:
   m_GameObject: {fileID: 8592635146170554705}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 392.8, y: -18, z: 22.9}
+  m_LocalPosition: {x: 293.9, y: -18, z: 21.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58195,7 +58195,7 @@ Transform:
   m_GameObject: {fileID: 9060088154041125048}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7077975, z: 0, w: 0.70641536}
-  m_LocalPosition: {x: -10.5, y: 0, z: 338.4}
+  m_LocalPosition: {x: -10.6, y: 0, z: 303.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -776,13 +776,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146012198089376665}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.015358304, z: 0, w: 0.9998821}
-  m_LocalPosition: {x: 1.6, y: -244.9, z: 22}
+  m_LocalRotation: {x: 0, y: 0.034289036, z: 0, w: 0.999412}
+  m_LocalPosition: {x: 2.7, y: -244.9, z: 22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5393309569168293769}
-  m_LocalEulerAnglesHint: {x: 0, y: 1.76, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 3.93, z: 0}
 --- !u!114 &2855106631771852347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1444,6 +1444,7 @@ MonoBehaviour:
   txtTotalAmmo: {fileID: 0}
   btnFire: {fileID: 0}
   CanFire: 0
+  audioSource: {fileID: 0}
 --- !u!1 &218463740891336350
 GameObject:
   m_ObjectHideFlags: 0
@@ -3015,6 +3016,7 @@ MonoBehaviour:
   txtTotalAmmo: {fileID: 0}
   btnFire: {fileID: 0}
   CanFire: 0
+  audioSource: {fileID: 0}
 --- !u!1 &454720409529570676
 GameObject:
   m_ObjectHideFlags: 0
@@ -4645,6 +4647,7 @@ MonoBehaviour:
   txtTotalAmmo: {fileID: 0}
   btnFire: {fileID: 0}
   CanFire: 0
+  audioSource: {fileID: 0}
 --- !u!1 &736519763434244221
 GameObject:
   m_ObjectHideFlags: 0
@@ -14850,7 +14853,7 @@ Transform:
   m_GameObject: {fileID: 2312098773849139188}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7077975, z: 0, w: 0.70641536}
-  m_LocalPosition: {x: 27.3, y: 0, z: 398.3}
+  m_LocalPosition: {x: 22.2, y: 0, z: 398.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14883,7 +14886,7 @@ Transform:
   m_GameObject: {fileID: 2321203088128271467}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 426.8, y: -18, z: -32.1}
+  m_LocalPosition: {x: 426.8, y: -18, z: -22.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18291,6 +18294,7 @@ MonoBehaviour:
   txtTotalAmmo: {fileID: 0}
   btnFire: {fileID: 0}
   CanFire: 0
+  audioSource: {fileID: 0}
 --- !u!1 &2741002888143078585
 GameObject:
   m_ObjectHideFlags: 0
@@ -19203,7 +19207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6762324666674207521
 Transform:
   m_ObjectHideFlags: 0
@@ -20662,6 +20666,7 @@ MonoBehaviour:
   txtTotalAmmo: {fileID: 0}
   btnFire: {fileID: 0}
   CanFire: 0
+  audioSource: {fileID: 0}
 --- !u!1 &3140527221663615047
 GameObject:
   m_ObjectHideFlags: 0
@@ -22968,6 +22973,7 @@ MonoBehaviour:
   txtTotalAmmo: {fileID: 0}
   btnFire: {fileID: 0}
   CanFire: 0
+  audioSource: {fileID: 0}
 --- !u!1 &3467369650677737798
 GameObject:
   m_ObjectHideFlags: 0
@@ -23269,8 +23275,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2503885502915852546}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.868, y: 0}
+  m_AnchorMax: {x: 0.868, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 30, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -23932,7 +23938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5460228378328994809
 Transform:
   m_ObjectHideFlags: 0
@@ -26093,6 +26099,7 @@ MonoBehaviour:
   txtTotalAmmo: {fileID: 0}
   btnFire: {fileID: 0}
   CanFire: 0
+  audioSource: {fileID: 0}
 --- !u!1 &3936947231293487841
 GameObject:
   m_ObjectHideFlags: 0
@@ -28374,7 +28381,7 @@ Transform:
   m_GameObject: {fileID: 4328219341621847998}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 341.2, y: -18, z: -35.9}
+  m_LocalPosition: {x: 338.1, y: -18, z: -31.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29194,8 +29201,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3288418726778647606}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.868, y: 0}
+  m_AnchorMax: {x: 0.868, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 30, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -31179,6 +31186,7 @@ MonoBehaviour:
   txtTotalAmmo: {fileID: 0}
   btnFire: {fileID: 0}
   CanFire: 0
+  audioSource: {fileID: 0}
 --- !u!1 &4768407354656478461
 GameObject:
   m_ObjectHideFlags: 0
@@ -32120,7 +32128,7 @@ Transform:
   m_GameObject: {fileID: 4925737135453256915}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7077975, z: 0, w: 0.70641536}
-  m_LocalPosition: {x: -31.5, y: 0, z: 446.9}
+  m_LocalPosition: {x: -18.4, y: 0, z: 446.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33740,7 +33748,7 @@ Transform:
   m_GameObject: {fileID: 5211197993475445776}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7077975, z: 0, w: 0.70641536}
-  m_LocalPosition: {x: 23.6, y: 0, z: 484}
+  m_LocalPosition: {x: 14.9, y: 0, z: 484}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -34315,6 +34323,7 @@ MonoBehaviour:
   txtTotalAmmo: {fileID: 0}
   btnFire: {fileID: 0}
   CanFire: 0
+  audioSource: {fileID: 0}
 --- !u!1 &5284841309188128290
 GameObject:
   m_ObjectHideFlags: 0
@@ -36871,6 +36880,7 @@ MonoBehaviour:
   txtTotalAmmo: {fileID: 0}
   btnFire: {fileID: 0}
   CanFire: 0
+  audioSource: {fileID: 0}
 --- !u!1 &5620222497327206143
 GameObject:
   m_ObjectHideFlags: 0
@@ -39312,7 +39322,7 @@ Transform:
   m_GameObject: {fileID: 5973597514655500129}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 390.1, y: -18, z: 22.7}
+  m_LocalPosition: {x: 390.1, y: -18, z: 9.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39679,6 +39689,7 @@ MonoBehaviour:
   txtTotalAmmo: {fileID: 0}
   btnFire: {fileID: 0}
   CanFire: 0
+  audioSource: {fileID: 0}
 --- !u!1 &6026889982476526563
 GameObject:
   m_ObjectHideFlags: 0
@@ -40788,6 +40799,7 @@ MonoBehaviour:
   txtTotalAmmo: {fileID: 0}
   btnFire: {fileID: 0}
   CanFire: 0
+  audioSource: {fileID: 0}
 --- !u!1 &6220218705618959846
 GameObject:
   m_ObjectHideFlags: 0
@@ -49949,7 +49961,7 @@ RectTransform:
   m_Father: {fileID: 7921731635785995871}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.868, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
@@ -51261,6 +51273,7 @@ MonoBehaviour:
   txtTotalAmmo: {fileID: 0}
   btnFire: {fileID: 0}
   CanFire: 0
+  audioSource: {fileID: 0}
 --- !u!1 &8090500196028726433
 GameObject:
   m_ObjectHideFlags: 0
@@ -53493,6 +53506,7 @@ MonoBehaviour:
   txtTotalAmmo: {fileID: 0}
   btnFire: {fileID: 0}
   CanFire: 0
+  audioSource: {fileID: 0}
 --- !u!1 &8402875510949406069
 GameObject:
   m_ObjectHideFlags: 0
@@ -54249,7 +54263,7 @@ RectTransform:
   m_Father: {fileID: 5642194218483456479}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.868, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
@@ -55894,6 +55908,7 @@ MonoBehaviour:
   txtTotalAmmo: {fileID: 0}
   btnFire: {fileID: 0}
   CanFire: 0
+  audioSource: {fileID: 0}
 --- !u!1 &8711271689172990115
 GameObject:
   m_ObjectHideFlags: 0
@@ -56435,6 +56450,7 @@ MonoBehaviour:
   txtTotalAmmo: {fileID: 0}
   btnFire: {fileID: 0}
   CanFire: 0
+  audioSource: {fileID: 0}
 --- !u!1 &8803264447905951084
 GameObject:
   m_ObjectHideFlags: 0
@@ -56686,6 +56702,7 @@ MonoBehaviour:
   txtTotalAmmo: {fileID: 0}
   btnFire: {fileID: 0}
   CanFire: 0
+  audioSource: {fileID: 0}
 --- !u!1 &8813977299540746567
 GameObject:
   m_ObjectHideFlags: 0
@@ -56953,7 +56970,7 @@ Transform:
   m_GameObject: {fileID: 8842830618185764414}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7077975, z: 0, w: 0.70641536}
-  m_LocalPosition: {x: -31.3, y: 0, z: 521.8}
+  m_LocalPosition: {x: -27.9, y: 0, z: 521.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -58053,6 +58070,7 @@ MonoBehaviour:
   txtTotalAmmo: {fileID: 0}
   btnFire: {fileID: 0}
   CanFire: 0
+  audioSource: {fileID: 0}
 --- !u!1 &9075305041446952498
 GameObject:
   m_ObjectHideFlags: 0

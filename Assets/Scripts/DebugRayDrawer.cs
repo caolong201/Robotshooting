@@ -14,7 +14,7 @@ public class DebugRayDrawer : MonoBehaviour
             Gizmos.color = Color.red;
             Gizmos.DrawLine(transform.position, target.position);
             
-           // Debug.Log("Dis: " + Vector3.Distance(target.position, transform.position));
+           //Debug.Log("Dis: " + Vector3.Distance(target.position, transform.position));
         }
     }
 }
